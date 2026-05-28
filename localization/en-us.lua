@@ -86,14 +86,16 @@ return {
                     "hand played",
                 }
             },
-            j_dckst_gradient_bg = {
-                name = "Gradient Background",
+            j_dckst_lilmaxey = {
+                name = "lil' maxey!",
                 text = {
-                    "Changes the background",
-                    "to a gradient while held",
-                    "{C:inactive}(Effect removes when sold){}"
+                    'Jokers to the {C:attention}left{} of',
+                    '{E:1}this cat{} give {X:mult,C:white}X#1#{} Mult{},',
+                    'she also gains {X:mult,C:white}+X#2#{} Mult',
+                    'for each hand played',
+                    '{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}Mult){}'
                 }
-            }
+            },
         }
     },
     misc = {
