@@ -1,18 +1,16 @@
 {
   "id": "decksterity",
   "name": "decksterity",
-  "display_name": "dckstrty.",
+  "display_name": "decksterity.",
   "author": [
     "mariopuff",
-    "UN4YA",
-    "interseer",
-    "CzarIsActual"
+    "UN4YA"
 ],
-  "description": "Subminial Team's Balatro mod. We hope it's balanced. Hopefully.",
+  "description": "Subminimal Team's Balatro mod. We hope it's balanced. Hopefully.",
   "prefix": "dckst",
   "main_file": "main.lua",
   "priority": 9999,
-  "badge_colour": "BC002D",
+  "badge_colour": "ff746c",
   "badge_text_colour": "FFF1DE",
   "version": "1",
   "requires-steamodded": true,

@@ -1,4 +1,10 @@
-SMODS.Shader{
-    key = "maxey_splash",
-    path = "maxey_splash.fs"
+SMODS.Shader {
+    key = "cosmic",
+    path = "cosmic.fs",
 }
+
+SMODS.Shader {
+    key = "badge",
+    path = "badge.fs",
+}
+
