@@ -9,6 +9,11 @@ target = "globals.lua"
 pattern = """        RENTAL = HEX('b18f43'),"""
 position = "after"
 payload = """DCKST_ORANGE = HEX("e67e22"),
+DCKST_RED = HEX("ff746c"),
+DCKST_DEEP_RED = HEX("8c1f19"),
+DCKST_TEAL = HEX("6d888d"),
+DCKST_PERI = HEX("ccccff"),
+DCKST_NEONGREEN = HEX("78be20"),
 """
 overwrite = true
 match_indent = true
@@ -19,6 +24,11 @@ target = "functions/misc_functions.lua"
 pattern = """  return G.ARGS.LOC_COLOURS[_c] or _default or G.C.UI.TEXT_DARK"""
 position = "before"
 payload = """G.ARGS.LOC_COLOURS.dckst_orange = G.C.DCKST_ORANGE
+G.ARGS.LOC_COLOURS.dckst_red = G.C.DCKST_RED
+G.ARGS.LOC_COLOURS.dckst_deep_red = G.C.DCKST_DEEP_RED
+G.ARGS.LOC_COLOURS.dckst_teal = G.C.DCKST_TEAL
+G.ARGS.LOC_COLOURS.dckst_peri = G.C.DCKST_PERI
+G.ARGS.LOC_COLOURS.dckst_neongreen = G.C.DCKST_NEONGREEN
 """
 overwrite = true
 match_indent = true

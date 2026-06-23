@@ -1,0 +1,40 @@
+-- =====================
+-- CONFIG TAB
+-- =====================
+-- [[
+SMODS.current_mod.config_tab = function()
+    return {
+        n = G.UIT.ROOT,
+        config = { minw = 9, minh = 5, align = "tm", colour = G.C.UI.TRANSPARENT_DARK, r = 0.1 },
+        nodes = {
+            {
+                n = G.UIT.R,
+                config = { align = "rt" },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { align = "cm", padding = 0.05 },
+                        nodes = {
+                            create_toggle({
+                                label = "Show Decksterity Badge",
+                                ref_table = SMODS.current_mod.config,
+                                ref_value = "show_badge",
+                                label_scale = 0.4,
+                                callback = function(e)
+                                    SMODS.save_mod_config(SMODS.current_mod)
+                                end
+                            })
+                        }
+                    }
+                }
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.3 },
+                nodes = {
+                    { n = G.UIT.T, config = { text = "more settings coming soon!", scale = 0.35, colour = G.C.UI.TEXT_INACTIVE } }
+                }
+            }
+        }
+    }
+end

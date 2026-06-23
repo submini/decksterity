@@ -809,26 +809,17 @@ SMODS.Joker{ --Cyanotype
     end,
 
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main then
+    if context.before and not context.blueprint then
+        card.ability.extra.handscounted = card.ability.extra.handscounted + 1
 
-            -- increment counter
-            card.ability.extra.handscounted = card.ability.extra.handscounted + 1
-
-            -- trigger on the Nth hand exactly
-            if card.ability.extra.handscounted >= card.ability.extra.hands then
-
-                -- copy leftmost joker if there's room
-                local target = G.jokers.cards[1]
-                if target and target ~= card and
-                   (#G.jokers.cards + G.GAME.joker_buffer) < G.jokers.config.card_limit then
-
+        if card.ability.extra.handscounted >= card.ability.extra.hands then
+            local target = G.jokers.cards[1]
+            if target and target ~= card then
+                if (#G.jokers.cards + G.GAME.joker_buffer) < G.jokers.config.card_limit then
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                     G.E_MANAGER:add_event(Event({
                         func = function()
-                            local copy = copy_card(
-                                target, nil, nil, nil,
-                                target.edition and target.edition.negative
-                            )
+                            local copy = copy_card(target, nil, nil, G.jokers)
                             copy:add_to_deck()
                             G.jokers:emplace(copy)
                             G.GAME.joker_buffer = 0
@@ -836,20 +827,20 @@ SMODS.Joker{ --Cyanotype
                         end
                     }))
                 end
-
-                -- self-destruct
-                if not card.ability.eternal then
-                    card.getting_sliced = true
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-                            card:start_dissolve({ G.C.RED }, nil, 1.6)
-                            return true
-                        end
-                    }))
-                end
             end
+
+            -- self-destruct after copy
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.3,
+                func = function()
+                    card:start_dissolve({ G.C.RED }, nil, 1.6)
+                    return true
+                end
+            }))
         end
     end
+end
 }
 
 SMODS.Joker{ --THE KNICKS-
@@ -1336,46 +1327,45 @@ SMODS.Joker{ --Appraisal
     end,
 
     calculate = function(self, card, context)
-        if context.after and context.cardarea == G.jokers then
-            local full_hand = context.full_hand
-            if not full_hand or #full_hand == 0 then return end
+    if context.after and context.cardarea == G.jokers and not context.blueprint then
+        local full_hand = context.full_hand
+        if not full_hand or #full_hand == 0 then return end
 
-            -- rightmost played card
-            local target = full_hand[#full_hand]
-            if not target then return end
+        local target = full_hand[#full_hand]
+        if not target then return end
 
-            -- check if card has enhancement, seal or edition
-            local has_modifier =
-                (target.config.center and target.config.center.set == 'Enhanced') or
-                (target.seal and target.seal ~= nil) or
-                (target.edition and next(target.edition))
+        local has_modifier =
+            (target.config.center and target.config.center.set == 'Enhanced') or
+            (target.seal and target.seal ~= nil) or
+            (target.edition and next(target.edition))
 
-            local payout = has_modifier
-                and card.ability.extra.money_bonus
-                or  card.ability.extra.money_base
+        local payout_val = has_modifier
+            and card.ability.extra.money_bonus
+            or  card.ability.extra.money_base
 
-            -- save locals before event fires since context changes
-            local payout_val = payout
-            local blueprint_card = context.blueprint_card or card
+        local blueprint_card = context.blueprint_card or card
 
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    -- give money
-                    ease_dollars(payout_val)
-                    card_eval_status_text(
-                        blueprint_card,
-                        'extra', nil, nil, nil,
-                        {
-                            message = localize("k_dckst_appraisal"),
-                        }
-                    )
-                    -- destroy the card
-                    target:start_dissolve({ G.C.RED }, nil, 1.4)
-                    return true
-                end
-            }))
-        end
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                ease_dollars(payout_val)
+                card_eval_status_text(
+                    blueprint_card,
+                    'extra', nil, nil, nil,
+                    { message = localize("k_dckst_appraisal") }
+                )
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.2,
+                    func = function()
+                        SMODS.destroy_cards({ target })
+                        return true
+                    end
+                }))
+                return true
+            end
+        }))
     end
+end
 }
 
 SMODS.Joker{ --Giggler
@@ -1845,8 +1835,8 @@ SMODS.Joker {
     key = "coinjar",
     pos = { x = 1, y = 8 },
     display_size = { w = 71 * 1, h = 95 * 1 },
-    cost = 6,
-    rarity = 2,
+    cost = 8,
+    rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,

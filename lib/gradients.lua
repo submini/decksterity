@@ -8,3 +8,13 @@ SMODS.Gradient {
     cycle = 10,
     interpolation = 'trig'
 }
+
+SMODS.Gradient {
+    key = "spectaclaw",
+    colours = {
+        G.C.DCKST_RED,
+        G.C.DCKST_PERI
+    },
+    cycle = 3,
+    interpolation = 'trig'
+}

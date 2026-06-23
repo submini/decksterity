@@ -17,57 +17,155 @@ extern PRECISION vec4 burn_colour_2;
 
 vec4 dissolve_mask(vec4 final_pixel, vec2 texture_coords, vec2 uv);
 
+// hash for noise
 float hash(vec2 p) {
     p = fract(p * vec2(443.897, 441.423));
     p += dot(p, p + 19.19);
     return fract(p.x * p.y);
 }
 
-float star(vec2 uv, float threshold) {
-    float h = hash(floor(uv * 40.0));
-    if (h > threshold) return 0.0;
-    vec2 f = fract(uv * 40.0) - 0.5;
-    float twinkle = 0.5 + 0.5 * sin(time * 2.5 + h * 6.28);
-    return max(0.0, (1.0 - length(f) * 3.5) * twinkle); 
+float hash1(float n) {
+    return fract(sin(n) * 43758.5453123);
+}
+
+// smooth noise for gas clouds
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    float a = hash(i);
+    float b = hash(i + vec2(1.0, 0.0));
+    float c = hash(i + vec2(0.0, 1.0));
+    float d = hash(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+// fbm for nebula pillars
+float fbm(vec2 p) {
+    float v = 0.0;
+    float a = 0.5;
+    for (int i = 0; i < 5; i++) {
+        v += a * noise(p);
+        p = p * 2.1 + vec2(1.7, 9.2);
+        a *= 0.5;
+    }
+    return v;
+}
+
+// star with diffraction spikes like Hubble
+float star(vec2 uv, float size, float brightness) {
+    float d = length(uv);
+    float core = brightness * smoothstep(size, 0.0, d);
+    // diffraction spikes — 4 rays
+    float spike_h = brightness * 0.4 * smoothstep(size * 8.0, 0.0, abs(uv.y)) * smoothstep(size * 0.5, 0.0, abs(uv.x));
+    float spike_v = brightness * 0.4 * smoothstep(size * 8.0, 0.0, abs(uv.x)) * smoothstep(size * 0.5, 0.0, abs(uv.y));
+    return core + spike_h + spike_v;
 }
 
 vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords) {
-    vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.zw)/texture_details.zw;
+    vec2 uv = (((texture_coords) * (image_details)) - texture_details.xy * texture_details.zw) / texture_details.zw;
 
     vec4 pixel = Texel(texture, texture_coords);
     if (pixel.a < 0.01) return pixel;
 
-    // Locked the visual intensity to a constant value rather than scaling with Ante
-    float intensity = 0.8; 
-    float drift = time * 0.025 + cosmic.x * 0.001;
+    float drift = time * 0.018 + cosmic.x * 0.001;
 
+    // deep space base — preserve card luma, push toward deep blue-black
     float luma = dot(pixel.rgb, vec3(0.299, 0.587, 0.114));
     vec3 space_base = mix(
-        pixel.rgb,
-        vec3(luma * 0.4 + 0.05, luma * 0.3, luma * 0.6 + 0.15),
-        intensity * 0.85
+        pixel.rgb * 0.15,
+        vec3(luma * 0.12, luma * 0.08, luma * 0.22),
+        0.9
     );
 
-    vec3 neb = vec3(0.0);
-    neb += vec3(0.5, 0.1, 1.0) * smoothstep(0.4, 0.0, length(uv - vec2(0.28 + 0.06*sin(drift), 0.38))) * 1.8;
-    neb += vec3(0.1, 0.25, 1.0) * smoothstep(0.35, 0.0, length(uv - vec2(0.72, 0.58 + 0.05*cos(drift*0.8)))) * 1.8;
-    neb += vec3(0.9, 0.15, 0.5) * smoothstep(0.22, 0.0, length(uv - vec2(0.5, 0.22))) * 1.4;
-    neb *= 0.8;
+    // --- NEBULA GAS CLOUDS ---
+    // slow drifting fbm coords
+    vec2 neb_uv = uv + vec2(drift * 0.3, drift * 0.2);
 
-    float thresh = 0.80 - intensity * 3.0; 
-    float stars = star(uv + vec2(drift * 0.5, 0.0), thresh)
-                + star(uv + vec2(0.0, drift * 0.4), thresh + 0.01)
-                + star(uv - vec2(drift * 0.3, drift * 0.2), thresh + 0.02);
-    vec3 star_col = vec3(stars) * vec3(0.9, 0.95, 1.0) * 0.5; 
+    // pillar of creation style — tall purple/blue gas column
+    float pillar = fbm(neb_uv * 3.5 + vec2(0.2, drift * 0.15));
+    float pillar_shape = smoothstep(0.8, 0.3, abs(uv.x - 0.45) * 2.5) * smoothstep(0.0, 0.9, uv.y);
+    vec3 pillar_col = mix(
+        vec3(0.18, 0.04, 0.35),  // deep violet
+        vec3(0.45, 0.15, 0.85),  // bright purple
+        pillar
+    ) * pillar_shape * 1.8;
 
-    float ex = smoothstep(0.0, 0.08, uv.x) * smoothstep(1.0, 0.92, uv.x);
-    float ey = smoothstep(0.0, 0.06, uv.y) * smoothstep(1.0, 0.94, uv.y);
-    float pulse = 0.6 + 0.4 * sin(time * 1.8 + cosmic.x);
-    vec3 edge = vec3(0.3, 0.05, 0.8) * (1.0 - ex*ey) * pulse * intensity * 0.8;
+    // blue emission nebula — oxygen III glow
+    float blue_neb = fbm(neb_uv * 2.8 + vec2(1.3, 0.7 + drift * 0.1));
+    vec3 blue_col = vec3(0.05, 0.30, 0.95) * pow(blue_neb, 1.4) * 1.5
+                  * smoothstep(0.9, 0.1, length(uv - vec2(0.75, 0.55)));
 
-    vec3 result = space_base + neb + star_col + edge;
+    // pink hydrogen alpha wisps
+    float pink_neb = fbm(neb_uv * 4.2 - vec2(0.9, 1.1 + drift * 0.08));
+    vec3 pink_col = vec3(0.85, 0.15, 0.55) * pow(pink_neb, 1.8) * 1.2
+                  * smoothstep(0.7, 0.0, length(uv - vec2(0.25, 0.70)));
 
-    return dissolve_mask(vec4(result, pixel.a) * colour, texture_coords, uv);
+    // teal/cyan wisps — doubly ionized oxygen
+    float teal_neb = fbm(neb_uv * 3.1 + vec2(2.2, drift * 0.12));
+    vec3 teal_col = vec3(0.0, 0.75, 0.80) * pow(teal_neb, 2.0) * 1.0
+                  * smoothstep(0.55, 0.0, length(uv - vec2(0.60, 0.25)));
+
+    vec3 nebula = pillar_col + blue_col + pink_col + teal_col;
+    nebula = clamp(nebula, 0.0, 1.5);
+
+    // --- STARS ---
+    vec3 star_col = vec3(0.0);
+
+    // seed several stars at fixed UV positions with twinkling
+    float t = time;
+    struct StarDef { vec2 pos; float size; vec3 color; };
+
+    // bright blue-white stars
+    vec2 s1 = vec2(0.15, 0.82); float tw1 = 0.7 + 0.3 * sin(t * 2.1 + hash1(1.0) * 6.28);
+    star_col += star(uv - s1, 0.012, tw1) * vec3(0.85, 0.92, 1.00);
+
+    vec2 s2 = vec2(0.88, 0.18); float tw2 = 0.7 + 0.3 * sin(t * 1.7 + hash1(2.0) * 6.28);
+    star_col += star(uv - s2, 0.009, tw2) * vec3(0.80, 0.88, 1.00);
+
+    vec2 s3 = vec2(0.62, 0.91); float tw3 = 0.7 + 0.3 * sin(t * 2.8 + hash1(3.0) * 6.28);
+    star_col += star(uv - s3, 0.007, tw3) * vec3(0.90, 0.95, 1.00);
+
+    // warm yellow star
+    vec2 s4 = vec2(0.08, 0.35); float tw4 = 0.7 + 0.3 * sin(t * 1.4 + hash1(4.0) * 6.28);
+    star_col += star(uv - s4, 0.008, tw4) * vec3(1.00, 0.92, 0.65);
+
+    // red giant
+    vec2 s5 = vec2(0.78, 0.72); float tw5 = 0.7 + 0.3 * sin(t * 1.9 + hash1(5.0) * 6.28);
+    star_col += star(uv - s5, 0.010, tw5) * vec3(1.00, 0.45, 0.20);
+
+    // tiny background field stars via hash grid
+    vec2 grid_uv = uv * 55.0;
+    vec2 grid_id = floor(grid_uv);
+    vec2 grid_f  = fract(grid_uv) - 0.5;
+    float h = hash(grid_id);
+    if (h > 0.82) {
+        float twinkle = 0.4 + 0.6 * sin(t * (1.5 + h * 3.0) + h * 6.28);
+        float field_star = smoothstep(0.3, 0.0, length(grid_f)) * twinkle * (h - 0.82) * 6.0;
+        vec3 field_col = mix(vec3(0.8, 0.85, 1.0), vec3(1.0, 0.9, 0.7), h);
+        star_col += field_star * field_col * 0.35;
+    }
+
+    // --- EDGE GLOW ---
+    float ex = smoothstep(0.0, 0.10, uv.x) * smoothstep(1.0, 0.90, uv.x);
+    float ey = smoothstep(0.0, 0.08, uv.y) * smoothstep(1.0, 0.92, uv.y);
+    // hue-shifting edge — cycles purple → blue → teal
+    float edge_hue = sin(time * 0.6 + cosmic.x) * 0.5 + 0.5;
+    vec3 edge_col = mix(
+        vec3(0.5, 0.05, 1.0),   // purple
+        vec3(0.0, 0.6, 0.9),    // blue-teal
+        edge_hue
+    );
+    float pulse = 0.55 + 0.45 * sin(time * 1.6 + cosmic.x * 0.7);
+    vec3 edge = edge_col * (1.0 - ex * ey) * pulse * 1.1;
+
+    // --- COMPOSE ---
+    vec3 result = space_base + nebula * 0.9 + star_col + edge;
+
+    // subtle brightness boost on the card so it's still readable
+    result = mix(result, result + luma * 0.15, 0.4);
+
+    return dissolve_mask(vec4(clamp(result, 0.0, 1.0), pixel.a) * colour, texture_coords, uv);
 }
 
 vec4 dissolve_mask(vec4 final_pixel, vec2 texture_coords, vec2 uv) {
