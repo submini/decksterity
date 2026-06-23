@@ -12,7 +12,7 @@
   "priority": 9999,
   "badge_colour": "ff746c",
   "badge_text_colour": "FFF1DE",
-  "version": "1",
+  "version": "2",
   "requires-steamodded": true,
   "requires-talisman": true,
   "dependencies" : [

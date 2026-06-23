@@ -1371,6 +1371,54 @@ return {
                 'used immediately'
             }
         },
+        p_dckst_tram_pack_normal = {
+            name = "Tram Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {V:1}Routes{} to be',
+                'used immediately'
+            }
+        },
+        p_dckst_tram_pack_jumbo = {
+            name = "Jumbo Tram Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {V:1}Routes{} to be',
+                'used immediately'
+            }
+        },
+        p_dckst_tram_pack_mega = {
+            name = "Mega Tram Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {V:1}Routes{} to be',
+                'used immediately'
+            }
+        },
+        p_dckst_spectaclaw_pack_normal = {
+            name = "Spectaclaw Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {C:dckst_spectaclaw}Spectaclaws{} to be',
+                'used immediately'
+            }
+        },
+        p_dckst_spectaclaw_pack_jumbo = {
+            name = "Jumbo Spectaclaw Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {C:dckst_spectaclaw}Spectaclaws{} to be',
+                'used immediately'
+            }
+        },
+        p_dckst_spectaclaw_pack_mega = {
+            name = "Mega Spectaclaw Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {C:dckst_spectaclaw}Spectaclaws{} to be',
+                'used immediately'
+            }
+        },
         undiscovered_catarot = { 
                 name = "not discovered :3",
                 text = {
