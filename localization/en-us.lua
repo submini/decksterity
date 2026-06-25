@@ -607,6 +607,208 @@ return {
             }
         },
     },
+    Stake = {
+        stake_dckst_dandy = {
+            name = "Dandy Stake",
+            text = {
+                "Booster Packs cost {C:money}$1{}",
+                "{C:attention}more{} per Ante",
+                "{s:0.8}Applies Blue Stake{}"
+            }
+        },
+        stake_dckst_feline = {
+            name = "Feline Stake",
+            text = {
+                'Shop can have {C:attention}Zoomy{} Jokers',
+                '{C:inactive,s:0.8}(Randomly switches places before scoring){}',
+                 "{s:0.8}Applies Blue Stake{}"
+            }
+        },
+        stake_dckst_chroma = {
+            name = "Chroma Stake",
+            text = {
+                'Jokers with {C:dark_edition}Editions{}',
+                'appear {X:dark_edition,C:white}X0.1{} as often',
+                "{s:0.8}Applies Purple Stake and prev.{}"
+            }
+        },
+        stake_dckst_clay = {
+            name = "Clay Stake",
+            text = {
+                'When {C:attention}Blind{} selected, add a',
+                'random unenhanced playing card to deck',
+                "{s:0.8}Applies Gold Stake and prev.{}"
+            }
+        },
+        stake_dckst_storm = {
+            name = "Storm Stake",
+            text = {
+                'Hand will {C:red}not{} score if played hand',
+                'contains only {C:attention}one{} card of each rank',
+                "{s:0.8}Applies Gold Stake{}"
+            }
+        },
+        stake_dckst_fall = {
+            name = "Fall Stake",
+            text = {
+                'Shop can have {C:attention}Deciduous{} Jokers',
+                '{C:inactive,s:0.8}(Destroyed after 8 triggers){}',
+                 "{s:0.8}Applies Clay Stake and prev.{}"
+            }
+        },
+        stake_dckst_cuprum = {
+            name = "Cuprum Stake",
+            text = {
+                '{C:green}Rerolls{} cost {C:money}$1{} {C:attention}more{} per Ante',
+                "{s:0.8}Applies Clay Stake and prev.{}"
+            }
+        },
+        stake_dckst_silver = {
+            name = "Silver Stake",
+            text = {
+                'Required score {C:attention}scales faster{} for each {C:attention}Ante{}',
+                "{s:0.8}Applies Fall Stake and prev.{}"
+            }
+        },
+        stake_dckst_hollow = {
+            name = "Hollow Stake",
+            text = {
+                'Playing cards give {X:mult,C:white}X0.9{} Mult',
+                'and {X:chips,C:white}X0.95{} Chips when scored',
+                "{s:0.8}Applies Fall Stake and prev.{}"
+            }
+        },
+        stake_dckst_solar = {
+            name = "Solar Stake",
+            text = {
+                'Every {C:attention}3{} rounds, all held',
+                '{C:attention}consumables{} are {C:red}destroyed{}',
+                "{s:0.8}Applies Silver Stake and prev.{}"
+            }
+        },
+        stake_dckst_lunar = {
+            name = "Lunar Stake",
+            text = {
+                '{C:green}1 in 8{} cards are drawn face down',
+                '{C:inactive}(fixed chance){}',
+                "{s:0.8}Applies Silver Stake and prev.{}"
+            }
+        },
+        stake_dckst_satellite = {
+            name = "Satellite Stake",
+            text = {
+                'Temporarily {C:red}debuffs{} the {C:attention}leftmost{}',
+                'Joker when {C:attention}Blind{} is selected',
+                "{s:0.8}Applies Silver Stake and prev.{}"
+            }
+        },
+        stake_dckst_platina = {
+            name = "Platina Stake",
+            text = {
+                'Every Joker\'s {C:attention}sell value{}',
+                'is permanently {C:money}$0{}',
+                "{s:0.8}Applies Lunar Stake and prev.{}"
+            }
+        },
+        stake_dckst_bismuth = {
+            name = "Bismuth Stake",
+            text = {
+                'Must beat Ante {C:attention}12{} to win',
+                "{s:0.8}Applies Lunar Stake and prev.{}"
+            }
+        },
+        stake_dckst_solitaire = {
+            name = "Solitaire Stake",
+            text = {
+                'Shop can have {C:attention}Halved{} Jokers',
+                '{C:inactive,s:0.8}(All values are halved, if possible){}',
+                "{s:0.8}Applies Platina Stake and prev.{}"
+            }
+        },
+        stake_dckst_h = {
+            name = "H Stake",
+            text = {
+                'Every {C:attention}8{} rounds, {C:attention}8{} random cards',
+                'are {C:red}removed{} from deck',
+                "{s:0.8}Applies Platina Stake and prev.{}"
+            }
+        },
+        stake_dckst_atomic = {
+            name = "Atomic Stake",
+            text = {
+                'Required score scales {C:attention}extra fast{} for each Ante',
+                "{s:0.8}Applies Platina Stake and prev.{}"
+            }
+        },
+        stake_dckst_jimbo  ={
+            name = "Jimbo Stake",
+            text = {
+                'All Jokers in shops and booster packs have',
+                'a {C:green}1 in 5{} chance to be replaced with Joker',
+                '{C:inactive}(Fixed chance){}',
+                "{s:0.8}Applies Platina Stake and prev.{}"
+            }
+        },
+        stake_dckst_antimatter = {
+            name = "Antimatter Stake",
+            text = {
+                '{C:red}-2{} Joker slots',
+                "{s:0.8}Applies Solitaire Stake and prev.{}"
+            }
+        },
+        stake_dckst_shattered = {
+            name = "Shattered Stake",
+            text = {
+                'All playing cards and Jokers have a {C:green}1 in 3{} chance',
+                'to be destroyed when triggered',
+                '{C:inactive}(Fixed chance){}',
+                "{s:0.8}Applies Solitaire Stake and prev.{}"
+            }
+        },
+        stake_dckst_exalted = {
+            name = "Exalted Stake",
+            text = {
+                'Lose {C:attention}67%{} of total {C:money}money{}',
+                'at the end of even Antes {C:inactive}(Rounded down){}',
+                "{s:0.8}Applies Solitaire Stake and prev.{}"
+            }
+        },
+        stake_dckst_continual = {
+            name = "Continual Stake",
+            text = {
+                'Must beat Ante {C:attention}16{} to win',
+                "{s:0.8}Applies Solitaire Stake and prev.{}"
+            }
+        },
+        stake_dckst_universal = {
+            name = "Universal Stake",
+            text = {
+                'Required score scales {C:attention}much faster{} for each Ante',
+                "{s:0.8}Applies Antimatter Stake and prev.{}"
+            }
+        },
+        stake_dckst_nebular = {
+            name = "Nebular Stake",
+            text = {
+                'Required score scales {C:attention}super fast{} for each Ante',
+                "{s:0.8}Applies Antimatter Stake and prev.{}"
+            }
+        },
+        stake_dckst_penultimate = {
+            name = "Penultimate Stake",
+            text = {
+                '{C:red}-1{} shop slot',
+                "{s:0.8}Applies Antimatter Stake and prev.{}"
+            }
+        },
+        stake_dckst_ultimate = {
+            name = "Ultimate Stake",
+            text = {
+                'Required score scales {C:attention}much much faster{} for each Ante',
+                "{s:0.8}Applies Universal Stake and prev.{}"
+            }
+        }
+    },
     Catarot = {
         c_dckst_meowbo = {
             name = "Meowbo",
@@ -1246,6 +1448,22 @@ return {
             }
         },
     },
+    Voucher = {
+        v_dckst_expansionpermit = {
+            name = "Expansion Permit",
+            text = {
+            "{C:attention}+1{} booster slot",
+            "available in shop"
+            }
+        },
+        v_dckst_prestigepermit = {
+            name = "Prestige Permit",
+            text = {
+            "{C:attention}+1{} booster slot",
+            "available in shop"
+            }
+        },
+    },
     Other = {
         dckst_chartreuse_seal = {
             name = "Chartreuse Seal",
@@ -1419,6 +1637,198 @@ return {
                 'used immediately'
             }
         },
+        dckst_dandy_sticker = {
+            name = "Dandy Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Dandy",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_feline_sticker = {
+            name = "Feline Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Feline",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_chroma_sticker = {
+            name = "Chroma Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Chroma",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_clay_sticker = {
+            name = "Clay Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Clay",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_storm_sticker = {
+            name = "Storm Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Storm",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_fall_sticker = {
+            name = "Fall Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Fall",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_cuprum_sticker = {
+            name = "Cuprum Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Cuprum",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_silver_sticker = {
+            name = "Silver Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Silver",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_hollow_sticker = {
+            name = "Hollow Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Hollow",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_solar_sticker = {
+            name = "Solar Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Solar",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_lunar_sticker = {
+            name = "Lunar Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Lunar",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_satellite_sticker = {
+            name = "Satellite Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Satellite",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_platina_sticker = {
+            name = "Platina Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Platina",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_bismuth_sticker = {
+            name = "Bismuth Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Bismuth",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_h_sticker = {
+            name = "H Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}H",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_atomic_sticker = {
+            name = "Atomic Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Atomic",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_antimatter_sticker = {
+            name = "Antimatter Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Antimatter",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_shattered_sticker = {
+            name = "Shattered Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Shattered",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_exalted_sticker = {
+            name = "Exalted Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Exalted",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_exalted_continual = {
+            name = "Continual Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Continual",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_exalted_universal = {
+            name = "Universal Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Universal",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_exalted_nebular = {
+            name = "Nebular Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Nebular",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_exalted_penultimate = {
+            name = "Penultimate Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Penultimate",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
+        dckst_exalted_ultimate = {
+            name = "Ultimate Sticker",
+            text = {
+                "Used this Joker",
+                "to win on {C:attention}Ultimate",
+                "{C:attention}Stake{} difficulty",
+            }
+        },
         undiscovered_catarot = { 
                 name = "not discovered :3",
                 text = {
@@ -1512,6 +1922,10 @@ misc = {
             k_dckst_cerium = "Cerium!",
             k_dckst_meow = "meow :3",
             k_dckst_card_added = "Card Added!",
+            k_dckst_storm_stake_warning = "Hand has to contain two or more of the same rank!",
+            k_dckst_solar_flare = "Solar Flare!",
+            k_dckst_cards_removed = "Cards Removed!",
+            k_dckst_exalted = " Exalted Tithe!",
         },
         labels = {
             dckst_chartreuse_seal = "Chartreuse Seal",
@@ -1532,6 +1946,18 @@ misc = {
             dckst_iridescent = "Iridescent",
             dckst_prismatic = "Prismatic",
             dckst_wooden = "Wooden",
+        },
+        poker_hands = {
+            ["dckst_two_three"] = "Double Three",
+            ["dckst_triangle"] = "Triangle",
+            ["dckst_umbra"] = "Umbra",
+            ["dckst_antumbra"] = "Antumbra",
+        },
+        poker_hand_descriptions = {
+            ["dckst_two_three"] = { "Three cards of the same suit", "and three cards of the same rank" },
+            ["dckst_triangle"] = { '3+ cards where the sum of all card ranks', 'is a triangular number greater than 10.', '(Aces count as 1, face cards count as 10)' },
+            ["dckst_umbra"] = { "Four face cards and one non-face card", },
+            ["dckst_antumbra"] = { "Four non-face cards and one face card", },
         },
         dckst_misc = {
             mod_label = {
@@ -1680,6 +2106,7 @@ misc = {
                 {"avec miaulement de chat"},
                 {"pour randonneurs"},
                 {"TU DU DU DU", "MAX VERSTAPPEN"},
+                {"MAX VERSTAPPEN FOR 5TH WDC"},
                 {"\"Is that a Spurs jersey?\""},
                 {"(slowed + reverb)"},
                 {"(sped up)"},
@@ -1692,6 +2119,7 @@ misc = {
                 {"YOU KNOW I\'M BAD, I\'M BAD", "(REALLY REALLY BAD)"},
                 {"I ALWAYS FEEL LIKE", "SOMEBODY\'S WATCHING MEEEEE"},
                 {"TO INFINITY AND LEBRON"},
+                {"Best enjoyed with Aikoyori\'s Shenanigans!"},
             }
         }
     }

@@ -61,6 +61,20 @@ SMODS.Atlas {
     py = 95,
 }
 
+SMODS.Atlas {
+    key = "stakes",
+    path = "stakes.png",
+    px = 29,
+    py = 29,
+}
+
+SMODS.Atlas {
+    key = "stakestickers",
+    path = "stakestickers.png",
+    px = 71,
+    py = 95,
+}
+
 -- undisc
 SMODS.Atlas {
     key = "undiscoveredcatarot",

@@ -17,10 +17,6 @@ SMODS.Sticker {
     if card.ability and card.ability.eternal then return false end
     if card.ability and card.ability.perishable then return false end
 
-    if self.sets[card.ability.set]
-    and G.GAME.modifiers.dckst_spawn_zoomy then
-        return true
-    end
 
     return false
 end,
@@ -106,11 +102,6 @@ SMODS.Sticker{
         return true
     end
 
-    if self.sets[card.ability.set]
-    and G.GAME.modifiers.dckst_spawn_smiley then
-        return true
-    end
-
     return false
 end,
 
@@ -180,7 +171,7 @@ SMODS.Sticker{
     end
 
     if self.sets[card.ability.set]
-    and G.GAME.modifiers.dckst_spawn_zoomy then
+    and G.GAME.modifiers.dckst_spawn_zoomy and pseudorandom((area == G.pack_cards and 'dckst_packs_zoomy_' or 'dckst_zoomy_')..G.GAME.round_resets.ante) > 0.7 then
         return true
     end
 
@@ -242,7 +233,7 @@ SMODS.Sticker{
         end
 
         if self.sets[card.ability.set]
-        and G.GAME.modifiers.dckst_spawn_deciduous
+        and G.GAME.modifiers.dckst_spawn_deciduous and pseudorandom((area == G.pack_cards and 'dckst_packs_deciduous_' or 'dckst_deciduous_')..G.GAME.round_resets.ante) > 0.7
         then
             return true
         end
@@ -320,7 +311,7 @@ SMODS.Sticker{
         end
 
         if self.sets[card.ability.set]
-        and G.GAME.modifiers.dckst_spawn_halved
+        and G.GAME.modifiers.dckst_spawn_halved and pseudorandom((area == G.pack_cards and 'dckst_packs_halved_' or 'dckst_halved_')..G.GAME.round_resets.ante) > 0.7
         then
             return true
         end

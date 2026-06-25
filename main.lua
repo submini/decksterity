@@ -20,6 +20,8 @@ local files = {
     "items/seals",
     "items/boosters",
     "items/stickers",
+    "items/pokerhands",
+    "items/stakes",
     
 }
 for i, v in pairs(files) do

@@ -28,8 +28,6 @@ function DCKST.manipulate_table(tbl, args)
     end
 end
 
-DCKST = DCKST or {}
-
 function DCKST.find_index(tbl, value)
     for i, v in ipairs(tbl) do
         if v == value then
@@ -213,27 +211,15 @@ function DCKST.manipulate_table_halved(tbl)
     end
 end
 
-function DCKST.sparkly_trigger(self, card)
-    -- card.ability[self.key] is the table Steamodded stores this
-    -- sticker's `config` in once it's applied to a card. Guard
-    -- against it being missing (e.g. sticker toggled some other way).
-    local data = card.ability[self.key]
-    if type(data) ~= 'table' then
-        data = { mult = 0 }
-        card.ability[self.key] = data
+function DCKST.has_duplicate_ranks(hand_table)
+    local ranks = {}
+    for _, card in ipairs(hand_table) do
+        local rank = card.base.value
+        if ranks[rank] then
+            return true 
+        end
+        ranks[rank] = true
     end
-
-    data.mult = (data.mult or 0) + 1
-
-    return {
-        mult = data.mult,
-        colour = G.C.MULT,
-        message = localize('k_upgrade_ex'),
-        card = card,
-    }
+    return false
 end
 
-function DCKST.get_sparkly_bonus(self, card)
-    local data = card and card.ability and card.ability[self.key]
-    return (data and data.mult) or 0
-end
