@@ -232,6 +232,9 @@ SMODS.Sticker{
             return false
         end
 
+        if card.ability and card.ability.eternal then return false end
+        if card.ability and card.ability.perishable then return false end
+
         if self.sets[card.ability.set]
         and G.GAME.modifiers.dckst_spawn_deciduous and pseudorandom((area == G.pack_cards and 'dckst_packs_deciduous_' or 'dckst_deciduous_')..G.GAME.round_resets.ante) > 0.7
         then

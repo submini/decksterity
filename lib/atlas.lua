@@ -75,6 +75,13 @@ SMODS.Atlas {
     py = 95,
 }
 
+SMODS.Atlas {
+    key = "vouchers",
+    path = "vouchers.png",
+    px = 71,
+    py = 95,
+}
+
 -- undisc
 SMODS.Atlas {
     key = "undiscoveredcatarot",

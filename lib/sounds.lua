@@ -48,3 +48,36 @@ SMODS.Sound({
 	key = "prismatic",
 	path = "e_prismatic.ogg",
 })
+
+SMODS.Sound({
+	key = "shop_music",
+	path = "shop.ogg",
+	volume = 0.3,
+    pitch = 1,
+	select_music_track = function()
+        local config = SMODS.current_mod and SMODS.current_mod.config or SMODS.Mods['decksterity'].config
+		return G.STATE == G.STATES.SHOP and config.nicos_shop_music
+	end,
+})
+
+SMODS.Sound({
+	key = "altmainmenu1_music",
+	path = "manifold5.1_2.ogg",
+	volume = 0.3,
+    pitch = 1,
+	select_music_track = function()
+    local config = SMODS.Mods['decksterity'].config
+    return G.STAGE == G.STAGES.MAIN_MENU and config.alt_main_menu_music == 1
+end,
+})
+
+SMODS.Sound({
+	key = "altmainmenu2_music",
+	path = "geodesic6.2.ogg",
+	volume = 0.3,
+    pitch = 1,
+	select_music_track = function()
+    local config = SMODS.Mods['decksterity'].config
+    return G.STAGE == G.STAGES.MAIN_MENU and config.alt_main_menu_music == 2
+end,
+})

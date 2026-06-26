@@ -951,12 +951,9 @@ SMODS.Stake {
     },
     colour = HEX("BC6C25"),
 
-    -- Adjust the structural shop limits at the inception of the run
     modifiers = function(self)
-        if G.GAME and G.GAME.shop_settings then
-            -- Directly downscales the baseline shop card slots from 2 down to 1
-            -- Enforces a lower boundary of 1 so the shop never entirely breaks
-            G.GAME.shop_settings.joker_max = math.max(1, G.GAME.shop_settings.joker_max - 1)
+    if G.GAME and G.GAME.shop then
+        G.GAME.shop.joker_max = math.max(1, G.GAME.shop.joker_max - 1)
         end
     end,
 }

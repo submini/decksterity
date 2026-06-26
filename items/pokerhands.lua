@@ -214,3 +214,119 @@ SMODS.PokerHand {
         return parts.dckst_antumbra_base
     end
 }
+
+SMODS.PokerHandPart {
+    key = "bipolar_flush_base",
+    func = function(hand)
+        if #hand ~= 5 then return {} end
+
+        local red_cards   = {}
+        local black_cards = {}
+
+        for _, card in ipairs(hand) do
+            local suit = card.base.suit
+            if suit == "Hearts" or suit == "Diamonds" then
+                red_cards[#red_cards + 1] = card
+            else
+                black_cards[#black_cards + 1] = card
+            end
+        end
+
+        -- Must be exactly 3+2 or 2+3
+        local majority, minority
+        if #red_cards == 3 and #black_cards == 2 then
+            majority, minority = red_cards, black_cards
+        elseif #red_cards == 2 and #black_cards == 3 then
+            majority, minority = black_cards, red_cards
+        else
+            return {}
+        end
+
+        -- Each color group must be internally same-suit (e.g. all Spades, all Hearts)
+        local function same_suit(group)
+            local s = group[1].base.suit
+            for i = 2, #group do
+                if group[i].base.suit ~= s then return false end
+            end
+            return true
+        end
+
+        if not same_suit(majority) or not same_suit(minority) then
+            return {}
+        end
+
+        -- Return all 5 cards as one scoring group
+        return { hand }
+    end
+}
+
+SMODS.PokerHand {
+    key = "bipolar_flush",
+    chips = 30,
+    mult = 3,
+    l_chips = 20,
+    l_mult = 2,
+    visible = false,
+
+    example = {
+        { 'S_A', true  },  
+        { 'S_K', true  },   
+        { 'S_Q', true  },  
+        { 'H_4', true  },   
+        { 'H_2', true  }, 
+    },
+
+    evaluate = function(parts, hand)
+        -- Delegate entirely to our registered PokerHandPart
+        return parts.dckst_bipolar_flush_base
+    end,
+}
+
+
+SMODS.PokerHand {
+    key = "alterostraight",
+    chips = 55,
+    mult = 5,
+    l_chips = 23,
+    l_mult = 3,
+    visible = false,
+
+    example = {
+        { 'H_9', true },
+        { 'S_8', true },
+        { 'D_7', true },
+        { 'C_6', true },
+        { 'H_5', true },
+    },
+
+    evaluate = function(parts, hand)
+        -- No straight in this hand at all → bail
+        if not parts._straight or #parts._straight == 0 then return {} end
+
+        local straight_cards = parts._straight[1]
+
+        local function color_of(card)
+            local s = card.base.suit
+            return (s == "Hearts" or s == "Diamonds") and "Red" or "Black"
+        end
+
+        -- Sort by nominal so we walk rank order, not play order
+        local sorted = {}
+        for _, card in ipairs(straight_cards) do
+            sorted[#sorted + 1] = card
+        end
+        table.sort(sorted, function(a, b)
+            return a.base.nominal < b.base.nominal
+        end)
+
+        -- Check strict color alternation
+        local prev = color_of(sorted[1])
+        for i = 2, #sorted do
+            local cur = color_of(sorted[i])
+            if cur == prev then return {} end
+            prev = cur
+        end
+
+        return { straight_cards }
+    end,
+}

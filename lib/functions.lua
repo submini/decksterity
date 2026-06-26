@@ -223,3 +223,48 @@ function DCKST.has_duplicate_ranks(hand_table)
     return false
 end
 
+-- IM BALING IT IM BALING IT SO GOOD
+
+DCKST.gset = function(set)
+    if set then
+        return G.PROFILES[G.SETTINGS.profile].dckst_gameset == set
+    end
+    return G.PROFILES[G.SETTINGS.profile].dckst_gameset
+end
+
+DCKST.set_gset = function(set)
+    G.PROFILES[G.SETTINGS.profile].dckst_gameset = set
+end
+
+DCKST.change_gset = function()
+    local p = G.PROFILES[G.SETTINGS.profile]
+    p.dckst_gameset = (p.dckst_gameset % 3) + 1
+end
+
+DCKST.gset_overridable = function(set, override)
+    return override and DCKST.gset(override) or DCKST.gset(set)
+end
+
+DCKST.gset_val = function(humb,honed,haza)
+    if DCKST.gset(1) then return humb end
+    if DCKST.gset(2) then return honed end
+    if DCKST.gset(3) then return haza end
+end
+
+DCKST.gset_val_overrridable = function(humb,honed,haza)
+    if DCKST.gset(1) then return humb end
+    if DCKST.gset(2) then return honed end
+    if DCKST.gset(3) then return haza end
+end
+
+DCKST.gset_val_overridable = function(humb,honed,haza,override)
+    if DCKST.gset_overridable(1,override) then return humb end
+    if DCKST.gset_overridable(2,override) then return honed end
+    if DCKST.gset_overridable(3,override) then return haza end
+end
+
+DCKST.gameset_pool = function(required)
+    return function()
+        return DCKST.gset() >= required
+    end
+end

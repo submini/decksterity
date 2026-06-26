@@ -404,6 +404,26 @@ return {
                 '{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}'
             }
         },
+
+
+        
+
+        -- TIER 3 EXCLUSIVE JOKERS, DO NOT TAMPER
+
+        j_dckst_pillaring = {
+            name = "Pillaring",
+            text = {
+                'This Joker gains {X:dark_edition,C:white}+^#1#{} Mult',
+                'for every card {C:attention}scored{}',
+                '{C:inactive}(Currently {}{C:inactive}{}{X:dark_edition,C:white}^#2#{} {C:inactive}Mult){}'
+            }
+        },
+
+
+
+
+
+
     },
     Enhanced = {
         m_dckst_felious = {
@@ -1452,15 +1472,155 @@ return {
         v_dckst_expansionpermit = {
             name = "Expansion Permit",
             text = {
-            "{C:attention}+1{} booster slot",
+            "{C:attention}+#1#{} booster slot",
             "available in shop"
             }
         },
         v_dckst_prestigepermit = {
             name = "Prestige Permit",
             text = {
-            "{C:attention}+1{} booster slot",
+            "{C:attention}+#1#{} booster slot",
             "available in shop"
+            }
+        },
+        v_dckst_extra_digits = {
+            name = "Extra Digits",
+            text = {
+                '{C:attention}+#1#{} card {C:attention}selection limit{}',
+                '{C:attention}+#1#{} {C:blue}Hand{}'
+            }
+        },
+        v_dckst_ambidextrous = {
+            name = "Ambidextrous",
+            text = {
+                '{C:attention}+#1#{} card {C:attention}selection limit{}',
+                '{C:attention}+#1#{} {C:blue}Hand{}'
+            }
+        },
+        v_dckst_expired = {
+            name = "Expired Voucher",
+            text = {
+                '{C:inactive}This voucher has expired.',
+                '{C:inactive}Redeem a new one?',
+            }
+        },
+        v_dckst_double_downer = {
+            name = "Double Downer",
+            text = {
+                '{C:attention}+#1#{} Voucher slot',
+                'available in shop'
+            }
+        },
+        v_dckst_meow = {
+            name = "meow!",
+            text = {
+                    "{V:1}Catarots{} appear {B:1,C:white}2X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_feliphile = {
+            name = "Feliphile",
+            text = {
+                    "{V:1}Catarots{} appear {B:1,C:white}4X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_new_major = {
+            name = "New Major",
+            text = {
+                    "{V:1}Neo-Tarots{} appear {B:1,C:white}2X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_beyond_arcana = {
+            name = "Beyond Arcana",
+            text = {
+                    "{V:1}Neo-Tarots{} appear {B:1,C:white}4X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_double_track = {
+            name = "Double Track",
+            text = {
+                    "{V:1}Routes{} appear {B:1,C:white}2X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_quad_track = {
+            name = "Quad Track",
+            text = {
+                    "{V:1}Routes{} appear {B:1,C:white}4X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_tarot_reading = {
+            name = "Tarot Reading",
+            text = {
+                '{C:tarot}Arcana{} Packs always contain',
+                'the {C:attention}most used{} {C:tarot}Tarot{} card'
+            }
+        },
+        v_dckst_foretold_prophecy = {
+            name = "Foretold Prophecy",
+            text = {
+                'Every held {C:attention}consumable{}',
+                'gives {X:mult,C:white}X#1#{} Mult'
+            }
+        },
+        v_dckst_money_buddy = {
+            name = "Money Buddy",
+            text = {
+                "In payout, earn",
+                "{C:money}$#1#{} extra",
+            }
+        },
+        v_dckst_cash_in_guru = {
+            name = "Cash-in Guru",
+            text = {
+                "In payout, earn",
+                "{C:money}$#1#{} extra",
+            }
+        },
+        v_dckst_ahod = {
+            name = "All Hands on Deck",
+            text = {
+                '{C:attention}+#1#{} card {C:attention}selection limit{}',
+                '{C:attention}+#1#{} {C:blue}Hands{}'
+            }
+        },
+        v_dckst_triple_troper = {
+            name = "Triple Troper",
+            text = {
+                '{C:attention}+#1#{} Voucher slot',
+                'available in shop'
+            }
+        },
+        v_dckst_cat_astrophe = {
+            name = "Cat-astrophe",
+            text = {
+                    "{V:1}Catarots{} appear {B:1,C:white}8X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_neo_madness = {
+            name = "Neo-madness",
+            text = {
+                    "{V:1}Neo-Tarots{} appear {B:1,C:white}8X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_octo_track = {
+            name = "Octo Track",
+            text = {
+                    "{V:1}Routes{} appear {B:1,C:white}8X{} more",
+                    "frequently in shop",
+                },
+        },
+        v_dckst_the_godfather = {
+            name = "The Godfather",
+            text = {
+                "In payout, earn",
+                "{C:money}$#1#{} extra",
             }
         },
     },
@@ -1847,11 +2007,20 @@ return {
                     "learn what it does",
             },
         },
-        undiscovered_route = {
-            name = "Not Discovered",
+        undiscovered_spectaclaw = {
+            name = "not discovered!~",
             text = {
                 "Purchase or use",
                 "this card in an",
+                "unseeded run to",
+                "learn what it does",
+            }
+        },
+        undiscovered_route = {
+            name = "Unused Route",
+            text = {
+                "Purchase or use",
+                "this route in an",
                 "unseeded run to",
                 "learn what it does",
             }
@@ -1926,6 +2095,19 @@ misc = {
             k_dckst_solar_flare = "Solar Flare!",
             k_dckst_cards_removed = "Cards Removed!",
             k_dckst_exalted = " Exalted Tithe!",
+
+            k_dckst_money_buddy = "Money Buddy",
+            k_dckst_cash_in_guru = "Cash-in Guru",
+            k_dckst_the_godfather = "The Godfather",
+
+            k_dckst_gameset_humble      = "Humble",
+            k_dckst_gameset_humble_desc = "For amateur players just getting started.",
+
+            k_dckst_gameset_honed       = "Honed",
+            k_dckst_gameset_honed_desc  = "For experienced players. Standard experience.",
+
+            k_dckst_gameset_hazardous   = "Hazardous",
+            k_dckst_gameset_hazardous_desc = "For players who want to blow up their machine.",
         },
         labels = {
             dckst_chartreuse_seal = "Chartreuse Seal",
@@ -1952,12 +2134,16 @@ misc = {
             ["dckst_triangle"] = "Triangle",
             ["dckst_umbra"] = "Umbra",
             ["dckst_antumbra"] = "Antumbra",
+            ["dckst_bipolar_flush"] = "Bipolar Flush",
+            ["dckst_alterostraight"] = "Altero-straight",
         },
         poker_hand_descriptions = {
             ["dckst_two_three"] = { "Three cards of the same suit", "and three cards of the same rank" },
             ["dckst_triangle"] = { '3+ cards where the sum of all card ranks', 'is a triangular number greater than 10.', '(Aces count as 1, face cards count as 10)' },
             ["dckst_umbra"] = { "Four face cards and one non-face card", },
             ["dckst_antumbra"] = { "Four non-face cards and one face card", },
+            ["dckst_bipolar_flush"] = { "A 5-card hand containing exactly 3 cards", "of one color and 2 cards of the other color" },
+            ["dckst_alterostraight"] = { "A 5-card Straight where the colors of the", "cards alternate strictly between Red and Black" },
         },
         dckst_misc = {
             mod_label = {
