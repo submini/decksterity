@@ -1797,6 +1797,27 @@ return {
                 'used immediately'
             }
         },
+        p_dckst_decksteritical_pack_normal = {
+            name = "Decksteritical Pack",
+            text = {
+                'Choose {C:attention}1{} of up to',
+                '{C:attention}2{} {X:black,V:1}decksterity.{} Jokers',
+                }
+        },
+        p_dckst_decksteritical_pack_jumbo = {
+            name = "Jumbo Decksteritical Pack",
+            text = {
+                'Choose {C:attention}1{} of up to',
+                '{C:attention}4{} {X:black,V:1}decksterity.{} Jokers',
+                }
+        },
+        p_dckst_decksteritical_pack_mega = {
+            name = "Mega Decksteritical Pack",
+            text = {
+                'Choose {C:attention}2{} of up to',
+                '{C:attention}4{} {X:black,V:1}decksterity.{} Jokers',
+                }
+        },
         dckst_dandy_sticker = {
             name = "Dandy Sticker",
             text = {
