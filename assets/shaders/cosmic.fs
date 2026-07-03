@@ -70,53 +70,46 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
 
     float drift = time * 0.018 + cosmic.x * 0.001;
 
-    // deep space base — preserve card luma, push toward deep blue-black
+    // Keep card art readable — mild cool tint instead of crushing to black
     float luma = dot(pixel.rgb, vec3(0.299, 0.587, 0.114));
     vec3 space_base = mix(
-        pixel.rgb * 0.15,
+        pixel.rgb * 0.75,
         vec3(luma * 0.12, luma * 0.08, luma * 0.22),
-        0.9
+        0.3
     );
 
     // --- NEBULA GAS CLOUDS ---
-    // slow drifting fbm coords
     vec2 neb_uv = uv + vec2(drift * 0.3, drift * 0.2);
 
-    // pillar of creation style — tall purple/blue gas column
     float pillar = fbm(neb_uv * 3.5 + vec2(0.2, drift * 0.15));
     float pillar_shape = smoothstep(0.8, 0.3, abs(uv.x - 0.45) * 2.5) * smoothstep(0.0, 0.9, uv.y);
     vec3 pillar_col = mix(
-        vec3(0.18, 0.04, 0.35),  // deep violet
-        vec3(0.45, 0.15, 0.85),  // bright purple
+        vec3(0.18, 0.04, 0.35),
+        vec3(0.45, 0.15, 0.85),
         pillar
     ) * pillar_shape * 1.8;
 
-    // blue emission nebula — oxygen III glow
     float blue_neb = fbm(neb_uv * 2.8 + vec2(1.3, 0.7 + drift * 0.1));
     vec3 blue_col = vec3(0.05, 0.30, 0.95) * pow(blue_neb, 1.4) * 1.5
                   * smoothstep(0.9, 0.1, length(uv - vec2(0.75, 0.55)));
 
-    // pink hydrogen alpha wisps
     float pink_neb = fbm(neb_uv * 4.2 - vec2(0.9, 1.1 + drift * 0.08));
     vec3 pink_col = vec3(0.85, 0.15, 0.55) * pow(pink_neb, 1.8) * 1.2
                   * smoothstep(0.7, 0.0, length(uv - vec2(0.25, 0.70)));
 
-    // teal/cyan wisps — doubly ionized oxygen
     float teal_neb = fbm(neb_uv * 3.1 + vec2(2.2, drift * 0.12));
     vec3 teal_col = vec3(0.0, 0.75, 0.80) * pow(teal_neb, 2.0) * 1.0
                   * smoothstep(0.55, 0.0, length(uv - vec2(0.60, 0.25)));
 
-    vec3 nebula = pillar_col + blue_col + pink_col + teal_col;
+    // Reduce nebula opacity so it overlays rather than replaces
+    vec3 nebula = (pillar_col + blue_col + pink_col + teal_col) * 0.45;
     nebula = clamp(nebula, 0.0, 1.5);
 
     // --- STARS ---
     vec3 star_col = vec3(0.0);
 
-    // seed several stars at fixed UV positions with twinkling
     float t = time;
-    struct StarDef { vec2 pos; float size; vec3 color; };
 
-    // bright blue-white stars
     vec2 s1 = vec2(0.15, 0.82); float tw1 = 0.7 + 0.3 * sin(t * 2.1 + hash1(1.0) * 6.28);
     star_col += star(uv - s1, 0.012, tw1) * vec3(0.85, 0.92, 1.00);
 
@@ -126,15 +119,12 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
     vec2 s3 = vec2(0.62, 0.91); float tw3 = 0.7 + 0.3 * sin(t * 2.8 + hash1(3.0) * 6.28);
     star_col += star(uv - s3, 0.007, tw3) * vec3(0.90, 0.95, 1.00);
 
-    // warm yellow star
     vec2 s4 = vec2(0.08, 0.35); float tw4 = 0.7 + 0.3 * sin(t * 1.4 + hash1(4.0) * 6.28);
     star_col += star(uv - s4, 0.008, tw4) * vec3(1.00, 0.92, 0.65);
 
-    // red giant
     vec2 s5 = vec2(0.78, 0.72); float tw5 = 0.7 + 0.3 * sin(t * 1.9 + hash1(5.0) * 6.28);
     star_col += star(uv - s5, 0.010, tw5) * vec3(1.00, 0.45, 0.20);
 
-    // tiny background field stars via hash grid
     vec2 grid_uv = uv * 55.0;
     vec2 grid_id = floor(grid_uv);
     vec2 grid_f  = fract(grid_uv) - 0.5;
@@ -149,21 +139,21 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
     // --- EDGE GLOW ---
     float ex = smoothstep(0.0, 0.10, uv.x) * smoothstep(1.0, 0.90, uv.x);
     float ey = smoothstep(0.0, 0.08, uv.y) * smoothstep(1.0, 0.92, uv.y);
-    // hue-shifting edge — cycles purple → blue → teal
     float edge_hue = sin(time * 0.6 + cosmic.x) * 0.5 + 0.5;
     vec3 edge_col = mix(
-        vec3(0.5, 0.05, 1.0),   // purple
-        vec3(0.0, 0.6, 0.9),    // blue-teal
+        vec3(0.5, 0.05, 1.0),
+        vec3(0.0, 0.6, 0.9),
         edge_hue
     );
     float pulse = 0.55 + 0.45 * sin(time * 1.6 + cosmic.x * 0.7);
     vec3 edge = edge_col * (1.0 - ex * ey) * pulse * 1.1;
 
     // --- COMPOSE ---
-    vec3 result = space_base + nebula * 0.9 + star_col + edge;
+    // Additive nebula/stars on top of visible card art
+    vec3 result = space_base + nebula + star_col + edge;
 
-    // subtle brightness boost on the card so it's still readable
-    result = mix(result, result + luma * 0.15, 0.4);
+    // Restore more of the original card brightness so art shows through
+    result = mix(result, result + luma * 0.35, 0.6);
 
     return dissolve_mask(vec4(clamp(result, 0.0, 1.0), pixel.a) * colour, texture_coords, uv);
 }

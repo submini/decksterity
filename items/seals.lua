@@ -190,3 +190,61 @@ SMODS.Seal {
         end
     end
 }
+
+SMODS.Seal {
+    key = 'asterisk',
+    pos = { x = 0, y = 1 },
+    config = {
+        extra = {
+            times = 2
+        }
+    },
+    text_colour = HEX('FFFFFF'),
+    badge_colour = HEX('BC002D'),
+    atlas = 'seals',
+    unlocked = true,
+    discovered = true,
+    no_collection = false,
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.seal.extra.times } }
+    end,
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play then
+            return {
+                message = localize('k_again_ex'),
+                repetitions = card.ability.seal.extra.times,
+            }
+        end
+    end
+}
+
+SMODS.Seal {
+    key = 'asterism',
+    pos = { x = 1, y = 1 },
+    config = {
+        extra = {
+            times = 3
+        }
+    },
+    badge_colour = HEX('FFFFFF'),
+    text_colour = HEX('BC002D'),
+    atlas = 'seals',
+    unlocked = true,
+    discovered = true,
+    no_collection = false,
+
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.seal.extra.times } }
+    end,
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play then
+            return {
+                message = localize('k_again_ex'),
+                repetitions = card.ability.seal.extra.times,
+            }
+        end
+    end
+}

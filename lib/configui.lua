@@ -81,6 +81,17 @@ SMODS.current_mod.config_tab = function()
     local gs_options = {}
     for _, gs in ipairs(GAMESETS) do gs_options[#gs_options + 1] = gs.label end
 
+    -- alt_main_menu_music is stored as 0/1/2 (0 = Off)
+    local alt_menu_option
+    local v = config.alt_main_menu_music
+    if not v or v == 0 or v == false then
+        alt_menu_option = 1   -- "Off"
+    elseif v == 1 then
+        alt_menu_option = 2   -- "1"
+    else
+        alt_menu_option = 3   -- "2"
+    end
+
     return {
         n = G.UIT.ROOT,
         config = {
@@ -135,13 +146,10 @@ SMODS.current_mod.config_tab = function()
                     scale          = 0.8,
                     options        = { 'Off', '1', '2' },
                     opt_callback   = 'dckst_toggle_alt_main_menu',
-                    current_option = (config.alt_main_menu_music == false
-                                      or config.alt_main_menu_music == nil) and 1
-                                  or (config.alt_main_menu_music == 1)        and 2
-                                  or 3,
+                    current_option = alt_menu_option,
                 })
             ),
-            -- gameset  (sublabel = nil, so the blank spacer fires instead)
+            -- gameset
             setting_row(
                 "Gameset",
                 nil,
@@ -163,20 +171,23 @@ G.FUNCS.dckst_toggle_shop_music = function(e)
     local config = SMODS.Mods['decksterity'].config
     config.nicos_shop_music = (e.to_val == 'On')
     SMODS.save_mod_config(SMODS.Mods['decksterity'])
+    G:save_progress()
 end
 
 G.FUNCS.dckst_toggle_alt_main_menu = function(e)
     local config = SMODS.Mods['decksterity'].config
-    if     e.to_val == 'Off' then config.alt_main_menu_music = false
+    -- store as 0/1/2 to avoid false surviving config serialization unreliably
+    if     e.to_val == 'Off' then config.alt_main_menu_music = 0
     elseif e.to_val == '1'   then config.alt_main_menu_music = 1
     else                          config.alt_main_menu_music = 2
     end
     SMODS.save_mod_config(SMODS.Mods['decksterity'])
+    G:save_progress()
 end
 
 G.FUNCS.dckst_toggle_gameset = function(e)
-    for i, gs in ipairs(GAMESETS) do
-        if gs.label == e.to_val then dckst_sync_gameset(i); return end
+    for _, gs in ipairs(GAMESETS) do
+        if gs.label == e.to_val then dckst_sync_gameset(gs.id); return end
     end
 end
 
@@ -356,7 +367,5 @@ end
 local _reset_profile = G.FUNCS.reset_profile
 G.FUNCS.reset_profile = function(e)
     _reset_profile(e)
-    -- profile table has been wiped and re-initialised by now;
-    -- dckst_onboarding_complete is gone so just show the modal directly
     dckst_gameset_modal()
 end

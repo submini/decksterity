@@ -304,7 +304,7 @@ SMODS.current_mod.extra_tabs = function()
                 for _, v in ipairs(credit_row("Sound Design", "UN4YA, mariopuff")) do
                     col2_nodes[#col2_nodes + 1] = v
                 end
-                for _, v in ipairs(credit_row("Playtesters", "mariopuff, UN4YA")) do
+                for _, v in ipairs(credit_row("Playtesters", "mariopuff, UN4YA, CzarIsActual, interseer")) do
                     col2_nodes[#col2_nodes + 1] = v
                 end
                 for _, v in ipairs(credit_row("Inspirations", "Aikoyori's Shenanigans,")) do

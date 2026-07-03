@@ -782,7 +782,7 @@ SMODS.Joker{ --Cyanotype
     key = "cyanotype",
     config = {
         extra = {
-            hands        = 5, 
+            hands        = 5,
             handscounted = 0,
         }
     },
@@ -809,13 +809,22 @@ SMODS.Joker{ --Cyanotype
     end,
 
     calculate = function(self, card, context)
-    if context.before and not context.blueprint then
-        card.ability.extra.handscounted = card.ability.extra.handscounted + 1
+        if context.before and not context.blueprint then
+            card.ability.extra.handscounted = card.ability.extra.handscounted + 1
 
-        if card.ability.extra.handscounted >= card.ability.extra.hands then
-            local target = G.jokers.cards[1]
-            if target and target ~= card then
-                if (#G.jokers.cards + G.GAME.joker_buffer) < G.jokers.config.card_limit then
+            if card.ability.extra.handscounted >= card.ability.extra.hands then
+                -- find the leftmost joker that isn't self
+                local target = nil
+                for _, j in ipairs(G.jokers.cards) do
+                    if j ~= card then
+                        target = j
+                        break
+                    end
+                end
+
+                local has_space = (#G.jokers.cards + G.GAME.joker_buffer) < G.jokers.config.card_limit
+
+                if target and has_space then
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                     G.E_MANAGER:add_event(Event({
                         func = function()
@@ -823,24 +832,32 @@ SMODS.Joker{ --Cyanotype
                             copy:add_to_deck()
                             G.jokers:emplace(copy)
                             G.GAME.joker_buffer = 0
+                            -- self-destruct only after copy is placed
+                            G.E_MANAGER:add_event(Event({
+                                trigger = 'after',
+                                delay = 0.3,
+                                func = function()
+                                    card:start_dissolve({ G.C.RED }, nil, 1.6)
+                                    return true
+                                end
+                            }))
+                            return true
+                        end
+                    }))
+                else
+                    -- no valid target or no space: still self-destruct
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        delay = 0.3,
+                        func = function()
+                            card:start_dissolve({ G.C.RED }, nil, 1.6)
                             return true
                         end
                     }))
                 end
             end
-
-            -- self-destruct after copy
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.3,
-                func = function()
-                    card:start_dissolve({ G.C.RED }, nil, 1.6)
-                    return true
-                end
-            }))
         end
     end
-end
 }
 
 SMODS.Joker{ --THE KNICKS-

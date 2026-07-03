@@ -1,5 +1,266 @@
 return {
     descriptions = {
+        Back = {
+            b_dckst_permission = {
+                name = "Permission Deck",
+                text = {
+                    'Start with {C:attention,T:v_dckst_expansionpermit}Expansion Permit{}',
+                    'and {C:attention,T:v_dckst_prestigepermit}Prestige Permit{}'
+                }
+            },
+            b_dckst_decimal = {
+                name = "Decimal Deck",
+                text = {
+                    "{X:attention,C:white}X0.75{} all blind requirements,",
+                    "{C:red}-1 Discard{}, {C:red}-1{} {C:blue}Hand{},",
+                    "{C:red}-1{} Joker slot,",
+                    "{C:red}-1{} Consumable slot"
+                }
+            },
+            b_dckst_hard = {
+                name = "Hard Deck",
+                text = {
+                    "{X:attention,C:white}X1.2{} all blind requirements,",
+                    "{C:red}-2 Discards{}, {C:red}-1{} {C:blue}Hand{},",
+                    "{C:red}-1{} Joker slot,",
+                    "{C:red}-1{} Consumable slot"
+                }
+            },
+            b_dckst_graceful = {
+                name = "Graceful Deck",
+                text = {
+                    "Start run with 2 copies of",
+                    "{V:1,T:c_dckst_abyssinian}Abyssinian{} and {C:attention}4{} consumable",
+                    "slots. {V:1}Catarots{} appear {B:1,C:white}X3{} as",
+                    "often in shop"
+                }
+            },
+            b_dckst_futuristic = {
+                name = "Futuristic Deck",
+                text = {
+                    "Start run with {V:1,T:c_dckst_collective}COLLECTIVE.{}",
+                    "and {C:attention}4{} consumable slots.",
+                    "{V:1}Neo-Tarots{} appear {B:1,C:white}X3{} as",
+                    "often in shop"
+                }
+            },
+            b_dckst_rail = {
+                name = "Rail Deck",
+                text = {
+                    'Start run with 2',
+                    'copies of {V:1,T:c_dckst_route_19}Route 19{},',
+                    "{V:1}Routes{} appear {B:1,C:white}X2{} as",
+                    "often in shop"
+                }
+            },
+            b_dckst_spectacle = {
+            name = "Spectacle Deck",
+            text = {
+                "Start run with a {C:dckst_spectaclaw,T:c_dckst_manekineko}maneki-neko!{},",
+                "{C:dckst_spectaclaw}Spectaclaw{} cards may",
+                "appear in shop,",
+                "Win at {C:attention}Ante 10{}"
+                }
+            },
+            b_dckst_fresh = {
+                name = 'Fresh Deck',
+                text = {
+                    'Jokers in the shop have',
+                    'a fixed {C:green}1 in 6{} chance to',
+                    'get an {C:attention,T:dckst_evergreen}Evergreen{} sticker',
+                },
+            },
+             b_dckst_gigglers = {
+                name = 'Giggler\'s Deck',
+                text = {
+                    'Jokers in the shop have',
+                    'a fixed {C:green}1 in 4{} chance to',
+                    'get a {C:attention,T:dckst_smiley,T_vars:9}Smiley{} sticker',
+                },
+            },
+            b_dckst_overclocked = {
+                name = 'Overclocked Deck',
+                text = {
+                    '{C:blue}+2{} Hands and {C:red}+2{} Discards',
+                    'per round, required chips',
+                    'increase by {C:attention}15%{} after',
+                    'each hand played',
+                }
+            },
+            b_dckst_h = {
+                name = 'H Deck',
+                text = {
+                    'Start run with {C:attention,T:c_dckst_minuet}Minuet{}',
+                    '{C:attention}H{} Jokers appear {X:attention,C:white}2X{}',
+                    'as often in the shop',
+                }
+            },
+            b_dckst_microchip = {
+                name = "Microchip Deck",
+                text = {
+                    'All cards in deck have a fixed',
+                    '{C:green}1 in 5{} chance to start',
+                    'as {C:attention,T:m_dckst_techno}Techno{} cards',
+                }
+            },
+            b_dckst_consumer = {
+                name = 'Consumer Deck',
+                text = {
+                    'Start with {C:attention}5{} consumable slots',
+                    'and {C:attention}1{} random card from each:',
+                    '{C:tarot}Tarot{}, {C:planet}Planet{}, {V:1}Catarot{},',
+                    '{V:2}Neo-Tarot{}, and {V:3}Route{}',
+                }
+            },
+            b_dckst_stellation = {
+                name = "Stellation Deck",
+                text = {
+                    'Start with {C:attention,T:v_dckst_meow}meow!{},',
+                    '{C:attention,T:v_dckst_new_major}New Major{}, {C:attention,T:v_dckst_double_track}Double Track{},',
+                    '{C:attention,T:v_overstock_norm}Overstock{}, and {C:attention,T:v_overstock_plus}Overstock Plus{}'
+                }
+            },
+            b_dckst_shopping = {
+                name = "Shopping Deck",
+                text = {
+                    'Start run with',
+                    '{C:attention}2{} random tags',
+                }
+            },
+            b_dckst_overdraft = {
+                name = "Overdraft Deck",
+                text = {
+                    '{C:money}Start{} with {C:money}$2{}',
+                    'The first {C:attention}3{} shop',
+                    '{C:attention}rerolls{} are {C:money}free{}',
+                }
+            },
+            b_dckst_ledeck = {
+                name = 'LeDeck',
+                text = {
+                    "All {C:attention}2s{}, {C:attention}3s{}, and {C:attention}6s{}",
+                    "start as {C:dark_edition}LeBronned Cards{}",
+                    "and give {X:mult,C:white} X3 {} Mult when scored"
+                }
+            },
+            b_dckst_inflated = {
+                name = "Inflated Deck",
+                text = {
+                    "Sell value of all {C:attention}Jokers{}",
+                    "and {C:attention}Consumables{} are {C:money,s:1.1,E:1}tripled{}"
+                }
+            },
+            b_dckst_bureaucracy = {
+                name = "Bureaucracy Deck",
+                text = {
+                    "Start with {C:attention,T:v_dckst_double_downer}Double Downer{}",
+                    "{C:attention}Vouchers{} are {C:green}half price{}",
+                    "All other items are {X:attention,C:white}X1.5{} more expensive"
+                }
+            },
+            b_dckst_nomad = {
+                name = "Nomad Deck",
+                text = {
+                    "Every reroll costs {C:money}$2{}",
+                    "Every shop item is",
+                    "{X:attention,C:white}X2{} more expensive",
+                    "{C:inactive}(Sell value unaffected){}"
+                }
+            },
+            b_dckst_austerity = {
+                name = "Austerity Deck",
+                text = {
+                    "Start with {C:red}$-50{}",
+                    "Blinds give {X:money,C:white}X2{} more",
+                    "reward money"
+                }
+            },
+            b_dckst_minimalist = {
+                name = "Minimalist Deck",
+                text = {
+                    "All ranks lower than {C:attention}7{} are",
+                    "removed from the deck",
+                    "{C:red}-1{} hand size"
+                }
+            },
+            b_dckst_refined = {
+                name = "Refined Deck",
+                text = {
+                    "{C:attention}Face cards{} also give",
+                    "{C:mult}+10{} Mult when scored",
+                    "All other ranks have",
+                    "{C:chips}+0{} base chips"
+                }
+            },
+            b_dckst_lightbulb = {
+                name = "Lightbulb Deck",
+                text = {
+                    '{C:attention,E:2,s:1.1}One-shotting{} a Blind yields',
+                    '{X:money,C:white}X$1.5{}, Blinds give no',
+                    'reward when defeated'
+                }
+            },
+            b_dckst_handy = {
+                name = "Handy Deck",
+                text = {
+                    'Start with {C:attention,T:v_dckst_extra_digits}Extra Digits{}',
+                    'and {C:attention,T:v_dckst_ambidextrous}Ambidextrous{},',
+                    '{C:red}-1{} hand size'
+                }
+            },
+            b_dckst_fancy = {
+                name = "Fancy Deck",
+                text = {
+                    '{C:common}Common{} Jokers',
+                    'cannot appear',
+                    'in {C:attention}shop{}',
+                }
+            },
+            b_dckst_metallurgic = {
+                name = "Metallurgic Deck",
+                text = {
+                    'Every card gets',
+                    'a random {C:attention}Metallurgic{}',
+                    'enhancement',
+                }
+            },
+            b_dckst_binary = {
+                name = 'Binary Deck',
+                text = {
+                    'Deck has {C:attention}26 10s{}',
+                    'and {C:attention}26 Aces{}',
+                    '{C:inactive}(Suits are randomized){}',
+                }
+            },
+            b_dckst_marathon = {
+                name = "Marathon Deck",
+                text = {
+                    "Blind requirements scale",
+                    "{C:attention}25%{} slower,",
+                    "win at Ante {C:attention}12{}"
+                }
+            },
+            b_dckst_monarch = {
+                name = "Monarch Deck",
+                text = {
+                    'Every {C:attention}face{} card gives',
+                    '{X:mult,C:white}X1.5{} Mult when scored,',
+                    '{C:attention}other{} ranks give {X:mult,C:white}X0.7{} Mult'
+                }
+            },
+            b_dckst_blueprint = {
+                name = "Blueprint Deck",
+                text = {
+                    'Defeating a {C:attention}Blind{} spawns {C:attention}3{}',
+                    'random Jokers',
+                    '{C:inactive}(Must have room){},',
+                    'shop {C:red,E:2}no longer{} sells Jokers'
+                }
+            },
+            b_dckst_recycling = {
+                name = "Recycling Deck",
+            }
+        },
         Joker = {
             j_dckst_fiesta = {
                 name = "Fiesta!",
@@ -900,7 +1161,7 @@ return {
             }
         },
         c_dckst_norwegianforest = {
-            name = "Devon Rex",
+            name = "Norwegian Forest Cat",
             text = {
                 'Enhances {C:attention}#1#{} ',
                 'selected card to a',
@@ -1662,6 +1923,20 @@ return {
                 'when {C:red}discarded{}'
             }
         },
+        dckst_asterisk_seal = {
+            name = "Asterisk Seal",
+            text = {
+                'Retriggers this card',
+                '{C:attention}#1#{} times'
+            }
+        },
+        dckst_asterism_seal = {
+            name = "Asterism Seal",
+            text = {
+                'Retriggers this card',
+                '{C:attention}#1#{} times'
+            }
+        },
         dckst_evergreen = {
             name = "Evergreen",
             text = {
@@ -2136,6 +2411,8 @@ misc = {
             dckst_cutesy_seal = "Cutesy Seal",
             dckst_teal_seal = "Teal Seal",
             dckst_periwinkle_seal = "Periwinkle Seal",
+            dckst_asterisk_seal = "Asterisk Seal",
+            dckst_asterism_seal = "Asterism Seal",
 
             dckst_evergreen = "Evergreen",
             dckst_smiley = "Smiley",
