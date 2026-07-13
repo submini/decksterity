@@ -1831,6 +1831,89 @@ end,
     end,
 }
 
+-- Shared helper: builds a pool of Decksterity jokers the player doesn't own,
+-- AND excludes jokers already dealt into the CURRENT pack being opened
+-- (fixes duplicate rolls on choose=2 packs, since G.jokers.cards isn't updated
+-- until cards are actually kept/added, not just dealt into the pack area).
+local function dckst_get_unowned_joker_key(booster_card)
+    -- Track jokers already dealt into this specific pack instance.
+    -- Stored on the booster_card itself so each pack opening has its own list.
+    booster_card.dckst_dealt_keys = booster_card.dckst_dealt_keys or {}
+
+    -- Build set of owned joker keys (from actual joker area)
+    local owned = {}
+    for _, joker_card in ipairs(G.jokers.cards) do
+        if joker_card.config and joker_card.config.center then
+            owned[joker_card.config.center.key] = true
+        end
+    end
+
+    -- Build set of keys already dealt into this pack instance
+    local dealt = {}
+    for _, key in ipairs(booster_card.dckst_dealt_keys) do
+        dealt[key] = true
+    end
+
+    -- Filter pool: Decksterity jokers, not owned, not already dealt this pack
+    local shuffle_pool = {}
+    for key, center in pairs(G.P_CENTERS) do
+        if center.set == "Joker"
+        and center.pools and center.pools["decksterity"]
+        and not owned[key]
+        and not dealt[key] then
+            table.insert(shuffle_pool, key)
+        end
+    end
+
+    -- Fallback 1: ignore "dealt this pack" filter if pool runs dry
+    -- (better a repeat within the pack than a hard failure)
+    if #shuffle_pool == 0 then
+        print("WARNING: Decksterity pool exhausted after dedup-within-pack, relaxing dealt filter")
+        for key, center in pairs(G.P_CENTERS) do
+            if center.set == "Joker"
+            and center.pools and center.pools["decksterity"]
+            and not owned[key] then
+                table.insert(shuffle_pool, key)
+            end
+        end
+    end
+
+    -- Fallback 2: player owns everything Decksterity has to offer
+    if #shuffle_pool == 0 then
+        print("WARNING: Shuffle pool empty (all owned), falling back to full Decksterity pool")
+        for key, center in pairs(G.P_CENTERS) do
+            if center.set == "Joker" and center.pools and center.pools["decksterity"] then
+                table.insert(shuffle_pool, key)
+            end
+        end
+    end
+
+    local chosen_key = pseudorandom_element(shuffle_pool)
+
+    if not chosen_key or not G.P_CENTERS[chosen_key] then
+        print("WARNING: Missing Joker center for", tostring(chosen_key))
+        chosen_key = "j_joker"
+    end
+
+    -- Record this pick so subsequent create_card calls in the same pack skip it
+    table.insert(booster_card.dckst_dealt_keys, chosen_key)
+
+    return chosen_key
+end
+
+-- Shared create_card function used by all Decksteritical packs
+local function dckst_pack_create_card(self, booster_card)
+    local chosen_key = dckst_get_unowned_joker_key(booster_card)
+    local target_area = G.pack_cards or G.jokers
+    return create_card("Joker", target_area, nil, nil, true, true, chosen_key, nil)
+end
+
+-- Shared background ease function
+local function dckst_pack_ease_bg(self)
+    ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_RED)
+    ease_background_colour{ new_colour = G.C.DCKST_RED, special_colour = G.C.WHITE, contrast = 2 }
+end
+
 SMODS.Booster {
     key = "decksteritical_pack_1",
     set = "Booster",
@@ -1843,62 +1926,15 @@ SMODS.Booster {
     cost = 4,
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {
-                colours = { G.C.DCKST_RED },
-                card.ability.choose,
-                card.ability.extra,
-            },
+            vars = { colours = { G.C.DCKST_RED }, card.ability.choose, card.ability.extra },
             key = "p_dckst_decksteritical_pack_normal"
         }
     end,
     draw_hand = false,
     unlocked = true,
     discovered = false,
-
-    create_card = function(self, booster_card)
-    -- Build a set of joker keys the player already owns
-    local owned = {}
-    for _, joker_card in ipairs(G.jokers.cards) do
-        if joker_card.config and joker_card.config.center then
-            owned[joker_card.config.center.key] = true
-        end
-    end
-
-    -- Build filtered pool: Shuffle pool jokers the player doesn't have
-    local shuffle_pool = {}
-    for key, center in pairs(G.P_CENTERS) do
-        if center.set == "Joker"
-        and center.pools and center.pools["decksterity"]
-        and not owned[key] then
-            table.insert(shuffle_pool, key)
-        end
-    end
-
-    -- Fallback if empty (player owns everything, or pool is empty)
-    if #shuffle_pool == 0 then
-        print("WARNING: Shuffle pool empty or all owned, falling back")
-        for key, center in pairs(G.P_CENTERS) do
-            if center.set == "Joker" and center.pools and center.pools["decksterity"] then
-                table.insert(shuffle_pool, key)
-            end
-        end
-    end
-
-    local chosen_key = pseudorandom_element(shuffle_pool)
-
-    if not G.P_CENTERS[chosen_key] then
-        print("WARNING: Missing Joker center for", chosen_key)
-        chosen_key = "j_joker"
-    end
-
-    local target_area = G.pack_cards or G.jokers
-    return create_card("Joker", target_area, nil, nil, true, true, chosen_key, nil)
-end,
-
-    ease_background_colour = function(self)
-        ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_RED)
-        ease_background_colour{new_colour = G.C.DCKST_RED, special_colour = G.C.WHITE, contrast = 2}
-    end,
+    create_card = dckst_pack_create_card,
+    ease_background_colour = dckst_pack_ease_bg,
 }
 
 SMODS.Booster {
@@ -1913,62 +1949,15 @@ SMODS.Booster {
     cost = 4,
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {
-                colours = { G.C.DCKST_RED },
-                card.ability.choose,
-                card.ability.extra,
-            },
+            vars = { colours = { G.C.DCKST_RED }, card.ability.choose, card.ability.extra },
             key = "p_dckst_decksteritical_pack_normal"
         }
     end,
     draw_hand = false,
     unlocked = true,
     discovered = false,
-
-    create_card = function(self, booster_card)
-    -- Build a set of joker keys the player already owns
-    local owned = {}
-    for _, joker_card in ipairs(G.jokers.cards) do
-        if joker_card.config and joker_card.config.center then
-            owned[joker_card.config.center.key] = true
-        end
-    end
-
-    -- Build filtered pool: Shuffle pool jokers the player doesn't have
-    local shuffle_pool = {}
-    for key, center in pairs(G.P_CENTERS) do
-        if center.set == "Joker"
-        and center.pools and center.pools["decksterity"]
-        and not owned[key] then
-            table.insert(shuffle_pool, key)
-        end
-    end
-
-    -- Fallback if empty (player owns everything, or pool is empty)
-    if #shuffle_pool == 0 then
-        print("WARNING: Shuffle pool empty or all owned, falling back")
-        for key, center in pairs(G.P_CENTERS) do
-            if center.set == "Joker" and center.pools and center.pools["decksterity"] then
-                table.insert(shuffle_pool, key)
-            end
-        end
-    end
-
-    local chosen_key = pseudorandom_element(shuffle_pool)
-
-    if not G.P_CENTERS[chosen_key] then
-        print("WARNING: Missing Joker center for", chosen_key)
-        chosen_key = "j_joker"
-    end
-
-    local target_area = G.pack_cards or G.jokers
-    return create_card("Joker", target_area, nil, nil, true, true, chosen_key, nil)
-end,
-
-    ease_background_colour = function(self)
-        ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_RED)
-        ease_background_colour{new_colour = G.C.DCKST_RED, special_colour = G.C.WHITE, contrast = 2}
-    end,
+    create_card = dckst_pack_create_card,
+    ease_background_colour = dckst_pack_ease_bg,
 }
 
 SMODS.Booster {
@@ -1983,62 +1972,15 @@ SMODS.Booster {
     cost = 6,
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {
-                colours = { G.C.DCKST_RED },
-                card.ability.choose,
-                card.ability.extra,
-            },
+            vars = { colours = { G.C.DCKST_RED }, card.ability.choose, card.ability.extra },
             key = "p_dckst_decksteritical_pack_jumbo"
         }
     end,
     draw_hand = false,
     unlocked = true,
     discovered = false,
-
-    create_card = function(self, booster_card)
-    -- Build a set of joker keys the player already owns
-    local owned = {}
-    for _, joker_card in ipairs(G.jokers.cards) do
-        if joker_card.config and joker_card.config.center then
-            owned[joker_card.config.center.key] = true
-        end
-    end
-
-    -- Build filtered pool: Shuffle pool jokers the player doesn't have
-    local shuffle_pool = {}
-    for key, center in pairs(G.P_CENTERS) do
-        if center.set == "Joker"
-        and center.pools and center.pools["decksterity"]
-        and not owned[key] then
-            table.insert(shuffle_pool, key)
-        end
-    end
-
-    -- Fallback if empty (player owns everything, or pool is empty)
-    if #shuffle_pool == 0 then
-        print("WARNING: Shuffle pool empty or all owned, falling back")
-        for key, center in pairs(G.P_CENTERS) do
-            if center.set == "Joker" and center.pools and center.pools["decksterity"] then
-                table.insert(shuffle_pool, key)
-            end
-        end
-    end
-
-    local chosen_key = pseudorandom_element(shuffle_pool)
-
-    if not G.P_CENTERS[chosen_key] then
-        print("WARNING: Missing Joker center for", chosen_key)
-        chosen_key = "j_joker"
-    end
-
-    local target_area = G.pack_cards or G.jokers
-    return create_card("Joker", target_area, nil, nil, true, true, chosen_key, nil)
-end,
-
-    ease_background_colour = function(self)
-        ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_RED)
-        ease_background_colour{new_colour = G.C.DCKST_RED, special_colour = G.C.WHITE, contrast = 2}
-    end,
+    create_card = dckst_pack_create_card,
+    ease_background_colour = dckst_pack_ease_bg,
 }
 
 SMODS.Booster {
@@ -2053,60 +1995,13 @@ SMODS.Booster {
     cost = 6,
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {
-                colours = { G.C.DCKST_RED },
-                card.ability.choose,
-                card.ability.extra,
-            },
+            vars = { colours = { G.C.DCKST_RED }, card.ability.choose, card.ability.extra },
             key = "p_dckst_decksteritical_pack_mega"
         }
     end,
     draw_hand = false,
     unlocked = true,
     discovered = false,
-
-    create_card = function(self, booster_card)
-    -- Build a set of joker keys the player already owns
-    local owned = {}
-    for _, joker_card in ipairs(G.jokers.cards) do
-        if joker_card.config and joker_card.config.center then
-            owned[joker_card.config.center.key] = true
-        end
-    end
-
-    -- Build filtered pool: Shuffle pool jokers the player doesn't have
-    local shuffle_pool = {}
-    for key, center in pairs(G.P_CENTERS) do
-        if center.set == "Joker"
-        and center.pools and center.pools["decksterity"]
-        and not owned[key] then
-            table.insert(shuffle_pool, key)
-        end
-    end
-
-    -- Fallback if empty (player owns everything, or pool is empty)
-    if #shuffle_pool == 0 then
-        print("WARNING: Shuffle pool empty or all owned, falling back")
-        for key, center in pairs(G.P_CENTERS) do
-            if center.set == "Joker" and center.pools and center.pools["decksterity"] then
-                table.insert(shuffle_pool, key)
-            end
-        end
-    end
-
-    local chosen_key = pseudorandom_element(shuffle_pool)
-
-    if not G.P_CENTERS[chosen_key] then
-        print("WARNING: Missing Joker center for", chosen_key)
-        chosen_key = "j_joker"
-    end
-
-    local target_area = G.pack_cards or G.jokers
-    return create_card("Joker", target_area, nil, nil, true, true, chosen_key, nil)
-end,
-
-    ease_background_colour = function(self)
-        ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_RED)
-        ease_background_colour{new_colour = G.C.DCKST_RED, special_colour = G.C.WHITE, contrast = 2}
-    end,
+    create_card = dckst_pack_create_card,
+    ease_background_colour = dckst_pack_ease_bg,
 }

@@ -268,3 +268,37 @@ DCKST.gameset_pool = function(required)
         return DCKST.gset() >= required
     end
 end
+
+-- thank you aikoyori
+local easedol = ease_dollars
+ease_dollars = function(amnt, insta)
+    if G.GAME.blind and G.GAME.blind.debuff.dckst_no_get_money and not G.GAME.blind.disabled then
+        return 
+    end
+    return easedol(amnt, insta)
+end
+
+-- for the scalage
+function get_nominal_value(card)
+    if card.base.nominal then
+        return card.base.nominal
+    end
+ 
+    local fallback_map = {
+        ["Ace"] = 11,
+        ["King"] = 10,
+        ["Queen"] = 10,
+        ["Jack"] = 10,
+        ["10"] = 10,
+        ["9"] = 9,
+        ["8"] = 8,
+        ["7"] = 7,
+        ["6"] = 6,
+        ["5"] = 5,
+        ["4"] = 4,
+        ["3"] = 3,
+        ["2"] = 2,
+    }
+ 
+    return fallback_map[card.base.value] or 0
+end

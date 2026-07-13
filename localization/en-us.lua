@@ -78,21 +78,29 @@ return {
                     'get a {C:attention,T:dckst_smiley,T_vars:9}Smiley{} sticker',
                 },
             },
+            b_dckst_twin = {
+                name = 'Twin Deck',
+                text = {
+                    'Start run with {C:attention}2{} copies',
+                    'of each rank, deck',
+                    'has {C:red}no face cards{}'
+                }
+            },
             b_dckst_overclocked = {
                 name = 'Overclocked Deck',
                 text = {
                     '{C:blue}+2{} Hands and {C:red}+2{} Discards',
                     'per round, required chips',
-                    'increase by {C:attention}15%{} after',
+                    'increase by {C:attention}15%{} before',
                     'each hand played',
                 }
             },
             b_dckst_h = {
                 name = 'H Deck',
                 text = {
-                    'Start run with {C:attention,T:c_dckst_minuet}Minuet{}',
-                    '{C:attention}H{} Jokers appear {X:attention,C:white}2X{}',
-                    'as often in the shop',
+                    'Every {C:attention}number card{} in deck',
+                    'start as {C:enhanced,T:m_dckst_h}H Cards{},',
+                    'start run with {C:attention,T:c_dckst_minuet}Minuet{}'
                 }
             },
             b_dckst_microchip = {
@@ -139,7 +147,7 @@ return {
                 name = 'LeDeck',
                 text = {
                     "All {C:attention}2s{}, {C:attention}3s{}, and {C:attention}6s{}",
-                    "start as {C:dark_edition}LeBronned Cards{}",
+                    "start as {C:enhanced,T:m_dckst_lebronned}LeBronned Cards{}",
                     "and give {X:mult,C:white} X3 {} Mult when scored"
                 }
             },
@@ -208,7 +216,7 @@ return {
                     '{C:red}-1{} hand size'
                 }
             },
-            b_dckst_fancy = {
+            b_dckst_decksterity_fancy = {
                 name = "Fancy Deck",
                 text = {
                     '{C:common}Common{} Jokers',
@@ -257,9 +265,302 @@ return {
                     'shop {C:red,E:2}no longer{} sells Jokers'
                 }
             },
-            b_dckst_recycling = {
-                name = "Recycling Deck",
-            }
+            b_dckst_fragile = {
+                name = 'Fragile Deck',
+                text = {
+                    'Start with {C:money}$20{} and',
+                    '{C:attention}1{} additional copy',
+                    'of each {C:attention}rank{}.',
+                    'Every starting card',
+                    'is {C:attention,T:m_glass}Glass{}'
+                }
+            },
+            b_dckst_microwave = {
+                name = 'Microwave Deck',
+                text = {
+                    '{C:attention,E:1,s:1.1}Levels up{} most played',
+                    'at the start of each round,',
+                    'every played card has a fixed',
+                    '{C:green}1 in 6{} chance to be',
+                    '{C:red,E:2}destroyed{} when played'
+                }
+            },
+            b_dckst_consecutive = {
+                name = 'Consecutive Deck',
+                text = {
+                    'Hands only containing',
+                    '{C:attention}Straights{} are',
+                    'allowed to be played',
+                }
+            },
+            b_dckst_deadline = {
+                name = 'Deadline Deck',
+                text = {
+                    'Start with {C:attention}6{} {C:red}Discards{}',
+                    'and {C:attention}2{} {C:blue}Hands{}',
+                }
+            },
+            b_dckst_plaintext = {
+                name = 'Plaintext Deck',
+                text = {
+                    'Every {C:attention}base{} card',
+                    '(no enhancement)',
+                    'gives {X:mult,C:white} X1.5 {} Mult',
+                }
+            },
+            b_dckst_decksterity_icosagon = {
+                name = 'Icosagon Deck',
+                text = {
+                    'Start with 2',
+                    '{C:enhanced}enhanced{} {C:attention}20s{}',
+                    'for each {C:inactive}(Vanilla){} {C:attention}suit{}',
+                }
+            },
+            b_dckst_decksterity_hexadeck = {
+                name = 'Hexa-Deck',
+                text = {
+                    'Every {C:attention,T:tag_double}Double Tag{} is replaced',
+                    'with {C:attention,T:tag_dckst_sextuple}Sextuple Tags{}, {C:red}-$4{} for',
+                    'each skipped blind'
+                }
+            },
+            b_dckst_decksterity_heptadeck = {
+                name = 'Hepta-Deck',
+                text = {
+                    'Every {C:attention,T:tag_double}Double Tag{} is replaced',
+                    'with {C:attention,T:tag_dckst_septuple}Septuple Tags{}, {C:red}-$6{} for',
+                    'each skipped blind'
+                }
+            },
+        },
+        Blind = {
+            bl_dckst_secant = {
+                name = "The Secant",
+                text = {
+                    'Enhanced cards give',
+                    'X#1# Mult'
+                }
+            },
+            bl_dckst_cosecant = {
+                name = "The Cosecant",
+                text = {
+                    'Base cards give',
+                    'X#1# Mult'
+                }
+            },
+            bl_dckst_foreclosure = {
+                name = 'The Foreclosure',
+                text = {
+                    "Jokers with sell value",
+                    ">$#1# are debuffed"
+                }
+            },
+            bl_dckst_vandal = {
+                name = 'The Vandal',
+                text = {
+                    'When hand is played, the',
+                    'leftmost Joker is destroyed'
+                }
+            },
+            bl_dckst_magpie = {
+                name = 'The Magpie',
+                text = {
+                    'Only cards with a',
+                    'nominal of 7 and',
+                    'up can be played'
+                }
+            },
+            bl_dckst_hypochondriac = {
+                name = 'The Hypochondriac',
+                text = {
+                    'Cards with seals',
+                    'are debuffed'
+                }
+            },
+            bl_dckst_harmony = {
+                name = 'The Harmony',
+                text = {
+                    'Every played card must',
+                    'be of the same rank',
+                    'or suit'
+                }
+            },
+            bl_dckst_inflationism = {
+                name = 'The Inflationism',
+                text = {
+                    'When cards are discarded,',
+                    'increases blind requirement',
+                    'by X#1#'
+                }
+            },
+            bl_dckst_miser = {
+                name = 'The Miser',
+                text = {
+                    'Money is set to $#1#,',
+                    'cannot change during',
+                    'the round'
+                }
+            },
+            bl_dckst_numismatist = {
+                name = 'The Numismatist',
+                text = {
+                    'Hand can only score',
+                    'if owned money is odd',
+                    '{C:inactive}(Ignores decimals){}'
+                }
+            },
+            bl_dckst_pendulum = {
+                name = 'The Pendulum',
+                text = {
+                    'Alternates between halving',
+                    'Chips and Mult before hand',
+                    'scores every hand'
+                }
+            },
+            bl_dckst_derivative = {
+                name = "The Derivative",
+                text = {
+                    "Hands that contain",
+                    "Straights are not",
+                    "allowed to be played"
+                }
+            },
+            bl_dckst_integral = {
+                name = "The Integral",
+                text = {
+                    "Hands that do not",
+                    "contain Straights are",
+                    "not allowed to be played"
+                }
+            },
+            bl_dckst_distance = {
+                name = "The Distance",
+                text = {
+                    "Score requirement increases",
+                    "by X#1# per hand"
+                }
+            },
+            bl_dckst_scalage = {
+                name = 'The Scalage',
+                text = {
+                    'Sum of all played cards\'',
+                    'nominal value must be',
+                    'equal to or larger than #1#'
+                }
+            },
+            bl_dckst_containment = {
+                name = 'The Containment',
+                text = {
+                    'The 2 leftmost and rightmost',
+                    'cards in hand are debuffed,',
+                    'cannot drag cards'
+                }
+            },
+            bl_dckst_switchie = {
+                name = 'The Switchie',
+                text = {
+                    'Cards in hand with',
+                    'odd-numbered positions',
+                    'are drawn face down,',
+                    'cannot drag or sort cards'
+                }
+            },
+            bl_dckst_antivowelist = {
+                name = 'The Antivowelist',
+                text = {
+                    'Jokers containing #1#~#2#',
+                    'vowels are debuffed',
+                    '{s:0.8}[A, E, I, O, U, Y]{}'
+                }
+            },
+            bl_dckst_moneycharger = {
+                name = 'The Moneycharger',
+                text = {
+                    'When hand is played, -$#1#'
+                }
+            },
+            bl_dckst_storage = {
+                name = 'The Storage',
+                text = {
+                    "For every $#1# owned,",
+                    "-1 Hand size",
+                    "{C:inactive}(Minimum #2# Hand size){}"
+                }
+            },
+            bl_dckst_leftovers = {
+                name = 'The Leftovers',
+                text = {
+                    'Lose $0.5 for every',
+                    'unplayed card when Round ends',
+                    '{C:inactive}(Rounded down)'
+                }
+            },
+            bl_dckst_randomization = {
+                name = 'The Randomization',
+                text = {
+                    'A random rank is',
+                    'debuffed each hand'
+                }
+            },
+            bl_dckst_tether = {
+                name = 'The Tether',
+                text = {
+                    'Played hand must contain',
+                    'the highest rank in hand'
+                }
+            },
+            bl_dckst_tariffication = {
+                name = 'The Tariffication',
+                text = {
+                    'Lose $#1# for each',
+                    'card discarded'
+                }
+            },
+            bl_dckst_counterfeit = {
+                name = 'The Counterfeit',
+                text = {
+                    'Jokers and playing cards',
+                    'with Editions are debuffed'
+                }
+            },
+            bl_dckst_adblock = {
+                name = 'The Ad-Block',
+                text = {
+                    'Playing cards with an',
+                    'Enhancement, Seal, or Edition',
+                    'are drawn face down'
+                }
+            },
+            bl_dckst_primetime = {
+                name = 'The Primetime',
+                text = {
+                    'Hand must contain a card',
+                    'with a prime nominal value'
+                }
+            },
+            bl_dckst_squarism = {
+                name = 'The Squarism',
+                text = {
+                    'Before hand scores, Chips',
+                    'are rounded down to the',
+                    'nearest perfect square'
+                }
+            },
+            bl_dckst_octanium = {
+                name = 'The Octanium',
+                text = {
+                    'Debuffs a Joker or playing card',
+                    'if its description has the',
+                    'number 8 or 9 (If possible)',
+                }
+            },
+            bl_dckst_giggling = {
+                name = 'The Giggling',
+                text = {
+                    'Played hand must contain',
+                    'at least #1# face cards'
+                }
+            },
         },
         Joker = {
             j_dckst_fiesta = {
@@ -563,7 +864,7 @@ return {
                 'Stores {C:chips}half{} the {C:chips}Chips{}',
                 'each scored card gives,',
                 'then gives stored value',
-                'as {C:mult}Mult{} after hand,',
+                'as {C:mult}Mult{} after hand',
             }
         },
         j_dckst_thetown = {
@@ -665,6 +966,26 @@ return {
                 '{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}'
             }
         },
+
+
+        -- H JOKERS
+        j_dckst_majuscule = {
+            name = "Majuscule",
+            text = {
+                '{X:mult,C:white}X#1#{} Mult if played',
+                'hand contains a {C:attention}Striaght{}'
+            }
+        },
+        j_dckst_miniscule = {
+            name = "Miniscule",
+            text = {
+                '{X:chips,C:white}X#1#{} Chips if played',
+                'hand contains a {C:attention}Striaght{}'
+            }
+        },
+
+
+
 
 
         
@@ -1089,6 +1410,237 @@ return {
                 "{s:0.8}Applies Universal Stake and prev.{}"
             }
         }
+    },
+    Tag = {
+        tag_dckst_dexy = {
+            name = "Dexy Tag",
+            text = {
+                'Opens a free',
+                '{C:attention}Jumbo Decksteritical Pack{}',
+            }
+        },
+        tag_dckst_carcana = {
+            name = "Carcana Tag",
+            text = {
+                'Opens a free',
+                '{C:attention}Mega Carcana Pack{}',
+            }
+        },
+        tag_dckst_claw = {
+            name = "Claw Tag",
+            text = {
+                'Opens a free',
+                '{C:attention}Mega Spectaclaw Pack{}',
+            }
+        },
+        tag_dckst_neo = {
+            name = "Neo Tag",
+            text = {
+                'Opens a free',
+                '{C:attention}Mega Neo-Arcana Pack{}',
+            }
+        },
+        tag_dckst_tramway = {
+            name = "Tramway Tag",
+            text = {
+                'Opens a free',
+                '{C:attention}Mega Tram Pack{}',
+            }
+        },
+        tag_dckst_phosphy = {
+            name = "Phosphy Tag",
+            text = {
+                "Next base edition shop",
+                "Joker is free and",
+                "becomes {C:dark_edition}Phosphorescent{}",
+            }
+        },
+        tag_dckst_aether = {
+            name = "Aether Tag",
+            text = {
+                "Next base edition shop",
+                "Joker is free and",
+                "becomes {C:dark_edition}Aetherescent{}",
+            }
+        },
+        tag_dckst_prism = {
+            name = "Prism Tag",
+            text = {
+                "Next base edition shop",
+                "Joker is free and",
+                "becomes {C:dark_edition}Prismatic{}",
+            }
+        },
+        tag_dckst_woody = {
+            name = "Woody Tag",
+            text = {
+                "Next base edition shop",
+                "Joker is free and",
+                "becomes {C:dark_edition}Wooden{}",
+            }
+        },
+        tag_dckst_sumeable = {
+            name = "Sumeable Tag",
+            text = {
+                "Adds {C:attention}2{} random",
+                "consumables to slot",
+                "{C:inactive}(Doesn\'t need room){}",
+            }
+        },
+        tag_dckst_top_up_pro_max = {
+            name = "Top-up Tag Pro Max",
+            text = {
+                "Creates up to {C:attention}#1#{}",
+                "{C:rare}Rare{} Jokers, {X:money,C:white}X$#2#{}",
+                "{C:inactive}(Must have room){}",
+            }
+        },
+        tag_dckst_fixy = {
+            name = "Fixy Tag",
+            text = {
+                '{C:red,E:2}Destroys{} {C:attention}#1#-#2#{} cards',
+                'in deck'
+            }
+        },
+        tag_dckst_temporahandy = {
+            name = 'Temporahandy Tag',
+            text = {
+                "Gain {C:blue}+#1#{} temporary",
+                "hand next round"
+            }
+        },
+        tag_dckst_temporatrashy = {
+            name = 'Temporatrashy Tag',
+            text = {
+                "Gain {C:red}+#1#{} temporary",
+                "discard next round"
+            }
+        },
+        tag_dckst_price = {
+            name = "Price Tag",
+            text = {
+                '{C:attention,E:2}Every item{} in the next',
+                'shop is {C:attention}#1#%{} off',
+            }
+        },
+        tag_dckst_tag = {
+            name = "Tag Tag",
+            text = {
+                'Creates a',
+                'random {C:attention}Tag{}',
+            }
+        },
+        tag_dckst_combo = {
+            name = "Combo Tag",
+            text = {
+                'Creates a {C:attention}Dexy Tag{},',
+                '{C:attention}Carcana Tag{}, {C:attention}Neo Tag{},',
+                'and {C:attention}Tramway Tag{}',
+            }
+        },
+        tag_dckst_saturn = {
+            name = "Saturn Tag",
+            text = {
+                'Levels up {C:attention}#1#{}',
+                'by {C:attention}#2#{} levels',
+            }
+        },
+        tag_dckst_crazy = {
+            name = "Crazy Tag",
+            text = {
+                'Spawns {C:attention}Crazy Joker{}',
+                '{C:inactive}(Doesn\'t need room){}',
+            }
+        },
+        tag_dckst_sextuple = {
+			name = "Sextuple Tag",
+			text = {
+				"Gives {C:attention}#1#{} copies of the",
+				"next selected {C:attention}Tag",
+				"{s:0.8,C:attention}Copying Tags {s:0.8}excluded",
+			}
+		},
+        tag_dckst_septuple = {
+			name = "Septuple Tag",
+			text = {
+				"Gives {C:attention}#1#{} copies of the",
+				"next selected {C:attention}Tag",
+				"{s:0.8,C:attention}Copying Tags {s:0.8}excluded",
+			}
+		},
+        tag_dckst_vault = {
+            name = 'Vault Tag',
+            text = {
+                "{C:attention}+1{} Joker slot"
+            }
+        },
+        tag_dckst_h = {
+            name = "H Tag",
+            text = {
+                'Creates a random',
+                '{V:1}H Joker{}',
+                '{C:inactive}(Must have room){}'
+            }
+        },
+        tag_dckst_redeeming = {
+            name = 'Redeeming Tag',
+            text = {
+                'Redeems a',
+                '{C:attention}random{} Voucher'
+            }
+        },
+        tag_dckst_lasting = {
+            name = 'Lasting Tag',
+            text = {
+                "Creates a random {C:attention}Joker{}",
+                "with {C:attention}Evergreen{}"
+            }
+        },
+        tag_dckst_fancy = {
+            name = "Fancy Tag",
+            text = {
+                "{C:attention}30%{} of the deck is",
+                "enhanced with a random",
+                "{C:enhanced}Enhancement{}"
+            }
+        },
+        tag_dckst_bastet = {
+            name = "Bastet's Tag",
+            text = {
+                "Duplicates a random",
+                "{C:attention}owned Joker{}",
+                "{C:inactive}(Must have room){}",
+                "{s:0.5}CURSE OF RA :fire:{}"
+            }
+        },
+        tag_dckst_beckoning = {
+            name = 'Beckoning Tag',
+            text = {
+                "{C:attention}Quadruples{}",
+                "owned {C:money}money{}"
+            }
+        },
+        tag_dckst_concierge = {
+            name = "Concierge Tag",
+            text = {
+                "Next Joker in shop is",
+                "guaranteed to be {C:dark_edition}Editioned{}",
+                "{C:inactive}(All editions weighted equally){}"
+            }
+        },
+        tag_dckst_ledger = {
+            name = "Ledger Tag",
+            text = {
+                'Gives {C:money}$2{} for every {C:blue}Hand{}',
+                'and {C:money}$1{} for every {C:red}Discard{}'
+            }
+        },
+        tag_dckst_two = {
+            name = "Two Tag",
+            text = {
+                '{C:attention}+#1#{} Consumable slots'
+            }
+        },
     },
     Catarot = {
         c_dckst_meowbo = {
@@ -2391,6 +2943,7 @@ misc = {
             k_dckst_solar_flare = "Solar Flare!",
             k_dckst_cards_removed = "Cards Removed!",
             k_dckst_exalted = " Exalted Tithe!",
+            k_dckst_consecutive_debuff = "This hand doesn\'t contain a Straight!",
 
             k_dckst_money_buddy = "Money Buddy",
             k_dckst_cash_in_guru = "Cash-in Guru",
@@ -2443,6 +2996,9 @@ misc = {
             ["dckst_bipolar_flush"] = { "A 5-card hand containing exactly 3 cards", "of one color and 2 cards of the other color" },
             ["dckst_alterostraight"] = { "A 5-card Straight where the colors of the", "cards alternate strictly between Red and Black" },
         },
+        ranks = {
+            ["dckst_20"] = "20",
+        },
         dckst_misc = {
             mod_label = {
                 {"decksterity."},
@@ -2486,6 +3042,45 @@ misc = {
                 {"decksterity dot lua"},
                 {"a game about cards", "probably"},
                 {"dck", "str", "ity"},
+                {"decksterity 2: electric boogaloo"},
+                {"deckSTERITY (all caps middle)"},
+                {"the deckster cinematic universe"},
+                {"unfuffy presents: decksterity"},
+                {"decksterity but it's midnight and", "we're still coding"},
+                {"d.e.c.k.s.t.e.r.i.t.y."},
+                {"decksterity (colorized)"},
+                {"decksterity: remastered"},
+                {"deckSTERITYYYYY"},
+                {"decksterity feat. the balatro discord"},
+                {"UN4YA's fever dream"},
+                {"mariopuff's magnum opus"},
+                {"decksterity (director's cut)"},
+                {"deckstiny"},
+                {"decksterity but sponsored by nobody"},
+                {"THE decksterity experience™"},
+                {"deck-ster-i-ty (sound it out)"},
+                {"decksterity", "(patch 1.0.0.0.0.1)"},
+                {"decksterity:", "a balatro odyssey"},
+                {"decksterity dot exe", "has stopped working"},
+                {"beta decksterity (still beta forever)"},
+                {"decksterity but", "everything's on fire"},
+                {"decksterity", "(Extended Cut)"},
+                {"decksterity in 4K"},
+                {"decksterity", "(no, the OTHER one)"},
+                {"H is for", "HECKIN' decksterity"},
+                {"deckHsterity"},
+                {"HHHHHHHHHH"},
+                {"straight up", "decksterity"},
+                {"decksteritH"},
+                {"H: the mod, the", "myth, the legend"},
+                {"the letter H", "approves this mod"},
+                {"deckHterity", "(H is silent, we lied)"},
+                {"straights only,", "no funny business"},
+                {"H H H H H H H"},
+                {"decksterity (H tier)"},
+                {"a straight-up", "H of a mod"},
+                {"deckHstraightHity"},
+                {"H'd it and loved it"},
             },
             flavor_text = {
                 {"skill issue? no.","deck issue."},
@@ -2604,6 +3199,94 @@ misc = {
                 {"I ALWAYS FEEL LIKE", "SOMEBODY\'S WATCHING MEEEEE"},
                 {"TO INFINITY AND LEBRON"},
                 {"Best enjoyed with Aikoyori\'s Shenanigans!"},
+                {"NIKOLA JOKIC TRIPLE-DOUBLE", "ALERT!"},
+                {"Victor Wembanyama is", "not real, change my mind"},
+                {"Free Melo\'s jersey retirement!"},
+                {"SGA for Finals MVP,", "we called it early"},
+                {"KNICKS IN 7... OR LESS!"},
+                {"Steph Curry shooting from", "the parking lot again"},
+                {"\"That's a foul.\" - Every ref, ever"},
+                {"Giannis dunking on the", "concept of rim protection"},
+                {"REMEMBER THE ALAMO", "(and also this mod)"},
+                {"AD is available? SIGN HIM"},
+                {"we say \"trust the process\"", "unironically here"},
+                {"Anthony Edwards top 5", "player alive, fight us"},
+                {"the 3-point line is", "just a suggestion now"},
+                {"Every game 7 should", "end in a buzzer beater"},
+                {"Tip: This is not financial advice.", "This is a card game."},
+                {"Tip: Please hydrate. Cards", "cannot do that for you."},
+                {"Tip: Jokers do not", "actually tell jokes. We\'re sorry."},
+                {"Tip: If confused, try", "turning your brain off and on."},
+                {"Tip: There is no", "skip button for real life."},
+                {"Warning: prolonged joker synergy", "may cause excessive screaming"},
+                {"Achievement unlocked: read this", "entire tooltip"},
+                {"the deck knows what you did"},
+                {"shuffling is a form", "of self care"},
+                {"we put the STER", "in deckSTERity"},
+                {"an ancient card game", "ritual, probably"},
+                {"in loving memory of", "every hand you\'ve lost"},
+                {"error 404: strategy not found"},
+                {"certified fresh deck (100% on Rotten Tomatoes)"},
+                {"a card-based fever dream"},
+                {"blessed by the RNG gods"},
+                {"cursed by the RNG gods"},
+                {"NULL POINTER EXCEPTION", "(a card, not a bug)"},
+                {"stack overflow but", "it\'s your joker slots"},
+                {"segmentation fault: skill issue"},
+                {"\"it\'s not a bug,", "it\'s a feature\" - UN4YA"},
+                {"\"it\'s not a feature,", "it\'s a bug\" - mariopuff"},
+                {"tested extensively (by nobody)"},
+                {"QA team consists of", "two guys and a dream"},
+                {"this mod runs on", "vibes and caffeine"},
+                {"lua, the language of", "champions (and pain)"},
+                {"we don\'t know why it", "works either"},
+                {"if it ain\'t broke,", "add more jokers"},
+                {"balance patch incoming", "(narrator: it was not)"},
+                {"one more feature,", "we promise (we don\'t)"},
+                {"scope creep: the mod"},
+                {"we said \"just one more joker\"", "47 jokers ago"},
+                {"you vs. the mod your", "friends told you not", "to worry about"},
+                {"WHO LET THE JOKERS OUT"},
+                {"pastel red is a", "personality trait now"},
+                {"#ff746c supremacy"},
+                {"powered by spite and", "stack traces"},
+                {"we fixed it. we broke", "something else."},
+                {"Ctrl+Z is doing a lot", "of heavy lifting here"},
+                {"\"just ship it\" - someone,", "unfortunately"},
+                {"we test in production", "(there is no other option)"},
+                {"git blame leads back", "to both of us equally"},
+                {"merge conflict resolved", "via arm wrestling"},
+                {"commit message: \"fixed stuff\""},
+                {"commit message: \"idk why", "this works now\""},
+                {"this mod has more", "jokers than sense"},
+                {"decksterity: now with", "extra decksterity"},
+                {"HAPPY 4TH OF JULY", "(from your mod devs)"},
+                {"summer patch, summer bugs"},
+                {"we coded this instead", "of touching grass"},
+                {"CRISTIANO RONALDO:", "GOAT, SIMPLE AS THAT"},
+                {"SIUUUUUUUUUUUUUUU"},
+                {"CR7 FOREVER, CR7 ALWAYS"},
+                {"Ronaldo doesn\'t age,", "he just levels up"},
+                {"still scoring bicycle kicks", "at 40+, absolute machine"},
+                {"\"Calma, calma, calma\"", "- Cristiano Ronaldo"},
+                {"five Ballon d\'Ors and", "counting (probably)"},
+                {"LEBRON JAMES: 20+ YEARS", "OF DOMINANCE"},
+                {"THE KING DOES NOT REST"},
+                {"LeBron passed Kareem and", "he\'s still not done"},
+                {"\"You can\'t win a", "championship without ME\"", "- probably LeBron"},
+                {"four rings, zero signs", "of slowing down"},
+                {"LeBron\'s longevity is", "actually unfair to physics"},
+                {"chosen one delivers,", "every single time"},
+                {"MAX VERSTAPPEN: FASTEST", "MAN ON FOUR WHEELS"},
+                {"Max doesn\'t brake,", "he just wins earlier"},
+                {"Red Bull\'s secret weapon:", "just Max being Max"},
+                {"lapping the field, literally"},
+                {"\"P1. Obviously.\"", "- Max Verstappen, probably"},
+                {"world championships stacking up", "like it\'s nothing"},
+                {"the GOAT of football,", "the GOAT of basketball,", "and the GOAT of F1"},
+                {"CR7, LeBron, and Max:", "the Mount Rushmore", "of sports"},
+                {"greatness recognizes greatness"},
+                {"some athletes chase records,", "these guys ARE the record"},
             }
         }
     }

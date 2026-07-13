@@ -9,15 +9,15 @@
   "description": "Subminimal Team's Balatro mod. We hope it's balanced. Hopefully.",
   "prefix": "dckst",
   "main_file": "main.lua",
-  "priority": 9999,
+  "priority": 97,
   "badge_colour": "ff746c",
   "badge_text_colour": "FFF1DE",
-  "version": "4",
+  "version": "5",
   "requires-steamodded": true,
   "requires-talisman": true,
   "dependencies" : [
     "Lovely",
     "Steamodded",
-    "Talisman"
+    "Amulet"
   ]
 }

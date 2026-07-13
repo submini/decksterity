@@ -73,7 +73,7 @@ SMODS.Joker{ -- lil maxey!
     rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
-    perishable_compat = true,
+    perishable_compat = false,
     unlocked = true,
     discovered = false,
     atlas = "jokerswave1",
@@ -196,12 +196,15 @@ SMODS.Joker {
             local num = context.numerator
             local den = context.denominator
 
-            -- nudge both toward 1 in 2
-            -- average between current ratio and 0.5
             local ratio = num / den
-            local new_ratio = (ratio + 0.5) / 2
 
-            -- keep denominator the same, adjust numerator
+            -- Only nudge upward toward 1/2. Never weaken odds that are
+            -- already at or past 50% (e.g. from Oops! All 6s doubling).
+            if ratio >= 0.5 then
+                return
+            end
+
+            local new_ratio = (ratio + 0.5) / 2
             local new_num = math.max(1, math.floor(new_ratio * den + 0.5))
 
             return {

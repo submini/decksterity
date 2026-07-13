@@ -9,6 +9,7 @@ local files = {
     "lib/gameset",
 
     "items/jokers/miscjokers",
+    "items/jokers/hjokers",
     "items/jokers/legendaries",
     "items/jokers/hazardousjokers",
 
@@ -28,8 +29,17 @@ local files = {
     "items/stakes",
     "items/vouchers",
     "items/challenges",
+    "items/ranks",
+    "items/tags",
+    "items/blinds",
     
 }
 for i, v in pairs(files) do
 	assert(SMODS.load_file(v..".lua"))()
+end
+
+SMODS.current_mod.optional_features = function()
+    return {
+        object_weights = true,
+    }
 end

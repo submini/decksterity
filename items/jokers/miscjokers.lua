@@ -81,7 +81,7 @@ SMODS.Joker{ --Inset Joker
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
-    perishable_compat = true,
+    perishable_compat = false,
     unlocked = true,
     discovered = false,
     atlas = 'jokerswave1',
@@ -749,7 +749,7 @@ SMODS.Joker{ --Superstar
     rarity = "dckst_medium",
     blueprint_compat = true,
     eternal_compat = true,
-    perishable_compat = true,
+    perishable_compat = false,
     unlocked = true,
     discovered = false,
     atlas = 'jokerswave1',
@@ -828,11 +828,32 @@ SMODS.Joker{ --Cyanotype
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                     G.E_MANAGER:add_event(Event({
                         func = function()
-                            local copy = copy_card(target, nil, nil, G.jokers)
+                            local target_key = target.config.center.key
+                            local copy = create_card('Joker', G.jokers, nil, nil, nil, nil, target_key, 'dckst_cyanotype')
+
                             copy:add_to_deck()
                             G.jokers:emplace(copy)
+
+                            -- carry over state the base create_card call won't replicate
+                            if target.edition then
+                                copy:set_edition(target.edition, true)
+                            end
+                            if target.ability.eternal then
+                                copy:set_eternal(true)
+                            end
+                            if target.ability.perishable then
+                                copy.ability.perishable = true
+                                copy.ability.perish_tally = target.ability.perish_tally
+                            end
+                            -- copy over the joker's own tracked values (e.g. scaling counters)
+                            if target.ability.extra then
+                                for k, v in pairs(target.ability.extra) do
+                                    copy.ability.extra[k] = v
+                                end
+                            end
+
                             G.GAME.joker_buffer = 0
-                            -- self-destruct only after copy is placed
+
                             G.E_MANAGER:add_event(Event({
                                 trigger = 'after',
                                 delay = 0.3,
@@ -845,7 +866,6 @@ SMODS.Joker{ --Cyanotype
                         end
                     }))
                 else
-                    -- no valid target or no space: still self-destruct
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after',
                         delay = 0.3,
@@ -877,7 +897,7 @@ SMODS.Joker{ --THE KNICKS-
     cost = 16,
     rarity = "dckst_welldone",
     blueprint_compat = true,
-    eternal_compat = true,
+    eternal_compat = false,
     perishable_compat = true,
     unlocked = true,
     discovered = false,
@@ -1114,7 +1134,7 @@ SMODS.Joker{ --Airborne Piano
     cost = 9,
     rarity = 3,
     blueprint_compat = true,
-    eternal_compat = true,
+    eternal_compat = false,
     perishable_compat = true,
     unlocked = true,
     discovered = false,
@@ -1597,7 +1617,7 @@ SMODS.Joker{ --Alchemist
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
-    perishable_compat = true,
+    perishable_compat = false,
     unlocked = true,
     discovered = false,
     atlas = 'jokerswave1',
@@ -1659,7 +1679,7 @@ SMODS.Joker {
     rarity = "dckst_medium",
     blueprint_compat = true,
     eternal_compat = true,
-    perishable_compat = true,
+    perishable_compat = false,
     unlocked = true,
     discovered = false,
     atlas = 'jokerswave1',
@@ -2099,7 +2119,7 @@ SMODS.Joker {
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
-    perishable_compat = true,
+    perishable_compat = false,
     unlocked = true,
     discovered = false,
     config = { extra = { chips = 1 } },
@@ -2207,7 +2227,7 @@ SMODS.Joker {
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
-    perishable_compat = true,
+    perishable_compat = false,
     unlocked = true,
     discovered = false,
     config = { extra = { xmult = 1.0, xmult_gain = 1.75 } },

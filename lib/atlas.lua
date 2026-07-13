@@ -6,6 +6,20 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "hjokers",
+    path = "hjokers.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "decks",
+    path = "decks.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
     key = "enhancements",
     path = "enhances.png",
     px = 71,
@@ -69,6 +83,16 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "blinds",
+    path = "blinds.png",
+    px = 34,
+    py = 34,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+}
+
+
+SMODS.Atlas {
     key = "stakestickers",
     path = "stakestickers.png",
     px = 71,
@@ -80,6 +104,13 @@ SMODS.Atlas {
     path = "vouchers.png",
     px = 71,
     py = 95,
+}
+
+SMODS.Atlas {
+    key = "tags",
+    path = "tags.png",
+    px = 34,
+    py = 34,
 }
 
 -- undisc
@@ -117,4 +148,19 @@ SMODS.Atlas {
     path = "modicon.png",
     px = 34,
     py = 34,
+}
+
+-- rank 20
+SMODS.Atlas {
+    key = "rank20",
+    path = "20rank.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "rank20_hi",
+    path = "20rank_hi.png",
+    px = 71,
+    py = 95,
 }
