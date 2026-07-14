@@ -702,6 +702,7 @@ SMODS.Blind {
 
 SMODS.Blind {
     key = "storage",
+    atlas = 'blinds',
     dollars = 8,
     mult = 1.6,
     pos = { y = 19 },
