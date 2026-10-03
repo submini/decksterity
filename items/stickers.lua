@@ -5,6 +5,7 @@ SMODS.Sticker {
  
     badge_colour = HEX('44F28E'),
     default_compat = true,
+    compat_exceptions = { j_mr_bones, j_dckst_benny },
     atlas = 'stickers',
 
     should_apply = function(self, card, center, area, bypass_roll)
@@ -37,13 +38,13 @@ function Card:add_sticker(sticker, bypass_check)
 
     if self.ability and self.ability.dckst_evergreen then 
         if sticker == "eternal" or sticker == "perishable" then 
-            return 
+            return false
         end 
     end
 
     if sticker == "dckst_evergreen" then 
         if self.ability and ( self.ability.eternal or self.ability.perishable ) then 
-            return 
+            return false
         end 
     end 
     
@@ -212,6 +213,7 @@ SMODS.Sticker{
     text_colour = HEX("FFFFFF"),
 
     default_compat = true,
+    compat_exceptions = { j_mr_bones, j_dckst_benny },
 
     config = {
         triggers_left = 8
@@ -327,3 +329,56 @@ SMODS.Sticker{
     end
 }
 
+local ECHO_ODDS  = { 1, 2 }
+local ECHO_CHAIN = false 
+local ECHO_CAP   = 5   
+
+local function echo_vars(card)
+    if not card or not G.GAME or not G.GAME.probabilities then
+        return ECHO_ODDS[1], ECHO_ODDS[2]
+    end
+    if SMODS.get_probability_vars then
+        return SMODS.get_probability_vars(card, ECHO_ODDS[1], ECHO_ODDS[2], 'dckst_echoed')
+    end
+    return G.GAME.probabilities.normal * ECHO_ODDS[1], ECHO_ODDS[2]
+end
+
+local function echo_roll(card)
+    if SMODS.pseudorandom_probability then
+        return SMODS.pseudorandom_probability(card, 'dckst_echoed', ECHO_ODDS[1], ECHO_ODDS[2], 'dckst_echoed')
+    end
+    return pseudorandom('dckst_echoed') < G.GAME.probabilities.normal * ECHO_ODDS[1] / ECHO_ODDS[2]
+end
+
+SMODS.Sticker {
+    key = 'echoed',
+    atlas = 'stickers',
+    pos = { x = 5, y = 0 },
+    badge_colour = HEX('7fd1c7'),
+    sets = { Default = true, Enhanced = true },
+    default_compat = true,
+    rate = 0,
+    needs_enable_flag = false,
+
+    loc_vars = function(self, info_queue, card)
+        local n, d = echo_vars(card)
+        return { vars = { n, d } }
+    end,
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play and context.other_card == card then
+            local reps = 0
+            while reps < ECHO_CAP and echo_roll(card) do
+                reps = reps + 1
+                if not ECHO_CHAIN then break end
+            end
+            if reps > 0 then
+                return {
+                    message = localize('k_again_ex'),
+                    repetitions = reps,
+                    card = card,
+                }
+            end
+        end
+    end,
+}

@@ -23,6 +23,7 @@ local function dckst_sync_gameset(val)
     G.PROFILES[G.SETTINGS.profile].dckst_gameset = val
     SMODS.Mods['decksterity'].config.gameset = val
     SMODS.save_mod_config(SMODS.Mods['decksterity'])
+    dckst_reset_joker_scaling()
     G:save_progress()
 end
 
@@ -368,4 +369,69 @@ local _reset_profile = G.FUNCS.reset_profile
 G.FUNCS.reset_profile = function(e)
     _reset_profile(e)
     dckst_gameset_modal()
+end
+
+-- ── reset joker scaling state on gameset change ────────────────────────────
+-- Forces a genuine reinitialization of each joker's ability table (not just
+-- an update pass), so counters, X-mult accumulators, and other scaling state
+-- introduced by third-party joker mods get wiped when the gameset changes.
+
+function dckst_reset_joker_scaling()
+    if not (G.jokers and G.jokers.cards) then return end
+
+    for _, card in ipairs(G.jokers.cards) do
+        if card and card.config and card.config.center and card.set_ability then
+            local center = card.config.center
+
+            -- Preserve identity-critical fields that set_ability(true) may
+            -- otherwise clobber for some third-party jokers (edition, seal,
+            -- debuff state, eternal/perishable/rental flags).
+            local preserved = {
+                edition    = card.edition,
+                seal       = card.seal,
+                debuff     = card.debuff,
+                eternal    = card.ability and card.ability.eternal,
+                perishable = card.ability and card.ability.perishable,
+                pinned_left = card.ability and card.ability.pinned_left,
+            }
+
+            -- `true` for `initial` forces a real reinit of card.ability.extra
+            -- (not just a refresh), which is what actually clears scaling
+            -- counters. `true` for `delay_sprites` avoids juice/animation
+            -- glitches if this runs mid-round or mid-scoring.
+            local ok, err = pcall(function()
+                card:set_ability(center, true, true)
+            end)
+
+            if not ok then
+                sendWarnMessage("dckst_reset_joker_scaling failed on "
+                    .. tostring(center and center.key) .. ": " .. tostring(err),
+                    "decksterity")
+            else
+                -- restore preserved fields
+                card.edition = preserved.edition
+                card.seal    = preserved.seal
+                card.debuff  = preserved.debuff
+                if card.ability then
+                    card.ability.eternal     = preserved.eternal
+                    card.ability.perishable  = preserved.perishable
+                    card.ability.pinned_left = preserved.pinned_left
+                end
+            end
+
+            -- refresh visible UI (chip/mult text on the card) if present
+            if card.set_cost then card:set_cost() end
+        end
+    end
+
+    -- also catch consumables that scale (e.g. certain modded planet/tarot
+    -- cards) if your gamesets ever touch those; harmless no-op otherwise
+    if G.consumeables and G.consumeables.cards then
+        for _, card in ipairs(G.consumeables.cards) do
+            if card and card.config and card.config.center and card.set_ability
+               and card.ability and card.ability.consumeable then
+                pcall(function() card:set_ability(card.config.center, true, true) end)
+            end
+        end
+    end
 end

@@ -1584,7 +1584,7 @@ create_card = function(self, booster_card)
     booster_card.local_pool = booster_card.local_pool or {unpack(pool)}
 
     -- choose one (safe integer)
-    local chosen_idx = math.floor(pseudorandom(pseudoseed("route")) * #booster_card.local_pool) + 1
+    local chosen_idx = math.floor(pseudorandom(pseudoseed("spectaclaw")) * #booster_card.local_pool) + 1
     local chosen_key = booster_card.local_pool[chosen_idx]
 
     -- remove so it won’t repeat
@@ -1660,7 +1660,7 @@ create_card = function(self, booster_card)
     booster_card.local_pool = booster_card.local_pool or {unpack(pool)}
 
     -- choose one (safe integer)
-    local chosen_idx = math.floor(pseudorandom(pseudoseed("route")) * #booster_card.local_pool) + 1
+    local chosen_idx = math.floor(pseudorandom(pseudoseed("spectaclaw")) * #booster_card.local_pool) + 1
     local chosen_key = booster_card.local_pool[chosen_idx]
 
     -- remove so it won’t repeat
@@ -1736,7 +1736,7 @@ create_card = function(self, booster_card)
     booster_card.local_pool = booster_card.local_pool or {unpack(pool)}
 
     -- choose one (safe integer)
-    local chosen_idx = math.floor(pseudorandom(pseudoseed("route")) * #booster_card.local_pool) + 1
+    local chosen_idx = math.floor(pseudorandom(pseudoseed("spectaclaw")) * #booster_card.local_pool) + 1
     local chosen_key = booster_card.local_pool[chosen_idx]
 
     -- remove so it won’t repeat
@@ -1812,7 +1812,7 @@ create_card = function(self, booster_card)
     booster_card.local_pool = booster_card.local_pool or {unpack(pool)}
 
     -- choose one (safe integer)
-    local chosen_idx = math.floor(pseudorandom(pseudoseed("route")) * #booster_card.local_pool) + 1
+    local chosen_idx = math.floor(pseudorandom(pseudoseed("spectaclaw")) * #booster_card.local_pool) + 1
     local chosen_key = booster_card.local_pool[chosen_idx]
 
     -- remove so it won’t repeat
@@ -1992,7 +1992,7 @@ SMODS.Booster {
     kind = 'decksteritical_pack',
     group_key = "k_dckst_decksteritical_pack_mega",
     weight = 1,
-    cost = 6,
+    cost = 8,
     loc_vars = function(self, info_queue, card)
         return {
             vars = { colours = { G.C.DCKST_RED }, card.ability.choose, card.ability.extra },
@@ -2004,4 +2004,244 @@ SMODS.Booster {
     discovered = false,
     create_card = dckst_pack_create_card,
     ease_background_colour = dckst_pack_ease_bg,
+}
+
+SMODS.Booster {
+    key = "production_pack_1",
+    set = "Booster",
+    atlas = 'packs',
+    pos = { x = 0, y = 7 },
+    config = { extra = 3, choose = 1},
+    kind = 'production_pack',
+    group_key = "k_dckst_production_pack",
+    weight = 2,
+    cost = 4,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                colours = { G.C.DCKST_HARMONIC_ORANGE },
+                card.ability.choose,
+                card.ability.extra,
+            },
+            key = "p_dckst_production_pack_normal"
+        }
+    end,
+    draw_hand = true,
+    unlocked = true,
+    discovered = false,
+
+create_card = function(self, booster_card)
+    local pool = {}
+    for k, v in pairs(G.P_CENTERS) do
+        if v.set == 'Harmonic' then
+            table.insert(pool, k)
+        end
+    end
+
+    -- fall back if empty
+    if #pool == 0 then
+        return create_card("Consumable", G.consumeables, "c", nil, true, true, "c_hermit", nil)
+    end
+
+    -- persistent pool for this booster
+    booster_card.local_pool = booster_card.local_pool or {unpack(pool)}
+
+    -- choose one (safe integer)
+    local chosen_idx = math.floor(pseudorandom(pseudoseed("harmonic")) * #booster_card.local_pool) + 1
+    local chosen_key = booster_card.local_pool[chosen_idx]
+
+    -- remove so it won’t repeat
+    table.remove(booster_card.local_pool, chosen_idx)
+
+    -- spawn
+    local chosen_rarity = (G.P_CENTERS[chosen_key] and G.P_CENTERS[chosen_key].rarity) or "c"
+    local target_area = G.pack_cards or G.consumeables
+    return create_card("Consumable", target_area, chosen_rarity, nil, true, true, chosen_key, nil)
+end,
+
+
+    ease_background_colour = function(self)
+        ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_HARMONIC_ORANGE)
+        ease_background_colour{new_colour = G.C.DCKST_HARMONIC_ORANGE, special_colour = HEX("FFF1DE"), contrast = 2}
+    end,
+}
+
+SMODS.Booster {
+    key = "production_pack_2",
+    set = "Booster",
+    atlas = 'packs',
+    pos = { x = 1, y = 7 },
+    config = { extra = 3, choose = 1},
+    kind = 'production_pack',
+    group_key = "k_dckst_production_pack",
+    weight = 2,
+    cost = 4,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                colours = { G.C.DCKST_HARMONIC_ORANGE },
+                card.ability.choose,
+                card.ability.extra,
+            },
+            key = "p_dckst_production_pack_normal"
+        }
+    end,
+    draw_hand = true,
+    unlocked = true,
+    discovered = false,
+
+    create_card = function(self, booster_card)
+    local pool = {}
+    for k, v in pairs(G.P_CENTERS) do
+        if v.set == 'Harmonic' then
+            table.insert(pool, k)
+        end
+    end
+
+    -- fall back if empty
+    if #pool == 0 then
+        return create_card("Consumable", G.consumeables, "c", nil, true, true, "c_hermit", nil)
+    end
+
+    -- persistent pool for this booster
+    booster_card.local_pool = booster_card.local_pool or {unpack(pool)}
+
+    -- choose one (safe integer)
+    local chosen_idx = math.floor(pseudorandom(pseudoseed("harmonic")) * #booster_card.local_pool) + 1
+    local chosen_key = booster_card.local_pool[chosen_idx]
+
+    -- remove so it won’t repeat
+    table.remove(booster_card.local_pool, chosen_idx)
+
+    -- spawn
+    local chosen_rarity = (G.P_CENTERS[chosen_key] and G.P_CENTERS[chosen_key].rarity) or "c"
+    local target_area = G.pack_cards or G.consumeables
+    return create_card("Consumable", target_area, chosen_rarity, nil, true, true, chosen_key, nil)
+end,
+
+
+    ease_background_colour = function(self)
+        ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_HARMONIC_ORANGE)
+        ease_background_colour{new_colour = G.C.DCKST_HARMONIC_ORANGE, special_colour = HEX("FFF1DE"), contrast = 2}
+    end,
+}
+
+SMODS.Booster {
+    key = "jumbo_production_pack",
+    set = "Booster",
+    atlas = 'packs',
+    pos = { x = 2, y = 7 },
+    config = { extra = 5, choose = 1},
+    kind = 'production_pack',
+    group_key = "k_dckst_production_pack_jumbo",
+    weight = 1,
+    cost = 6,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                colours = { G.C.DCKST_HARMONIC_ORANGE },
+                card.ability.choose,
+                card.ability.extra,
+            },
+            key = "p_dckst_production_pack_jumbo"
+        }
+    end,
+    draw_hand = true,
+    unlocked = true,
+    discovered = false,
+
+    create_card = function(self, booster_card)
+    local pool = {}
+    for k, v in pairs(G.P_CENTERS) do
+        if v.set == 'Harmonic' then
+            table.insert(pool, k)
+        end
+    end
+
+    -- fall back if empty
+    if #pool == 0 then
+        return create_card("Consumable", G.consumeables, "c", nil, true, true, "c_hermit", nil)
+    end
+
+    -- persistent pool for this booster
+    booster_card.local_pool = booster_card.local_pool or {unpack(pool)}
+
+    -- choose one (safe integer)
+    local chosen_idx = math.floor(pseudorandom(pseudoseed("harmonic")) * #booster_card.local_pool) + 1
+    local chosen_key = booster_card.local_pool[chosen_idx]
+
+    -- remove so it won’t repeat
+    table.remove(booster_card.local_pool, chosen_idx)
+
+    -- spawn
+    local chosen_rarity = (G.P_CENTERS[chosen_key] and G.P_CENTERS[chosen_key].rarity) or "c"
+    local target_area = G.pack_cards or G.consumeables
+    return create_card("Consumable", target_area, chosen_rarity, nil, true, true, chosen_key, nil)
+end,
+
+
+    ease_background_colour = function(self)
+        ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_HARMONIC_ORANGE)
+        ease_background_colour{new_colour = G.C.DCKST_HARMONIC_ORANGE, special_colour = HEX("FFF1DE"), contrast = 2}
+    end,
+}
+
+SMODS.Booster {
+    key = "mega_production_pack",
+    set = "Booster",
+    atlas = 'packs',
+    pos = { x = 3, y = 7 },
+    config = { extra = 5, choose = 2},
+    kind = 'production_pack',
+    group_key = "k_dckst_production_pack_mega",
+    weight = 0.5,
+    cost = 8,
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                colours = { G.C.DCKST_PERI },
+                card.ability.choose,
+                card.ability.extra,
+            },
+            key = "p_dckst_production_pack_mega"
+        }
+    end,
+    draw_hand = true,
+    unlocked = true,
+    discovered = false,
+
+    create_card = function(self, booster_card)
+    local pool = {}
+    for k, v in pairs(G.P_CENTERS) do
+        if v.set == 'Harmonic' then
+            table.insert(pool, k)
+        end
+    end
+
+    -- fall back if empty
+    if #pool == 0 then
+        return create_card("Consumable", G.consumeables, "c", nil, true, true, "c_hermit", nil)
+    end
+
+    -- persistent pool for this booster
+    booster_card.local_pool = booster_card.local_pool or {unpack(pool)}
+
+    -- choose one (safe integer)
+    local chosen_idx = math.floor(pseudorandom(pseudoseed("harmonic")) * #booster_card.local_pool) + 1
+    local chosen_key = booster_card.local_pool[chosen_idx]
+
+    -- remove so it won’t repeat
+    table.remove(booster_card.local_pool, chosen_idx)
+
+    -- spawn
+    local chosen_rarity = (G.P_CENTERS[chosen_key] and G.P_CENTERS[chosen_key].rarity) or "c"
+    local target_area = G.pack_cards or G.consumeables
+    return create_card("Consumable", target_area, chosen_rarity, nil, true, true, chosen_key, nil)
+end,
+
+
+    ease_background_colour = function(self)
+        ease_colour(G.C.DYN_UI.MAIN, G.C.DCKST_HARMONIC_ORANGE)
+        ease_background_colour{new_colour = G.C.DCKST_HARMONIC_ORANGE, special_colour = HEX("FFF1DE"), contrast = 2}
+    end,
 }

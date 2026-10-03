@@ -13,6 +13,9 @@ G.GAME.consumeable_usage_total.dckst_catarot = G.GAME.consumeable_usage_total.dc
 if card.config.center.set == 'Catarot' then 
     G.GAME.consumeable_usage_total = G.GAME.consumeable_usage_total or {}
     G.GAME.consumeable_usage_total.dckst_catarot = (G.GAME.consumeable_usage_total.dckst_catarot or 0) + 1
+    if SMODS.dckst_periwinkle_recalc then
+        SMODS.dckst_periwinkle_recalc()
+    end
     G.E_MANAGER:add_event(Event({
         trigger = 'immediate',
         func = function()

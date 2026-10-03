@@ -4,15 +4,18 @@
   "display_name": "decksterity.",
   "author": [
     "mariopuff",
-    "UN4YA"
+    "UN4YA",
+    "CzarIsActual",
+    "interseer"
+
 ],
   "description": "Subminimal Team's Balatro mod. We hope it's balanced. Hopefully.",
   "prefix": "dckst",
   "main_file": "main.lua",
-  "priority": 97,
+  "priority": 23,
   "badge_colour": "ff746c",
   "badge_text_colour": "FFF1DE",
-  "version": "5.1",
+  "version": "6-alpha",
   "requires-steamodded": true,
   "requires-talisman": true,
   "dependencies" : [

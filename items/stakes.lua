@@ -1,16 +1,4 @@
-local set_cost_ref = Card.set_cost
-function Card.set_cost(self)
-    set_cost_ref(self)  -- vanilla logic runs first; self.cost is now the baseline
-
-    if  G.GAME
-    and G.GAME.modifiers.dandy_booster_per_ante
-    and self.ability
-    and self.ability.set == 'Booster'
-    then
-        -- G.GAME.round_resets.ante holds the current ante number (1–8)
-        self.cost = self.cost + (G.GAME.round_resets.ante or 0)
-    end
-end
+-- Card.set_cost hook consolidated - see line ~465 for full implementation
 
 SMODS.Stake({
     key = 'dandy',
@@ -465,6 +453,18 @@ SMODS.Stake {
 local orig_set_cost = Card.set_cost
 function Card.set_cost(self, ...)
     orig_set_cost(self, ...)  -- run vanilla logic first
+    
+    -- Dandy stake: add cost based on ante for boosters
+    if  G.GAME
+    and G.GAME.modifiers.dandy_booster_per_ante
+    and self.ability
+    and self.ability.set == 'Booster'
+    then
+        -- G.GAME.round_resets.ante holds the current ante number (1–8)
+        self.cost = self.cost + (G.GAME.round_resets.ante or 0)
+    end
+    
+    -- Platina stake: zero out sell cost for jokers
     if G.GAME and G.GAME.platina_stake_active
         and self.ability and self.ability.set == 'Joker' then
         self.sell_cost = 0

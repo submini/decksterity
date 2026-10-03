@@ -43,3 +43,8 @@ SMODS.Shader{
     key = 'grainy',
     path = 'grainy.fs'
 }
+
+SMODS.Shader{
+    key = 'vhs',
+    path = 'vhs.fs'
+}

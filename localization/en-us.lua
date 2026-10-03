@@ -75,7 +75,8 @@ return {
                 text = {
                     'Jokers in the shop have',
                     'a fixed {C:green}1 in 4{} chance to',
-                    'get a {C:attention,T:dckst_smiley,T_vars:9}Smiley{} sticker',
+                    'get a {C:attention}Smiley{} sticker',
+                    -- T:dckst_smiley later
                 },
             },
             b_dckst_twin = {
@@ -561,6 +562,197 @@ return {
                     'at least #1# face cards'
                 }
             },
+            bl_dckst_chartreuse_coin = {
+                name = 'Chartreuse Coin',
+                text = {
+                    'X$0.97 when a card scores'
+                }
+            },
+            bl_dckst_silver_shield = {
+                name = 'Silver Shield',
+                text = {
+                    'X#1# blind requirements',
+                    'when a card scores'
+                }
+            },
+            bl_dckst_sapphire_sword = {
+                name = 'Sapphire Sword',
+                text = {
+                    'Base Chips and Mult',
+                    'are set to #1#'
+                }
+            },
+            bl_dckst_vermillion_rose = {
+                name = 'Vermillion Rose',
+                text = {
+                    'Final Mult is divided by',
+                    'the sum of remaining',
+                    'Hands and Discards',
+                    '{C:inactive}(Does nothing when 0){}'
+                }
+            },
+            bl_dckst_dandelion_arrow = {
+                name = 'Dandelion Arrow',
+                text = {
+                    'The #1# leftmost Jokers',
+                    'are permanently debuffed'
+                }
+            },
+            bl_dckst_periwinkle_feline = {
+                name = 'Periwinkle Feline',
+                text = {
+                    'X#1# score requirement per',
+                    'Catarot used this run'
+                }
+            },
+            bl_dckst_pyrite_ball = {
+                name = 'Pyrite Ball',
+                text = {
+                    'All Jokers and playing',
+                    'cards debuffed until #1#',
+                    'consumables used'
+                }
+            },
+            bl_dckst_tyler_the_finisher = {
+                name = 'Tyler, The Finisher',
+                text = {
+                    'Every scoring hand is randomly',
+                    'replaced with another valid',
+                    'poker hand of a lower rank'
+                }
+            },
+            bl_dckst_amethyst_amulet = {
+                name = 'Amethyst Amulet',
+                text = {
+                    'When cards are discarded,',
+                    'half of them rounded up',
+                    'are destroyed'
+                }
+            },
+            bl_dckst_leafy_limit = {
+                name = 'Leafy Limit',
+                text = {
+                    '#1# card selection limit,',
+                    '#1# hand size'
+                }
+            },
+            bl_dckst_onyx_obelisk = {
+                name = 'Onyx Obelisk',
+                text = {
+                    'When hand type is',
+                    'already played, X#1#',
+                    'base Chips and Mult',
+                    '{C:inactive}(stacks){}'
+                }
+            },
+            bl_dckst_diamond_die = {
+                name = 'Diamond Die',
+                text = {
+                    'Hand must contain',
+                    'a #1#, rank changes',
+                    'every hand'
+                }
+            },
+            bl_dckst_fervent_fern = {
+                name = 'Fervent Fern',
+                text = {
+                    'All cards debuffed until',
+                    '#1# cards played'
+                }
+            },
+            bl_dckst_hypnotic_haze = {
+                name = 'Hypnotic Haze',
+                text = {
+                    'All Jokers are face down,',
+                    'all Jokers and playing cards',
+                    'randomly change position',
+                    'every 3 in-game seconds'
+                }
+            },
+            bl_dckst_calculator_core = {
+                name = 'Calculator Core',
+                text = {
+                    'Sum of all played cards\'',
+                    'nominal value must be',
+                    'between #1# and #2#'
+                }
+            },
+            bl_dckst_shorted_signal = {
+                name = 'Shorted Signal',
+                text = {
+                    'If played hand exceeds',
+                    '#1#% of required score,',
+                    'lose the run'
+                }
+            },
+            bl_dckst_malignant_monument = {
+                name = 'Malignant Monument',
+                text = {
+                    'Ridiculously large blind'
+                }
+            },
+            bl_dckst_total_terminal = {
+                name = 'Total Terminal',
+                text = {
+                    'All {X:mult,C:white}XMult{} Jokers',
+                    'are debuffed (If possible)'
+                }
+            },
+            bl_dckst_versatile_versine = {
+                name = 'Versatile Versine',
+                text = {
+                    'X#1# Chips every time',
+                    'a card scores, X#2#',
+                    'Mult every time a',
+                    'a Joker triggers'
+                }
+            },
+            bl_dckst_withering_well = {
+                name = 'Withering Well',
+                text = {
+                    'Money is halved at',
+                    'the end of every',
+                    'hand played (Rounded down)'
+                }
+            },
+            bl_dckst_molten_mass = {
+                name = 'Molten Mass',
+                text = {
+                    'Played cards lose all',
+                    'Enhancements, Seals,',
+                    'and Editions before scoring'
+                }
+            },
+            bl_dckst_gravity_gate = {
+                name = 'Gravity Gate',
+                text = {
+                    'Hand size is halved',
+                    '(Rounded down)'
+                }
+            },
+            bl_dckst_astral_alignment = {
+                name = 'Astral Alignment',
+                text = {
+                    'Hand will not score', 
+                    'if hand is above level #1#'
+                }
+            },
+            bl_dckst_cosmic_ceiling = {
+                name = 'Cosmic Ceiling',
+                text = {
+                    'All played cards are',
+                    'permanently debuffed'
+                }
+            },
+            bl_dckst_primordial_pulse = {
+                name = 'Primordial Pulse',
+                text = {
+                    'Debuffs half of the deck',
+                    'and half of all Jokers',
+                    'at random, rerolls',
+                    'every hand'
+                }
+            },
         },
         Joker = {
             j_dckst_fiesta = {
@@ -667,7 +859,7 @@ return {
                 }
             },
             j_dckst_lilmaxey = {
-                name = "lil' maxey!",
+                name = "{C:dark_edition,E:dckst_rainbow_wiggle}lil' maxey!{}",
                 text = {
                     'Jokers to the {C:attention}left{} of',
                     '{E:1}this cat{} give {X:mult,C:white}X#1#{} Mult{},',
@@ -966,29 +1158,1327 @@ return {
                 '{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}'
             }
         },
-
+        j_dckst_aura_farming_h1 = {
+            name = "Aura Farming",
+            text = {
+                'Every {C:attention}scored{} {C:enhanced}enhanced{}',
+                'card gives {C:mult}+#1#{} Mult'
+            }
+        },
+        j_dckst_aura_farming_h2 = {
+            name = "Aura Farming",
+            text = {
+                'Every {C:attention}scored{} {C:enhanced}enhanced{}',
+                'card gives {X:mult,C:white}X#1#{} Mult'
+            }
+        },
+        j_dckst_aura_farming_h3 = {
+            name = "Aura Farming",
+            text = {
+                'Every {C:attention}scored{} {C:enhanced}enhanced{}',
+                'card gives {X:dark_edition,C:white}^#1#{} Mult'
+            }
+        },
+        j_dckst_permutation = {
+            name = 'Permutation',
+            text = {
+                'Gives {C:chips}Chips{} equal to',
+                '{C:attention}P(n, r){}, where {C:attention}n{} is cards',
+                'played and {C:attention}r{} is scoring cards',
+            }
+        },
+        j_dckst_wooden_ruler_h1 = {
+            name = 'Wooden Ruler',
+            text = {
+                'This Joker gains {C:mult}+#1#{} Mult if',
+                'played hand contains a {C:attention}Straight{},',
+                'loses {C:red}-#2#{} Mult otherwise'
+            }
+        },
+        j_dckst_wooden_ruler_h2 = {
+            name = 'Wooden Ruler',
+            text = {
+                'This Joker gains {X:mult,C:white}+X0.5{} Mult if',
+                'played hand contains a {C:attention}Straight{},',
+                'loses {X:red,C:white}-X0.5{} Mult otherwise',
+                '{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult){}'
+            }
+        },
+        j_dckst_wooden_ruler_h3 = {
+            name = 'Wooden Ruler',
+            text = {
+                'This Joker gains {X:dark_edition,C:white}+^0.5{} Mult',
+                'power if played hand contains a',
+                '{C:attention}Straight{}, loses {C:white,X:dark_edition}-^0.5{} Mult otherwise',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#1#{}{C:inactive} Mult){}'
+            }
+        },
+        j_dckst_michael_here = {
+            name = 'Michael here!',
+            text = {
+                'Copies the ability of',
+                'the {C:attention}leftmost{} Joker',
+                '{C:inactive,s:0.8}(...Or is it?){}'
+            }
+        },
+        j_dckst_michael_here_h3 = {
+            name = 'Michael here!',
+            text = {
+                'Copies the ability of',
+                'the {C:attention}leftmost{} Joker {C:attention}twice{}',
+                '{C:inactive,s:0.8}(...Or is it?){}'
+            }
+        },
+        j_dckst_thermometer = {
+            name = 'Thermometer',
+            text = {
+                '{C:hearts}Light{} suits {C:red}+0.5{} temp,',
+                '{C:clubs}Dark{} suits {C:blue}-0.5{} temp',
+                'Positive temp gives {X:mult,C:white}XMult{},',
+                'negative gives {X:chips,C:white}XChips{}',
+                '{C:inactive}(Currently {C:attention}#1#{}: {X:attention,C:white}X#2#{} #3#){}'
+            }
+        },
+        j_dckst_thermometer_h3 = {
+            name = 'Thermometer',
+            text = {
+                '{C:hearts}Light{} suits {C:red}+0.5{} temp,',
+                '{C:clubs}Dark{} suits {C:blue}-0.5{} temp',
+                'Positive temp gives {C:white,X:dark_edition}^Mult{},',
+                'negative gives {C:white,X:dark_edition}^Chips{}',
+                '{C:inactive}(Currently {C:attention}#1#{}: {C:white,X:dark_edition}^#2#{} #3#){}'
+            }
+        },
+        j_dckst_lebron_james_h1 = {
+            name = 'LeBron James',
+            text = {
+                'Every scored {C:attention}2{}, {C:attention}3{}, {C:attention}6{}, or {C:attention}King{}',
+                'gives {X:mult,C:white}X#1#{} Mult, LeBron',
+                'also gives {X:mult,C:white}X#2#{} Mult'
+            }
+        },
+        j_dckst_lebron_james_h2 = {
+            name = 'LeBron James',
+            text = {
+                'Every scored {C:attention}2{}, {C:attention}3{}, {C:attention}6{}, or {C:attention}King{}',
+                'gives {X:mult,C:white}X#1#{} Mult, LeBron',
+                'also gives {X:mult,C:white}X#2#{} Mult'
+            }
+        },
+        j_dckst_lebron_james_h3 = {
+            name = 'LeBron James',
+            text = {
+                'Every scored {C:attention}2{}, {C:attention}3{}, {C:attention}6{}, or {C:attention}King{}',
+                'gives {C:white,X:dark_edition}^#1#{} Mult, LeBron',
+                'also gives {C:white,X:dark_edition}^#2#{} Mult'
+            }
+        },
+        j_dckst_sinusoidal = {
+            name = 'Sinusoidal Joker',
+            text = {
+                'Gives {X:mult,C:white}XMult{} equal to',
+                '{C:attention}1 + |sin(v) + cos(v^2)|{},',
+                '{C:inactive,s:0.7}(where {C:attention,s:0.7}v{C:inactive,s:0.7} is the total nominal{}',
+                '{C:inactive,s:0.7}value of scoring cards in radians)',
+                '{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult){}'
+            }
+        },
+        j_dckst_subspace_tripmine = {
+            name = 'Subspace Tripmine',
+            text = {
+                'All {C:attention}face cards{} in hand have a',
+                '{C:green}#1# in #2#{} chance to be destroyed',
+                'and give {C:money}$#3#{} after scoring'
+            }
+        },
+        j_dckst_subspace_tripmine_h2 = {
+            name = 'Subspace Tripmine',
+            text = {
+                'All {C:attention}face cards{} in hand have a',
+                '{C:green}#1# in #2#{} chance to be destroyed',
+                'and give {C:white,X:money}X$#3#{} after scoring'
+            }
+        },
+        j_dckst_subspace_tripmine_h3 = {
+            name = 'Subspace Tripmine',
+            text = {
+                'All {C:attention}face cards{} in hand have a',
+                '{C:green}#1# in #2#{} chance to be destroyed',
+                'and give {C:white,X:money}X$#3#{} after scoring'
+            }
+        },
+        j_dckst_icbm = {
+            name = 'ICBM',
+            text = {
+                '{C:green}#1# in #2#{} chance to destroy',
+                'all cards in hand and give',
+                '{C:white,X:money}X$#3#{} after scoring'
+            }
+        },
+        j_dckst_icbm_h2 = {
+            name = 'ICBM',
+            text = {
+                '{C:green}#1# in #2#{} chance to destroy',
+                'all cards in hand and give',
+                '{C:white,X:money}X$#3#{} after scoring'
+            }
+        },
+        j_dckst_icbm_h3 = {
+            name = 'ICBM',
+            text = {
+                '{C:green}#1# in #2#{} chance to destroy',
+                'all cards in hand and give',
+                '{C:white,X:money}X$#3#{} after scoring'
+            }
+        },
+        j_dckst_stephenson_218 = {
+            name = 'Stephenson 2-18',
+            text = {
+                'Gives {X:mult,C:white}X#1#{} Mult for every',
+                'card remaining in deck',
+                '{C:inactive}(Currently {C:attention}#2#{}{C:inactive} cards,',
+                '{X:mult,C:white}X#3#{}{C:inactive} Mult){}'
+            }
+        },
+        j_dckst_mart = {
+            name = 'Mart',
+            text = {
+                'Does {C:attention,E:1}nothing{}',
+                '{C:attention}+#4#{} Joker slots'
+            }
+        },
+        j_dckst_weeesta = {
+            name = 'Wee-esta!',
+            text = {
+                'This Joker gains {C:chips}+#1#{} Chips when a',
+                '{C:clubs}Club{} is scored, {C:mult}+#2#{} Mult when a',
+                '{C:hearts}Heart{} is scored, and {C:money}+$#3#{} when a',
+                '{C:diamonds}Diamond{} is scored',
+                '{C:inactive}(Currently {C:chips}+#4#{}{C:inactive} Chips, {C:mult}+#5#{}{C:inactive} Mult, {C:money}+$#6#{}{C:inactive}){}'
+            }
+        },
+        j_dckst_covalent_bond = {
+            name = 'Covalent Bond',
+            text = {
+                'This Joker gains',
+                '{X:mult,C:white}+X#1#{} Mult for',
+                'every {C:attention}pair{} of cards',
+                'with the same {C:attention}rank{}',
+                'in played hand',
+                '{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}'
+            }
+        },
+        j_dckst_covalent_bond_h3 = {
+            name = 'Covalent Bond',
+            text = {
+                'This Joker gains',
+                '{C:white,X:dark_edition}+^#1#{} Mult for',
+                'every {C:attention}pair{} of cards',
+                'with the same {C:attention}rank{}',
+                'in played hand',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{}{C:inactive} Mult){}'
+            }
+        },
+        j_dckst_overtime = {
+            name = 'Overtime!',
+            text = {
+                'Gives {X:chips,C:white}X#1#{} Chips for every',
+                'remaining hand',
+                '{C:inactive}(Currently {C:attention}#2#{}{C:inactive} left: {X:chips,C:white}X#3#{}{C:inactive} Chips){}'
+            }
+        },
+        j_dckst_overtime_h2 = {
+            name = 'Overtime!',
+            text = {
+                'Gives {X:mult,C:white}X#1#{} Mult for every',
+                'remaining hand',
+                '{C:inactive}(Currently {C:attention}#2#{}{C:inactive} left: {X:mult,C:white}X#3#{}{C:inactive} Mult){}'
+            }
+        },
+        j_dckst_overtime_h3 = {
+            name = 'Overtime!',
+            text = {
+                'Gives {C:white,X:dark_edition}^#1#{} Chips for every',
+                'remaining hand',
+                '{C:inactive}(Currently {C:attention}#2#{}{C:inactive} left: {C:white,X:dark_edition}^#3#{}{C:inactive} Chips){}'
+            }
+        },
+        j_dckst_isotope = {
+            name = 'Isotope',
+            text = {
+                'Every time this',
+                'Joker is {C:attention}triggered{},',
+                'it gains {C:white,X:mult}+X#1#{} Mult',
+                '{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_isotope_h2 = {
+            name = 'Isotope',
+            text = {
+                'Every time this',
+                'Joker is {C:attention}triggered{},',
+                'it gains {C:white,X:mult}+X#1#{} Mult',
+                '{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_isotope_h3 = {
+            name = 'Isotope',
+            text = {
+                'Every time this',
+                'Joker is {C:attention}triggered{},',
+                'it gains {C:white,X:dark_edition}+^#1#{} Mult',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_entropy = {
+            name = 'Entropy',
+            text = {
+                'Gives {C:mult}+#1#{} Mult for every',
+                '{C:attention}unique{} rank in played hand'
+            }
+        },
+        j_dckst_entropy_h2 = {
+            name = 'Entropy',
+            text = {
+                'Gives {X:mult,C:white}X#1#{} Mult for every',
+                '{C:attention}unique{} rank in played hand'
+            }
+        },
+        j_dckst_entropy_h3 = {
+            name = 'Entropy',
+            text = {
+                'Gives {X:dark_edition,C:white}^#1#{} Mult for every',
+                '{C:attention}unique{} rank in played hand'
+            }
+        },
+        j_dckst_toaster = {
+            name = 'Toaster',
+            text = {
+                'When a card is {C:red}discarded{},',
+                '{C:green}#1# in #2#{} chance for it',
+                'to be given a permanent',
+                '{C:mult}+#3#{} Mult bonus'
+            }
+        },
+        j_dckst_toaster_h2 = {
+            name = 'Toaster',
+            text = {
+                'When a card is {C:red}discarded{},',
+                '{C:green}#1# in #2#{} chance for it',
+                'to be given a permanent',
+                '{C:mult}+#3#{} Mult bonus'
+            }
+        },
+        j_dckst_toaster_h3 = {
+            name = 'Toaster',
+            text = {
+                'When a card is {C:red}discarded{},',
+                '{C:green}#1# in #2#{} chance for it',
+                'to be given a permanent',
+                '{C:mult}+#3#{} Mult bonus'
+            }
+        },
+        j_dckst_power_set = {
+            name = 'Power Set',
+            text = {
+                'Gives {C:mult}+{C:inactive}2^{C:attention}c{}{C:inactive} = {C:mult}+#1#{} Mult,',
+                'where {C:attention}c{} is the number',
+                'of {C:attention}unique{} ranks in',
+                'played hand'
+            }
+        },
+        j_dckst_power_set_h3 = {
+            name = 'Power Set',
+            text = {
+                'Gives {C:white,X:dark_edition}^{C:inactive}(2^{C:attention}c{}{C:inactive}) = {C:white,X:dark_edition}^#1#{} Mult,',
+                'where {C:attention}c{} is the number',
+                'of {C:attention}unique{} ranks in',
+                'played hand'
+            }
+        },
+        j_dckst_fuke = {
+            name = 'Fuke',
+            text = { { '{C:inactive,E:1}Delicious classic!' }, { 
+                '{C:white,X:dckst_blindsize}X#1#{} Blind size for', 'every card scored',
+                '{C:inactive}(Blind size will be {C:dckst_blindsize}#3#{C:inactive},',
+                '{C:inactive}if all cards score)'
+             } }
+        },
+        j_dckst_benny = {
+            name = 'benny',
+            text = {
+                -- k_dckst_benny_line1 goes here
+                -- k_dckst_benny_line2 goes here
+                'of Blind size, {C:red,E:2}self-destructs{}',
+                '{C:inactive}(percentage changes randomly',
+                '{C:inactive}every in-game second)'
+            }
+        },
+        j_dckst_abraham_lincoln = {
+            name = 'Abraham Lincoln',
+            text = { {
+                'All cards have a {C:green}#1# in #2#{}',
+                'chance to be {C:attention,E:1}rescored{}', },
+                { '{C:inactive,s:0.5}(Four score and seven years ago our fathers',
+                '{C:inactive,s:0.5}brought forth upon this continent, a new nation,',
+                '{C:inactive,s:0.5}conceived in Liberty, and dedicated to the',
+                '{C:inactive,s:0.5}proposition that all men are created equal.)' }
+            }
+        },
+        j_dckst_plan_b = {
+            name = 'Plan B',
+            text = {
+                '{C:attention}+#1#{} card selection limit',
+                'when less than {C:attention}#2#{} hands',
+                'remaining'
+            }
+        },
+        j_dckst_plan_b_h2 = {
+            name = 'Plan B',
+            text = {
+                '{C:attention}+#1#{} card selection limit',
+                'when less than {C:attention}#2#{} hands',
+                'remaining'
+            }
+        },
+        j_dckst_plan_b_h3 = {
+            name = 'Plan B',
+            text = {
+                '{C:attention}+#1#{} card selection limit',
+                'when less than {C:attention}#2#{} hands',
+                'remaining'
+            }
+        },
+        j_dckst_null_set = {
+            name = 'Null Set',
+            text = {
+                '{C:mult}X#1#{} Mult if no {C:red}discards{}',
+                'are used this round'
+            }
+        },
+        j_dckst_null_set_h2 = {
+            name = 'Null Set',
+            text = {
+                '{C:mult}X#1#{} Mult if no {C:red}discards{}',
+                'are used this round'
+            }
+        },
+        j_dckst_null_set_h3 = {
+            name = 'Null Set',
+            text = {
+                '{C:white,X:dark_edition}^#1#{} Mult if no {C:red}discards{}',
+                'are used this round'
+            }
+        },
+        j_dckst_ventilation_fan = {
+            name = "Ventilation Fan",
+            text = {
+                "Cycles through {C:attention}7{} events,",
+                "changes when round ends",
+                "{C:inactive}(Currently {C:white,X:attention}#1#{C:inactive})",
+            }
+        },
+        j_dckst_troposphere = {
+            name = "troposphere",
+            text = {
+                { '{C:attention,E:1}Levels up{} the most played', 'hand by {C:attention}#1#{} level(s) when', '{C:attention}one-shotting{} a Blind' }, 
+                { '{C:attention}One-shot{} a Blind {C:attention}#2#{} {C:inactive}[#3#]{}', 'times to move onto the', 'next level {C:inactive}(stratosphere)' }
+            }
+        },
+        j_dckst_stratosphere = {
+            name = 'stratosphere',
+            text = {
+                { 'This Joker gains {X:mult,C:white}+X#1#{} Mult', 'when hand played and', '{C:red,E:2}destroys{} {C:attention}leftmost{} Joker', '{C:inactive}(excluding itself)', '{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)' },
+                { 'Destroy {C:attention}#2#{} {C:inactive}[#3#]{} Jokers', 'to move onto the', 'next level {C:inactive}(mesosphere)' }
+            }
+        },
+        j_dckst_stratosphere_h3 = {
+            name = 'stratosphere',
+            text = {
+                { 'This Joker gains {X:dark_edition,C:white}+^#1#{} Mult', 'when hand played and', '{C:red,E:2}destroys{} {C:attention}leftmost{} Joker', '{C:inactive}(excluding itself)', '{C:inactive}(Currently {X:dark_edition,C:white}^#4#{C:inactive} Mult)' },
+                { 'Destroy {C:attention}#2#{} {C:inactive}[#3#]{} Jokers', 'to move onto the', 'next level {C:inactive}(mesosphere)' }
+            }
+        },
+        j_dckst_mesosphere = {
+            name = 'mesosphere',
+            text = {
+                { '{C:attention,E:1}Rescores{} the {C:attention}leftmost{} and', '{C:attention}rightmost{} cards in hand', 'twice and gains {C:white,X:mult}+X#1#{}', 'Mult for each rescore', '{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)' },
+                { 'Rescore {C:attention}#2#{} {C:inactive}[#3#]{} cards to', 'move onto the next', 'level {C:inactive}(thermosphere)' }
+            }
+        },
+        j_dckst_mesosphere_h3 = {
+            name = 'mesosphere',
+            text = {
+                { '{C:attention,E:1}Rescores{} the {C:attention}leftmost{} and', '{C:attention}rightmost{} cards in hand', 'twice and gains {C:white,X:dark_edition}+^#1#{}', 'Mult for each rescore', '{C:inactive}(Currently {X:dark_edition,C:white}^#4#{C:inactive} Mult)' },
+                { 'Rescore {C:attention}#2#{} {C:inactive}[#3#]{} cards to', 'move onto the next', 'level {C:inactive}(thermosphere)' }
+            }
+        },
+        j_dckst_thermosphere = {
+            name = 'thermosphere',
+            text = {
+                {'Scored cards with {C:attention}light', '{C:attention}suits{} add {C:white,X:purple}+X#1#{} Score', 'to this Joker', '{C:inactive}(Currently {X:purple,C:white}X#4#{C:inactive} Score)' },
+                { 'Score {C:attention}#2#{} {C:inactive}[#3#]{} {C:attention}light-suited', 'cards to move onto the', ' final level {C:inactive}(exosphere)' }
+            }
+        },
+        j_dckst_thermosphere_h3 = {
+            name = 'thermosphere',
+            text = {
+                {'Scored cards with {C:attention}light', '{C:attention}suits{} add {C:white,X:dark_edition}+^#1#{} Score', 'to this Joker', '{C:inactive}(Currently {X:dark_edition,C:white}^#4#{C:inactive} Score)' },
+                { 'Score {C:attention}#2#{} {C:inactive}[#3#]{} {C:attention}light-suited', 'cards to move onto the', ' final level {C:inactive}(exosphere)' }
+            }
+        },
+        j_dckst_exosphere = {
+            name = 'exosphere',
+            text = {
+                'This Joker gains {C:white,X:mult}+X#2#{}',
+                'Mult when {X:attention,C:white}anything{} happens',
+                '{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)',
+                '{C:inactive,s:0.7}Tetratia you madlad{}'
+            }
+        },
+        j_dckst_exosphere_h3 = {
+            name = 'exosphere',
+            text = {
+                'This Joker gains {C:white,X:dark_edition}+^#2#{}',
+                'Mult when {X:attention,C:white}anything{} happens',
+                '{C:inactive}(Currently {X:dark_edition,C:white}^#1#{C:inactive} Mult)',
+                '{C:inactive,s:0.7}Tetratia you madlad{}'
+            }
+        },
+        j_dckst_scott_here = {
+            name = 'Scott here!',
+            text = {
+                'This Joker gains {C:chips}+#1#',
+                'Chips whenever {C:chips}Chips{} are',
+                '{C:attention}modified{} in any way',
+                '{C:inactive,s:0.8}(exclusing himself)',
+                '{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)',
+            }
+        },
+        j_dckst_scott_here_h2 = {
+            name = 'Scott here!',
+            text = {
+                'This Joker gains {C:white,X:chips}+X#1#',
+                'Chips whenever {C:chips}Chips{} are',
+                '{C:attention}modified{} in any way',
+                '{C:inactive,s:0.8}(exclusing himself)',
+                '{C:inactive}(Currently {C:white,X:chips}X#2#{C:inactive} Chips)',
+            }
+        },
+        j_dckst_scott_here_h3 = {
+            name = 'Scott here!',
+            text = {
+                'This Joker gains {C:white,X:dark_edition}+^#1#',
+                'Chips whenever {C:chips}Chips{} are',
+                '{C:attention}modified{} in any way',
+                '{C:inactive,s:0.8}(exclusing himself)',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Chips)',
+            }
+        },
+        j_dckst_cfh = {
+            name = 'Cowboy From Hell',
+            text = {
+                'If the amount of {C:blue}hands{}',
+                'left equals {C:attention}#1#, {X:mult,C:white}X#2#{} Mult',
+                'and {C:chips}+#3#{} Chips'
+            }
+        },
+        j_dckst_smileghost = {
+            name = 'smileghost',
+            text = {
+                '{C:green}#1# in #2#{} chance to give {C:attention}+#3#{}',
+                '{C:red}Discard(s){} when at least {C:attention}#7#',
+                'cards are discarded, {C:green}#4# in #5#{}',
+                'chance to give {C:attention}+#6#{} {C:blue}Hand(s){} when',
+                'at least {C:attention}#7#{} cards are played'
+            }
+        },
+        j_dckst_blonk = {
+            name = 'blonk',
+            text = {
+                'This nextbot will {C:attention,E:1}jump{} after',
+                'hand is played, jumping height',
+                'will be {C:attention}added{} to {X:mult,C:white}XMult{} and',
+                'given in the same hand',
+                '{C:inactive}(X#1#-X#2#)',
+                '{C:inactive}(Currently {C:white,X:mult}X#3#{C:inactive} Mult)',
+            }
+        },
+        j_dckst_blonk_h3 = {
+            name = 'blonk',
+            text = {
+                'This nextbot will {C:attention,E:1}jump{} after',
+                'hand is played, jumping height',
+                'will be {C:attention}added{} to {X:dark_edition,C:white}^Mult{} and',
+                'given in the same hand',
+                '{C:inactive}(^#1#-^#2#)',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#3#{C:inactive} Mult)',
+            }
+        },
+        j_dckst_wavgun = {
+            name = "wavgun",
+            text = {
+                { "Can disable a",
+                "{C:attention}Boss{} Blind {C:attention}#2#{} times",
+                "{C:inactive}({C:attention}#1#{C:inactive}/#2# shots used){}", },
+                { '{C:inactive,s:0.8}Right-click the card to fire!' }
+            }
+        },
+        j_dckst_sunshine = {
+            name = 'sunshine',
+            text = {
+                'When a {C:attention}2{}, {C:attention}3{}, or {C:attention}6{} is',
+                'scored, this nextbot', 'gains {C:white,X:purple}+X#1#{} Score',
+                '{C:inactive}(Currently {C:white,X:purple}X#2#{C:inactive} Score)',
+            }
+        },
+        j_dckst_sunshine_h3 = {
+            name = 'sunshine',
+            text = {
+                'When a {C:attention}2{}, {C:attention}3{}, or {C:attention}6{} is',
+                'scored, this nextbot', 'gains {C:white,X:dark_edition}+^#1#{} Score',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Score)',
+            }
+        },
+        j_dckst_dream = {
+            name = 'dream',
+            text = { 
+                'Randomizes any {C:attention}positive{} change',
+                'to {C:chips}Chips{}, {C:mult}Mult{}, or {C:purple}Score{}',
+                'from {X:attention,C:white}X1{} to {X:attention,C:white}X100{}'
+             }
+        },
+        j_dckst_liminesque = {
+            name = 'liminesque',
+            text = {
+                'Score {C:attention}#1#{} {C:inactive}[#2#]{} Straights',
+                'to unlock {X:dark_edition,C:white}^^^#3#{} Mult'
+            }
+        },
+        j_dckst_liminesque_h3 = {
+            name = 'liminesque',
+            text = {
+                'Score {C:attention}#1#{} {C:inactive}[#2#]{} Straights',
+                'to unlock {X:dark_edition,C:white}^^^^#3#{} Mult'
+            }
+        },
+        j_dckst_speed_coil = {
+            name = 'speed coil',
+            text = {
+                'Gains {C:white,X:mult}+X#1#{} Mult for',
+                'every {C:attention}game speed{} unit',
+                'when hand is played',
+                '{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)',
+            }
+        },
+        j_dckst_speed_coil_h3 = {
+            name = 'speed coil',
+            text = {
+                'Gains {C:white,X:dark_edition}+^#1#{} Mult for',
+                'every {C:attention}game speed{} unit',
+                'when hand is played',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Mult)',
+            }
+        },
+        j_dckst_gravity_coil = {
+            name = 'speed coil',
+            text = {
+                'Gains {C:white,X:chips}+X#1#{} Chips for',
+                'every {C:attention}game speed{} unit',
+                'when hand is played',
+                '{C:inactive}(Currently {C:white,X:chips}X#2#{C:inactive} Chips)',
+            }
+        },
+        j_dckst_gravity_coil_h3 = {
+            name = 'speed coil',
+            text = {
+                'Gains {C:white,X:dark_edition}+^#1#{} Chips for',
+                'every {C:attention}game speed{} unit',
+                'when hand is played',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Chips)',
+            }
+        },
+        j_dckst_dev_envmap = {
+            name = 'dev_envmap',
+            text = {
+                '{C:inactive}Your Windows system',
+                '{C:inactive}needs to upgrade.'
+            }
+        },
+        j_dckst_polb = {
+            name = 'polb',
+            text = {
+                'Scored {C:attention}dark-suited{} cards add',
+                '{C:white,X:chips}+X#1#{} Chips to this nextbot',
+                '{C:inactive}(Currently {C:white,X:chips}X#2#{C:inactive} Chips)',
+            }
+        },
+        j_dckst_polb_h3 = {
+            name = 'polb',
+            text = {
+                'Scored {C:attention}dark-suited{} cards add',
+                '{C:white,X:dark_edition}+^#1#{} Chips to this nextbot',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Chips)',
+            }
+        },
+        j_dckst_jermias = {
+            name = 'jermias',
+            text = {
+                '{C:white,X:dark_edition}^^#1#{} Mult. Nothing else.',
+                '{C:inactive,s:0.6,E:1}Hehehehahahehehehehehah!'
+            }
+        },
+        j_dckst_follower = {
+            name = 'follower',
+            text = {
+                'Stores final {C:mult}Mult{} amount',
+                'of hand and returns it',
+                'as {C:purple}Score{} next hand'
+            }
+        },
+        j_dckst_follower_h2 = {
+            name = 'follower',
+            text = {
+                'Stores final {C:mult}Mult{} amount',
+                'of hand, divides it by',
+                '{C:attention}#1#{}, and returns it',
+                'as {C:white,X:purple}XScore{} next hand'
+            }
+        },
+        j_dckst_follower_h3 = {
+            name = 'follower',
+            text = {
+                'Stores final {C:mult}Mult{} amount',
+                'of hand, divides it by',
+                '{C:attention}#1#{}, and returns it',
+                'as {C:white,X:dark_edition}^Score{} next hand'
+            }
+        },
+        j_dckst_morevariedpathfinder = {
+            name = 'morevariedpathfinder'
+        },
+        j_dckst_hopper = {
+            name = 'hopper',
+            text = {
+                'Hops every {C:attention}in-game second{},',
+                'returns hops amount as {C:mult}Mult',
+                '{C:inactive}(Hopped {C:attention}#1#{C:inactive} times)'
+            }
+        },
+        j_dckst_cootie = {
+            name = 'cootie',
+            text = {
+                'This nextbot gains {X:mult,C:white}+X#1#{} Mult',
+                'whenever a {C:dckst_nico_green}nico\'s nextbots{}', 
+                'Joker triggers',
+                '{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)',
+            }
+        },
+        j_dckst_cootie_h3 = {
+            name = 'cootie',
+            text = {
+                'This nextbot gains {X:dark_edition,C:white}+^#1#{} Mult',
+                'whenever a {C:dckst_nico_green}nico\'s nextbots{}', 
+                'Joker triggers',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Mult)',
+            }
+        },
+        j_dckst_jess = {
+            name = { 'jess', '{s:0.5}(maxwell)' },
+            text = {
+                'This nextbot completes a',
+                '{C:attention}revolution{} every {C:attention}#3#{} in-game',
+                'seconds, gives {X:purple,C:white}X#1#{} Score',
+                'per revolutions completed',
+                '{C:inactive}({C:attention}#2#{C:inactive} revolutions, {X:purple,C:white}X#4#{C:inactive} Score)',
+            }
+        },
+        j_dckst_jess_h3 = {
+            name = { 'jess', '{s:0.5}(maxwell)' },
+            text = {
+                'This nextbot completes a',
+                '{C:attention}revolution{} every {C:attention}#3#{} in-game',
+                'seconds, gives {X:dark_edition,C:white}^#1#{} Score',
+                'per revolutions completed',
+                '{C:inactive}({C:attention}#2#{C:inactive} revolutions, {X:dark_edition,C:white}^#4#{C:inactive} Score)',
+            }
+        },
+        j_dckst_screensaver = {
+            name = 'screensaver',
+            text = {
+                'When this nextbot is {C:attention}in possession,',
+                'spawns random {C:red,E:2}error messages',
+                'throughout the screen. Gains {C:white,X:mult}+X#1#{}', 
+                'Mult per {C:attention}window closed',
+                '{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)',
+            }
+        },
+        j_dckst_screensaver_h3 = {
+            name = 'screensaver',
+            text = {
+                'When this nextbot is {C:attention}in possession,',
+                'spawns random {C:red,E:2}error messages',
+                'throughout the screen. Gains {C:white,X:dark_edition}+^#1#{}', 
+                'Mult per {C:attention}window closed',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Mult)',
+            }
+        },
+        j_dckst_sprite_cranberry = {
+            name = 'Sprite Cranberry',
+            text = {
+                'When an {C:uncommon}Uncommon{} or {C:rare}Rare{}', 
+                'Joker {C:attention}triggers{}, gain {C:white,X:mult}+X#1#{} Mult',
+                '{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)',
+                '{C:inactive,s:0.6}It\'s the thir- thirstiest time, of the year!',
+            }
+        },
+         j_dckst_sprite_cranberry_h3 = {
+            name = 'Sprite Cranberry',
+            text = {
+                'When an {C:uncommon}Uncommon{} or {C:rare}Rare{}', 
+                'Joker {C:attention}triggers{}, gain {C:white,X:dark_edition}+^#1#{} Mult',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Mult)',
+                '{C:inactive,s:0.6}It\'s the thir- thirstiest time, of the year!',
+            }
+        },
 
         -- H JOKERS
         j_dckst_majuscule = {
             name = "Majuscule",
             text = {
                 '{X:mult,C:white}X#1#{} Mult if played',
-                'hand contains a {C:attention}Striaght{}'
+                'hand contains a {C:attention}Straight{}'
             }
         },
         j_dckst_miniscule = {
             name = "Miniscule",
             text = {
                 '{X:chips,C:white}X#1#{} Chips if played',
-                'hand contains a {C:attention}Striaght{}'
+                'hand contains a {C:attention}Straight{}'
+            }
+        },
+        j_dckst_fraktur = {
+            name = 'Fraktur',
+            text = {
+                '{C:attention,E:1}Rescores{} all scoring cards',
+                'once if played hand',
+                'contains a {C:attention}Straight{}'
+            }
+        },
+        j_dckst_superscript = {
+            name = 'Superscript',
+            text = {
+                '{X:purple,C:white}X#1#{} Score per card',
+                'played if played hand',
+                'contains a {C:attention}Straight{}'
+            }
+        },
+        j_dckst_superscript_h2 = {
+            name = 'Superscript',
+            text = {
+                '{X:purple,C:white}X#1#{} Score per card',
+                'played if played hand',
+                'contains a {C:attention}Straight{}'
+            }
+        },
+        j_dckst_superscript_h3 = {
+            name = 'Superscript',
+            text = {
+                '{C:white,X:dark_edition}^#1#{} Score per card',
+                'played if played hand',
+                'contains a {C:attention}Straight{}'
+            }
+        },
+        j_dckst_subscript = {
+            name = 'Subscript',
+            text = {
+                'This H gains {X:purple,C:white}+X#1#{} Score',
+                'every {C:attention}third{} card scored if',
+                'played hand contains a {C:attention}Straight{}',
+                '{C:inactive}(Currently {X:purple,C:white}X#2#{C:inactive} Score)'
+                }
+        },
+        j_dckst_subscript_h2 = {
+            name = 'Subscript',
+            text = {
+                'This H gains {X:purple,C:white}+X#1#{} Score',
+                'every {C:attention}third{} card scored if',
+                'played hand contains a {C:attention}Straight{}',
+                '{C:inactive}(Currently {X:purple,C:white}X#2#{C:inactive} Score)'
+            }
+        },
+        j_dckst_subscript_h3 = {
+            name = 'Subscript',
+            text = {
+                'This H gains {C:white,X:dark_edition}+^#1#{} Score',
+                'every {C:attention}third{} card scored if',
+                'played hand contains a {C:attention}Straight{}',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Score)'
+            }
+        },
+        j_dckst_h_bar = {
+            name = 'H-Bar',
+            text = {
+                'Every in-game second this',
+                'H {C:attention}remains in possession{}, it',
+                'gains {C:white,X:dckst_blindsize}X1.054571817{} units.',
+                'When a {C:attention}Blind{} is selected,',
+                '{C:dckst_blindsize}-#1#{} Blind size'
+            }
+        },
+        j_dckst_aitch = {
+            name = 'Aitch',
+            text = {
+                { '{C:attention}8{}s can now be',
+                'counted as {C:attention}6{}s or {C:attention}7{}s', },
+                { '{C:attention,s:0.7}CTRL + Click{C:inactive,s:0.7} the 8 in hand to', '{C:inactive,s:0.7}change its representative rank!'}
+            }
+        },
+        j_dckst_aitch_h2 = {
+            name = 'Aitch',
+            text = {
+                { '{C:attention}8{}s can now be',
+                'counted as {C:attention}6{}s, {C:attention}7{}s, {C:attention}9{}s,', 'or {C:attention}10{}s' },
+                { '{C:attention,s:0.7}CTRL + Click{C:inactive,s:0.7} the 8 in hand to', '{C:inactive,s:0.7}change its representative rank!' }
+            }
+        },
+        j_dckst_aitch_h3 = {
+            name = 'Aitch',
+            text = {
+                { '{C:attention}8{}s can now be',
+                'counted as {C:attention}6{}s, {C:attention}7{}s, {C:attention}9{}s,', '{C:attention}10{}s, {C:attention}Jacks{}, {C:attention}Queens{},', '{C:attention}Kings{}, and {C:attention}Aces{}' },
+                { '{C:attention,s:0.7}CTRL + Click{C:inactive,s:0.7} the 8 in hand to', '{C:inactive,s:0.7}change its representative rank!'}
+            }
+        },
+        j_dckst_blackboard = {
+            name = 'Blackboard',
+            text = {
+                'This H gains {C:white,X:chips}+X#1#{} Chips',
+                'if played hand has at least',
+                '{C:attention}4{} unique suits and contains',
+                'a {C:attention}Straight{}',
+                '{C:inactive}(Currently {C:white,X:chips}X#2#{C:inactive} Chips){}'
+            }
+        },
+        j_dckst_blackboard_h2 = {
+            name = 'Blackboard',
+            text = {
+                'This H gains {C:white,X:chips}+X#1#{} Chips',
+                'if played hand has at least',
+                '{C:attention}4{} unique suits and contains',
+                'a {C:attention}Straight{}',
+                '{C:inactive}(Currently {C:white,X:chips}X#2#{C:inactive} Chips){}'
+            }
+        },
+        j_dckst_blackboard_h3 = {
+            name = 'Blackboard',
+            text = {
+                'This H gains {C:white,X:dark_edition}+^#1#{} Chips',
+                'if played hand has at least',
+                '{C:attention}4{} unique suits and contains',
+                'a {C:attention}Straight{}',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Chips){}'
+            }
+        },
+        j_dckst_sansserif = {
+            name = 'Sans-serif',
+            text = {
+                'When a {C:attention}Crazy Joker{} is sold,',
+                'this Joker gains {C:purple}+#1#{} Score',
+                '{C:inactive}(Currently {C:purple}+#2#{C:inactive} Score){}'
+            }
+        },
+        j_dckst_sansserif_h2 = {
+            name = 'Sans-serif',
+            text = {
+                'When a {C:attention}Crazy Joker{} is sold,',
+                'this Joker gains {C:white,X:purple}+X#1#{} Score',
+                '{C:inactive}(Currently {C:white,X:purple}X#2#{C:inactive} Score){}'
+            }
+        },
+        j_dckst_sansserif_h3 = {
+            name = 'Sans-serif',
+            text = {
+                'When a {C:attention}Crazy Joker{} is sold,',
+                'this Joker gains {C:white,X:purple}+X#1#{} Score',
+                '{C:inactive}(Currently {C:white,X:purple}X#2#{C:inactive} Score){}'
+            }
+        },
+        j_dckst_small_caps = {
+            name = 'Small Caps',
+            text = {
+                'Earn {C:money}$#1#{} for every {C:attention}Straight{}',
+                'played this round, increase',
+                'payout by {C:money}+$#2#{} per',
+                '{C:attention}Straight{} played'
+            }
+        },
+        j_dckst_small_caps_h2 = {
+            name = 'Small Caps',
+            text = {
+                'Earn {C:white,X:money}X$#1#{} for every {C:attention}Straight{}',
+                'played this round, increase',
+                'payout by {C:white,X:money}+X$#2#{} per',
+                '{C:attention}Straight{} played'
+            }
+        },
+        j_dckst_small_caps_h3 = {
+            name = 'Small Caps',
+            text = {
+                'Earn {C:white,X:money}X$#1#{} for every {C:attention}Straight{}',
+                'played this round, increase',
+                'payout by {C:white,X:money}+X$#2#{} per',
+                '{C:attention}Straight{} played'
+            }
+        },
+        j_dckst_cursive = {
+            name = 'Cursive',
+            text = {
+                'This H gains {C:mult}+#2#{} units if played',
+                'hand contains a {C:attention}Straight{}',
+                'and an {C:attention}Ace{}. If played hand',
+                'contains a {C:attention}Straight{} and',
+                'an {C:attention}8{}, {C:mult}+#1#{} Mult'
+            }
+        },
+        j_dckst_cursive_h2 = {
+            name = 'Cursive',
+            text = {
+                'This H gains {C:mult}+#2#{} units if played',
+                'hand contains a {C:attention}Straight{}',
+                'and an {C:attention}Ace{}. If played hand',
+                'contains a {C:attention}Straight{} and',
+                'an {C:attention}8/9/10{}, {C:mult}+#1#{} Mult'
+            }
+        },
+        j_dckst_cursive_h3 = {
+            name = 'Cursive',
+            text = {
+                'This H gains {C:mult}+#2#{} units if played',
+                'hand contains a {C:attention}Straight{}',
+                'and an {C:attention}Ace{}. If played hand',
+                'contains a {C:attention}Straight{} and',
+                'an {C:attention}8/9/10{}, or {C:attention}face cards{},',
+                'or an {C:attention}Ace{}, {C:mult}+#1#{} Mult'
+            }
+        },
+        j_dckst_strikethrough = {
+            name = 'Strikethrough',
+            text = {
+                'If played hand contains a',
+                '{C:attention}Straight{}, this H permanently',
+                'gives {C:attention}+#1#{} Joker slots and',
+                '{C:attention}+#1#{} Consumable slots then',
+                '{E:2,C:red}self-destructs{}'
+            }
+        },
+        j_dckst_drop_cap = {
+            name = 'Drop Cap',
+            text = {
+                'Any {C:attention}non-Straight{} hand',
+                'gives {C:white,X:purple}X#1#{} Score'
+            }
+        },
+        j_dckst_drop_cap_h3 = {
+            name = 'Drop Cap',
+            text = {
+                'Any {C:attention}non-Straight{} hand',
+                'gives {C:white,X:dark_edition}^#1#{} Score'
+            }
+        },
+        j_dckst_braille = {
+            name = 'Braille',
+            text = {
+                'If played hand contains a',
+                '{C:attention}Straight{}, this H gains {C:white,X:mult}+X#1#{}',
+                'Mult for each unique {C:attention}suit{}',
+                'present in hand',
+                '{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_braille_h2 = {
+            name = 'Braille',
+            text = {
+                'If played hand contains a',
+                '{C:attention}Straight{}, this H gains {C:white,X:mult}+X#1#{}',
+                'Mult for each unique {C:attention}suit{}',
+                'present in hand',
+                '{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_braille_h3 = {
+            name = 'Braille',
+            text = {
+                'If played hand contains a',
+                '{C:attention}Straight{}, this H gains {C:white,X:dark_edition}+^#1#{}',
+                'Mult for each unique {C:attention}suit{}',
+                'present in hand',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_hieroglyph = {
+            name = 'Hieroglyph',
+            text = {
+                '{C:attention,E:2}Every hand{} counts as',
+                'containing a {C:attention}Straight{}'
+            }
+        },
+        j_dckst_italic = {
+            name = 'Italic',
+            text = {
+                '{C:green}#1# in #2#{} chance to',
+                'create a {C:dark_edition}Wooden{} {C:attention}Crazy',
+                '{C:attention}Joker{} when a hand',
+                'containing a {C:attention}Straight{}',
+                'is played'
+            }
+        },
+        j_dckst_bold = {
+            name = 'Bold',
+            text = {
+                '{C:white,X:money}X#1#{} reward money when',
+                'a {C:attention}Blind{} is beaten'
+            }
+        },
+        j_dckst_bold_h3 = {
+            name = 'Bold',
+            text = {
+                '{C:white,X:dark_edition}^#1#{} reward money when',
+                'a {C:attention}Blind{} is beaten'
+            }
+        },
+        j_dckst_outlined = {
+            name = "Outlined",
+            text = {
+                'Retrigger every scored card',
+                '{C:attention}#2#{} time(s) per owned',
+                '{C:attention}Crazy Joker{} if hand',
+                'contains a {C:attention}Straight',
+            },
+        },
+        j_dckst_outlined_h3 = {
+            name = "Outlined",
+            text = {
+                {  'Retrigger every scored card',
+                '{C:attention}#2#{} time(s) per owned',
+                '{C:attention}Crazy Joker{} if hand',
+                'contains a {C:attention}Straight', },
+                { '{C:inactive,s:0.8}Amount of retriggers are', '{X:inactive,C:white,s:0.8}#1#X{C:inactive,s:0.8} the number of', '{C:inactive,s:0.8}Crazy Jokers' }
+            },
+        },
+        j_dckst_rune = {
+            name = 'Rune',
+            text = {
+                'If played hand contains a',
+                '{C:attention}Straight{}, this H gains',
+                '{X:mult,C:white}+X#1#{} Mult. If a hand without',
+                'a {C:attention}Straight{} is played,',
+                '{C:red,E:2}reset{} {X:mult,C:white}XMult{} to {C:attention}1{}',
+                '{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_rune_h3 = {
+            name = 'Rune',
+            text = {
+                'If played hand contains a',
+                '{C:attention}Straight{}, this H gains',
+                '{X:dark_edition,C:white}+^#1#{} Mult. If a hand without',
+                'a {C:attention}Straight{} is played,',
+                '{C:red,E:2}reset{} {X:dark_edition,C:white}^Mult{} to {C:attention}1{}',
+                '{C:inactive}(Currently {X:dark_edition,C:white}^#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_chalk = {
+            name = 'Chalk',
+            text = {
+                'This H gains {C:white,X:mult}+X#1#{} Mult',
+                'if a {C:attention}Crazy Joker{} triggers,',
+                'resets to {C:white,X:mult}X1{} at the',
+                'start of each {C:attention}Ante{}',
+                '{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_chalk_h3 = {
+            name = 'Chalk',
+            text = {
+                'This H gains {C:white,X:dark_edition}+^#1#{} Mult',
+                'if a {C:attention}Crazy Joker{} triggers,',
+                'resets to {C:white,X:dark_edition}^1{} at the',
+                'start of each {C:attention}Ante{}',
+                '{C:inactive}(Currently {X:dark_edition,C:white}^#2#{C:inactive} Mult)'
+            }
+        },
+        j_dckst_monospace = {
+            name = "Monospace",
+            text = {
+                "This H gains {C:mult}+#1#{} Mult",
+                "if played hand contains a",
+                "{C:attention}Straight{} but not a {C:attention}#2#{},",
+                "rank changes every hand",
+                "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)",
+            },
+        },
+        j_dckst_monospace_h2 = {
+            name = "Monospace",
+            text = {
+                "This H gains {C:white,X:mult}+X#1#{} Mult",
+                "if played hand contains a",
+                "{C:attention}Straight{} but not a {C:attention}#2#{},",
+                "rank changes every hand",
+                "{C:inactive}(Currently {C:white,X:mult}X#3#{C:inactive} Mult)",
+            },
+        },
+        j_dckst_monospace_h3 = {
+            name = "Monospace",
+            text = {
+                "This H gains {C:white,X:dark_edition}+^#1#{} Mult",
+                "if played hand contains a",
+                "{C:attention}Straight{} but not a {C:attention}#2#{},",
+                "rank changes every hand",
+                "{C:inactive}(Currently {C:white,X:dark_edition}^#3#{C:inactive} Mult)",
+            },
+        },
+        j_dckst_hegative = {
+            name = 'Hegative',
+            text = {
+                'Creates a {C:dark_edition}Negative{C:attention} Crazy',
+                '{C:attention}Joker{} when a {C:attention}Blind',
+                'is selected'
+            }
+        },
+        j_dckst_h_building = {
+            name = 'H Building',
+            text = {
+                'This Joker gains {C:chips}+#1#{} Chips if',
+                'played hand contains a {C:attention}Straight{},',
+                'chip gain increases by {C:chips}+#2#{} for',
+                'every time {C:attention}Saturn{} is used',
+                '{C:inactive}(Currently {C:chips}+#3#{C:inactive} Chips)'
+            }
+        },
+        j_dckst_h_building_h2 = {
+            name = 'H Building',
+            text = {
+                'This Joker gains {C:white,X:chips}+X#1#{} Chips if',
+                'played hand contains a {C:attention}Straight{},',
+                'chip gain increases by {C:white,X:chips}+X#2#{} for',
+                'every time {C:attention}Saturn{} is used',
+                '{C:inactive}(Currently {C:white,X:chips}X#3#{C:inactive} Chips)'
+            }
+        },
+        j_dckst_h_building_h3 = {
+            name = 'H Building',
+            text = {
+                'This Joker gains {C:white,X:dark_edition}+^#1#{} Chips if',
+                'played hand contains a {C:attention}Straight{},',
+                'chip gain increases by {C:white,X:dark_edition}+^#2#{} for',
+                'every time {C:attention}Saturn{} is used',
+                '{C:inactive}(Currently {C:white,X:dark_edition}^#3#{C:inactive} Chips)'
+            }
+        },
+        j_dckst_dancing_h = {
+            name = 'Dancing H',
+            text = {
+                '{C:green}#1# in #2#{} chance{} to',
+                '{C:attention,E:1}level up{} played poker',
+                'hand, probability increases',
+                'by {C:attention}#3#{} for every other',
+                'Joker owned'
+            }
+        },
+        j_dckst_gordon_ramsay_h = {
+            name = "Gordon Ramsay H",
+            text = { {
+                'This Joker gains {C:mult}+#1#{}',
+                'Mult when {C:attention}round starts{},',
+                'mult gain increases by',
+                '{C:mult}+#2#{} for every card {C:attention}eaten',
+                '{C:inactive}(Currently{} {C:mult}+#3#{} {C:inactive}Mult){}', },
+                { '{C:inactive,s:0.9}(eaten = destroyed){}' }
+            }
+        },
+        j_dckst_gordon_ramsay_h_h2 = {
+            name = "Gordon Ramsay H",
+            text = { {
+                'This Joker gains {C:white,X:mult}+X#1#{}',
+                'Mult when {C:attention}round starts{},',
+                'mult gain increases by',
+                '{C:white,X:mult}+X#2#{} for every card {C:attention}eaten',
+                '{C:inactive}(Currently{} {C:white,X:mult}X#3#{} {C:inactive}Mult){}', },
+                { '{C:inactive,s:0.9}(eaten = destroyed){}' }
+            }
+        },
+        j_dckst_gordon_ramsay_h_h3 = {
+            name = "Gordon Ramsay H",
+            text = { {
+                'This Joker gains {C:white,X:dark_edition}+^#1#{}',
+                'Mult when {C:attention}round starts{},',
+                'mult gain increases by',
+                '{C:white,X:dark_edition}+^#2#{} for every card {C:attention}eaten',
+                '{C:inactive}(Currently{} {C:white,X:dark_edition}^#3#{} {C:inactive}Mult){}', },
+                { '{C:inactive,s:0.9}(eaten = destroyed){}' }
+            }
+        },
+        j_dckst_lava_lamp_h = {
+            name = "Lava Lamp H",
+            text = {
+                "{C:green}#1# in #2#{} chance for {X:mult,C:white}X#3#{} Mult,",
+                "{C:green}#4# in #5#{} chance for {X:mult,C:white}X#6#{} Mult,",
+                "{C:green}#7# in #8#{} chance to give {C:money}$#9#{}",
+                "if played hand contains a {C:attention}Straight",
+            }
+        },
+        j_dckst_lava_lamp_h_h2 = {
+            name = "Lava Lamp H",
+            text = {
+                "{C:green}#1# in #2#{} chance for {X:mult,C:white}X#3#{} Mult,",
+                "{C:green}#4# in #5#{} chance for {X:mult,C:white}X#6#{} Mult,",
+                "{C:green}#7# in #8#{} chance to give {C:money}$#9#{}",
+                "if played hand contains a {C:attention}Straight",
+            }
+        },
+        j_dckst_lava_lamp_h_h3 = {
+            name = "Lava Lamp H",
+            text = {
+                "{C:green}#1# in #2#{} chance for {X:dark_edition,C:white}^#3#{} Mult,",
+                "{C:green}#4# in #5#{} chance for {X:dark_edition,C:white}^#6#{} Mult,",
+                "{C:green}#7# in #8#{} chance to give {C:money}$#9#{}",
+                "if played hand contains a {C:attention}Straight",
+            }
+        },
+        j_dckst_hoth = {
+            name = 'H of the H',
+            text = {
+                'Creates a random {C:dckst_h_red}H Joker{}',
+                'when a {C:attention}Blind{} is selected',
+                '{C:inactive}(Must have room)'
+            }
+        },
+        j_dckst_space_h = {
+            name = 'Space H',
+            text = {
+                "When a {C:planet}Planet{} card",
+                "is used, also {C:attention,E:1}level up{}",
+                "{C:attention}Straight{} by {C:attention}#1#{} level(s)"
+            }
+        },
+        j_dckst_hedge = {
+            name = 'Hedge',
+            text = {
+                'Adds {C:attention}#1#{} random card(s) with',
+                'a {C:attention}random seal{} to hand if',
+                'played hand contains a {C:attention}Straight'
+            }
+        },
+        j_dckst_encircled = {
+            name = 'Encircled',
+            text = {
+                'Any {C:red,E:2}harmful{} effects to',
+                '{C:chips}Chips{}, {C:mult}Mult{}, or {C:purple}Score{}',
+                'are {C:attention,E:1}nullified'
             }
         },
 
-
-
-
-
-        
 
         -- TIER 3 EXCLUSIVE JOKERS, DO NOT TAMPER
 
@@ -1206,6 +2696,13 @@ return {
             name = 'Wooden',
             text = {
                 '{C:dark_edition}+#1#{} Joker slots'
+            }
+        },
+        e_dckst_vhs = {
+            name = 'VHS',
+            text = {
+                'This card',
+                '{C:attention,E:1}rescores{} itself'
             }
         },
     },
@@ -2281,6 +3778,219 @@ return {
             }
         },
     },
+    Harmonic = {
+        c_dckst_attack = {
+            name = 'C:\\\\ATTACK',
+            text = {
+                'Applies {C:white,X:chips}X#1#{}, {C:white,X:chips}X#2#{}, {C:white,X:chips}X#3#{},',
+                'then {C:white,X:chips}X#4#{} Chips to',
+                'the next {C:attention}4{} hands'
+            }
+        },
+        c_dckst_decay = {
+            name = 'C:\\\\DECAY',
+            text = {
+                'Applies {C:white,X:mult}X#1#{}, {C:white,X:mult}X#2#{}, {C:white,X:mult}X#3#{},',
+                'then {C:white,X:mult}X#4#{} Mult to',
+                'the next {C:attention}4{} hands'
+            }
+        },
+        c_dckst_sustain = {
+            name = 'C:\\\\SUSTAIN',
+            text = {
+                'All active {C:dckst_harmonic_orange}Harmonic{} effects',
+                'last {C:attention}#1#{} more hands'
+            }
+        },
+        c_dckst_release = {
+            name = 'C:\\\\RELEASE',
+            text = {
+                'Triggers every active {C:dckst_harmonic_orange}Harmonic{} ',
+                'effect {C:attention}twice{} in the {C:attention}next',
+                '{C:attention}hand{}, then {C:red,E:2}ends them{}'
+            }
+        },
+        c_dckst_delay = {
+            name = 'C:\\\\DELAY',
+            text = {
+                'Applies an {C:attention}Echoed{} sticker',
+                'to up to {C:attention}#1#{} selected cards',
+            }
+        },
+        c_dckst_reverb = {
+            name = 'C:\\\\REVERB',
+            text = {
+                'Next {C:attention}4{} hands each',
+                'add an echo worth',
+                '{C:attention}#1#%{} of their score',
+            }
+        },
+        c_dckst_compressor = {
+            name = 'C:\\\\COMPRESSOR',
+            text = {
+                '{C:attention}Lowers{} next Blind\'s',
+                'requirement by {C:attention}#1#%{}',
+            }
+        },
+        c_dckst_equalizer = {
+            name = 'C:\\\\EQUALIZER',
+            text = {
+                'Sets the {C:chips}Chips{} and',
+                '{C:mult}Mult{} of the next',
+                '{C:attention}4{} hands to their',
+                '{C:attention}average{}, then {C:white,X:mult}X#1#{} Mult'
+            }
+        },
+        c_dckst_piano_roll = {
+            name = 'C:\\\\PIANO_ROLL',
+            text = {
+                'Playing a {C:attention}different{} hand',
+                'type than the previous',
+                'hand gives {C:white,X:mult}X#1#{} Mult',
+                'for {C:attention}4{} hands'
+            }
+        },
+        c_dckst_volume = {
+            name = 'C:\\\\VOLUME',
+            text = {
+                '{C:white,X:chips}X#1#{} Chips and {C:white,X:mult}X#2#{} Mult',
+                'for the next {C:attention}4{} hands'
+            }
+        },
+        c_dckst_panning = {
+            name = 'C:\\\\PANNING',
+            text = {
+                'Each scoring card in',
+                'the {C:attention}left{} half gives',
+                '{C:white,X:chips}X#1#{} Chips, and each',
+                'in the {C:attention}right{} half',
+                'gives {C:white,X:mult}X#2#{} Mult in',
+                'the next {C:attention}4{} hands',
+                '{C:inactive,s:0.8}(a middle card gives both)'
+            }
+        },
+        c_dckst_tempo = {
+            name = 'C:\\\\TEMPO',
+            text = {
+                '{C:blue}+#1#{} Hands and {C:red}+#2#{}',
+                'Discard for the next {C:attention}Blind'
+            }
+        },
+        c_dckst_time_signature = {
+            name = 'C:\\\\TIME_SIGNATURE',
+            text = {
+                'Ranks {C:attention}2{} to {C:attention}8{} when',
+                'scored give {X:mult,C:white}X#1#',
+                'for the next {C:attention}4{} hands'
+            }
+        },
+        c_dckst_waveform = {
+            name = 'C:\\\\WAVEFORM',
+            text = {
+                '{C:attention}Alternates{} between {C:white,X:chips}X#1#{} Chips',
+                'and {C:white,X:mult}X#1#{} Mult for',
+                'the next {C:attention}4{} hands'
+            }
+        },
+        c_dckst_gain = {
+            name = 'C:\\\\GAIN',
+            text = {
+                '{C:money,E:1}Doubles{} the values of',
+                'the next {C:attention}#1# {C:dckst_harmonic_orange}Harmonic{}',
+                'Cards when used'
+            }
+        },
+    },
+    Felimonial = {
+            c_dckst_meow = { name = 'meow', text = {
+                'Next {C:attention}#1#{} shop rerolls', 'are {C:attention}free{}' } },
+            c_dckst_purr = { name = 'purr', text = {
+                '{C:blue}+#1#{} Hand and {C:red}+#2#{} Discard', 'this Blind' } },
+            c_dckst_hiss = { name = 'hiss', text = {
+                'Lowers current Blind', 'requirement by {C:attention}#1#%{},', '{C:attention}-#2#{} hand size this round' } },
+            c_dckst_yowl = { name = 'yowl', text = {
+                'Rerolls the upcoming', '{C:attention}Boss Blind{}, {C:white,X:money}X$#1#{}' } },
+            c_dckst_chirp = { name = 'chirp', text = {
+                'Adds {C:money}+$#1#{} sell value', 'to all {C:attention}Jokers{}' } },
+            c_dckst_stalk = { name = 'stalk', text = {
+                'If no {C:red}discards{} were', 'used this round, next', 'hand played gives {X:mult,C:white}X#1#{} Mult' } },
+            c_dckst_pounce = { name = 'pounce', text = {
+                'Next hand played gives', '{X:mult,C:white}X#1#{} Mult, {C:white,X:money}X$#2#{}' } },
+            c_dckst_leap = { name = 'leap', text = {
+                '{C:green}#1# in #2#{} chance to give selected', '{C:attention}Joker{} an {C:dark_edition}Edition{}, {C:white,X:money}X$#3#{}',
+                '{C:inactive}(All editions weighted equally){}' } },
+            c_dckst_slink = { name = 'slink', text = {
+                'Next discard draws', '{C:attention}#1#{} extra cards' } },
+            c_dckst_dash = { name = 'dash', text = {
+                'Restores {C:blue}Hands{} to', '{C:attention}maximum value{}, {C:white,X:money}X$#1#{}' } },
+            c_dckst_knead = { name = 'knead', text = {
+                'Levels up most played', 'hand type by {C:attention}#1#{}, {C:white,X:money}X$#2#{}' } },
+            c_dckst_groom = { name = 'groom', text = {
+                'Removes all stickers from', '{C:attention}1{} selected Joker, {C:white,X:money}X$#1#{}' } },
+            c_dckst_nap = { name = 'nap', text = {
+                'Lose all remaining {C:red}Discards{},', 'gain {C:money}$#1#{} for each' } },
+            c_dckst_loaf = { name = 'loaf', text = {
+                '{C:attention}All{} cards held in hand', 'gain a {C:mult}+#1#{} Mult bonus' } },
+            c_dckst_stretch = { name = 'stretch', text = {
+                '{C:attention}+#1#{} hand size for', 'the next Blind, {C:white,X:money}X$#2#{}' } },
+            c_dckst_bat = { name = 'bat', text = {
+                'Swaps {C:attention}1{} selected Joker', 'with a random Joker', 'of the {C:attention}same rarity' } },
+            c_dckst_sniff = { name = 'sniff', text = {
+                '{C:attention}Reshuffles{} deck and', 'restores {C:attention}#1#%{} of {C:red}Discards{}', '{C:inactive}(Rounded down){}' } },
+            c_dckst_scratch = { name = 'scratch', text = {
+                '{C:red}Destroys{} up to {C:attention}#1#{}', 'selected cards in hand' } },
+            c_dckst_burrow = { name = 'burrow', text = {
+                'Raises {C:attention}interest cap{} by {C:money}$#1#{}', 'for the next {C:attention}#2#{} Antes' } },
+            c_dckst_stare = { name = 'stare', text = {
+                '{C:green}#1# in #2#{} chance to disable', 'the next {C:attention}Boss Blind{}' } },
+        },
+    Exoplanet = {
+        c_dckst_awasis = {
+            name = 'Awasis',
+            text = {
+                '{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up',
+                '{C:attention}#2#',
+                '{C:mult}+#3#{} Mult and',
+                '{C:chips}+#4#{} chips',
+            }
+        },
+        c_dckst_kepler_97b = {
+            name = 'Kepler-97 b',
+            text = {
+                '{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up',
+                '{C:attention}#2#',
+                '{C:mult}+#3#{} Mult and',
+                '{C:chips}+#4#{} chips',
+            }
+        },
+        c_dckst_noifasui = {
+            name = 'Noifasui',
+            text = {
+                '{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up',
+                '{C:attention}#2#',
+                '{C:mult}+#3#{} Mult and',
+                '{C:chips}+#4#{} chips',
+            }
+        },
+        c_dckst_sweeps_4b = {
+            name = 'SWEEPS-4 b',
+            text = {
+                '{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up',
+                '{C:attention}#2#',
+                '{C:mult}+#3#{} Mult and',
+                '{C:chips}+#4#{} chips',
+            }
+        },
+        c_dckst_lhs_1140b = {
+            name = 'LHS 1140 b',
+            text = {
+                '{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up',
+                '{C:attention}#2#',
+                '{C:mult}+#3#{} Mult and',
+                '{C:chips}+#4#{} chips',
+            }
+        },
+    },
     Voucher = {
         v_dckst_expansionpermit = {
             name = "Expansion Permit",
@@ -2528,6 +4238,14 @@ return {
                 '{C:inactive}(If possible){}'
             }
         },
+        dckst_echoed = {
+            name = "Echoed",
+            text = {
+                '{C:green}#1# in #2#{} chance',
+                'to {C:attention}retrigger{} itself',
+                'whenever triggered'
+            }
+        },
         p_dckst_carcana_pack_normal = {
             name = "Carcana Pack",
             text = {
@@ -2627,23 +4345,44 @@ return {
         p_dckst_decksteritical_pack_normal = {
             name = "Decksteritical Pack",
             text = {
-                'Choose {C:attention}1{} of up to',
-                '{C:attention}2{} {X:black,V:1}decksterity.{} Jokers',
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {X:black,V:1}decksterity.{} Jokers',
                 }
         },
         p_dckst_decksteritical_pack_jumbo = {
             name = "Jumbo Decksteritical Pack",
             text = {
-                'Choose {C:attention}1{} of up to',
-                '{C:attention}4{} {X:black,V:1}decksterity.{} Jokers',
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {X:black,V:1}decksterity.{} Jokers',
                 }
         },
         p_dckst_decksteritical_pack_mega = {
             name = "Mega Decksteritical Pack",
             text = {
-                'Choose {C:attention}2{} of up to',
-                '{C:attention}4{} {X:black,V:1}decksterity.{} Jokers',
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {X:black,V:1}decksterity.{} Jokers',
                 }
+        },
+        p_dckst_production_pack_normal = {
+            name = "Production Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {C:dckst_harmonic_orange}Harmonic{} Cards'
+            }
+        },
+        p_dckst_production_pack_jumbo = {
+            name = "Jumbo Production Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {C:dckst_harmonic_orange}Harmonic{} Cards'
+            }
+        },
+        p_dckst_production_pack_mega = {
+            name = "Mega Production Pack",
+            text = {
+                'Choose {C:attention}#1#{} of up to',
+                '{C:attention}#2#{} {C:dckst_harmonic_orange}Harmonic{} Cards'
+            }
         },
         dckst_dandy_sticker = {
             name = "Dandy Sticker",
@@ -2797,7 +4536,7 @@ return {
                 "{C:attention}Stake{} difficulty",
             }
         },
-        dckst_exalted_continual = {
+        dckst_continual_sticker = {
             name = "Continual Sticker",
             text = {
                 "Used this Joker",
@@ -2805,7 +4544,7 @@ return {
                 "{C:attention}Stake{} difficulty",
             }
         },
-        dckst_exalted_universal = {
+        dckst_universal_sticker = {
             name = "Universal Sticker",
             text = {
                 "Used this Joker",
@@ -2813,7 +4552,7 @@ return {
                 "{C:attention}Stake{} difficulty",
             }
         },
-        dckst_exalted_nebular = {
+        dckst_nebular_sticker = {
             name = "Nebular Sticker",
             text = {
                 "Used this Joker",
@@ -2821,7 +4560,7 @@ return {
                 "{C:attention}Stake{} difficulty",
             }
         },
-        dckst_exalted_penultimate = {
+        dckst_penultimate_sticker = {
             name = "Penultimate Sticker",
             text = {
                 "Used this Joker",
@@ -2829,7 +4568,7 @@ return {
                 "{C:attention}Stake{} difficulty",
             }
         },
-        dckst_exalted_ultimate = {
+        dckst_ultimate_sticker = {
             name = "Ultimate Sticker",
             text = {
                 "Used this Joker",
@@ -2872,7 +4611,16 @@ return {
                 "unseeded run to",
                 "learn what it does",
             }
-        }
+        },
+        undiscovered_harmonic = {
+            name = "C:\\\\NOT_DISCOVERED",
+            text = {
+                "Purchase or use",
+                "this route in an",
+                "unseeded run to",
+                "learn what it does",
+            }
+        },
     },
 },
 
@@ -2882,11 +4630,17 @@ misc = {
             b_neotarot_cards = "Neo-Tarot Cards",
             b_spectaclaw_cards = "Spectaclaw Cards",
             b_route_cards = "Routes",
+            b_harmonic_cards = "Harmonic Cards",
+            b_felimonial_cards = "Felimonial Cards",
+            b_exoplanet_cards = "Exoplanet Cards",
 
             k_catarot = "Catarot",
             k_neotarot = "Neo-Tarot",
             k_spectaclaw = "Spectaclaw",
             k_route = "Route",
+            k_harmonic = "Harmonic",
+            k_felimonial = "Felimonial",
+            k_exoplanet = "Exoplanet",
 
             k_dckst_carcana_pack = "Carcana Pack",
             k_dckst_carcana_pack_jumbo = "Jumbo Carcana Pack",
@@ -2907,6 +4661,14 @@ misc = {
             k_dckst_decksteritical_pack = "Decksteritical Pack",
             k_dckst_decksteritical_pack_jumbo = "Jumbo Decksteritical Pack",
             k_dckst_decksteritical_pack_mega = "Mega Decksteritical Pack",
+
+            k_dckst_production_pack = "Production Pack",
+            k_dckst_production_pack_jumbo = "Jumbo Production Pack",
+            k_dckst_production_pack_mega = "Mega Production Pack",
+
+            k_dckst_exocelestial_pack = "Exocelestial Pack",
+            k_dckst_exocelestial_pack_jumbo = "Jumbo Exocelestial Pack",
+            k_dckst_exocelestial_pack_mega = "Mega Exocelestial Pack",
 
 
             k_dckst_loadeddice = "Knocked!",
@@ -2944,6 +4706,79 @@ misc = {
             k_dckst_cards_removed = "Cards Removed!",
             k_dckst_exalted = " Exalted Tithe!",
             k_dckst_consecutive_debuff = "This hand doesn\'t contain a Straight!",
+            k_dckst_hot = "Hot!",
+            k_dckst_cold = "Cold!",
+            k_dckst_chips = "Chips",
+            k_dckst_destroyed = "Destroyed!",
+            k_dckst_detonated = "Detonated!",
+            k_dckst_fuke = "Fuke!",
+            k_dckst_benny_line1 = 'Prevents Death if chips',
+            k_dckst_benny_line2 = 'scored are at least ',
+            k_dckst_rescored = "Rescored!",
+            k_dckst_hbar_line = 'Blind size reduced by',
+            k_dckst_hbar_ex = 'Barred!',
+            k_dckst_aitch = "Aitch!",
+            k_dckst_strikethrough = 'change da world. my final message. goodbye.',
+            k_dckst_where_is_the_lamb_sauce = 'WHERE IS THE LAMB SAUCE',
+            k_dckst_idiot_sandwich = 'IDIOT SANDWICH!',
+            k_dckst_nullified = 'Nullified!',
+            k_dckst_whirr = 'Whirr...',
+            k_dckst_ascend = 'Ascend!',
+            k_dckst_boing = 'Boing!',
+            k_dckst_wavgun_fire = 'FIRE!',
+            k_dckst_wavgun_unusable = 'Unusable...',
+            k_dckst_hop = 'Hop!',
+
+            k_dckst_screensaver_msg_1 = { "Windows 95", "Fatal exception 0E has occurred at 0028:C0011E36 in VXD VMM(01) + 00010E36. The current application will be terminated." },
+            k_dckst_screensaver_msg_2 = { "3D Maze.exe", "Error: The polyhedral gray rock has flipped the universe upside down. Resetting parameters..." },
+            k_dckst_screensaver_msg_3 = { "Proximity Alert", "Warning: screensaver.sph is approaching at 35-60 walkspeed. Run." },
+            k_dckst_screensaver_msg_4 = { "System Warning", "The smiling yellow sphere is multiplying. Glint reflections detected on all optical receptors." },
+            k_dckst_screensaver_msg_5 = { "Outbreak Update", "Module load failed: nn_hotel map architecture unstable. Arcade mode integrity compromised." },
+            k_dckst_screensaver_msg_6 = { "Windows 95", "A fatal exception has occurred. Click the smiley face to restart the endless loop." },
+            k_dckst_screensaver_msg_7 = { "Audio Subsystem", "Buffer underrun: Window error meme audio loop at maximum decibels." },
+            k_dckst_screensaver_msg_8 = { "Jumpscare Protocol", "Critical Power Loss: Windows XP shutdown sequence initiated prematurely." },
+            k_dckst_screensaver_msg_9 = { "Memory Error", "Exception in module 'maze_rat.dll': Out of cheese, out of logic." },
+            k_dckst_screensaver_msg_10 = { "Discord - #nextbots-suggestions", "Suggestion rejected by reality: kyotowave's creation has breached containment." },
+            k_dckst_screensaver_msg_11 = { "Display Properties", "Screensaver timeout exceeded. Your desktop has been replaced by brick walls and rodents." },
+            k_dckst_screensaver_msg_12 = { "nn_hotel.bsp", "Entity error: 'screensaver' failed to spawn in open world. Recalibrating coordinates." },
+            k_dckst_screensaver_msg_13 = { "Graphics Engine", "Pixelation filter overload: Resolution dropped to 1995 standards." },
+            k_dckst_screensaver_msg_14 = { "System Tray", "Blue eyes detected in the periphery. Recommend immediate evacuation of the hallway." },
+            k_dckst_screensaver_msg_15 = { "Registry Editor", "Key HKEY_LOCAL_MACHINE\\SOFTWARE\\ScreensaverSmile has been corrupted by joy." },
+            k_dckst_screensaver_msg_16 = { "Runtime Error", "Program illegal operation: Attempted to smile at an illegal memory address." },
+            k_dckst_screensaver_msg_17 = { "Network Diagnostics", "Ping to nextbot server timed out. Proximity audio intensity increasing." },
+            k_dckst_screensaver_msg_18 = { "Windows Explorer", "This program has performed an illegal operation and will be shut down. (It's right behind you.)" },
+            k_dckst_screensaver_msg_19 = { "Event Log", "Blackout and bloodmoon events synchronized. screensaver is hunting." },
+            k_dckst_screensaver_msg_20 = { "Task Manager", "Process 'screensaver.exe' is not responding. End task? [Y/N - Choice is an illusion]" },
+            k_dckst_screensaver_msg_21 = { "Sound Card", "MIDI driver exception: Brief victory melody playing over terminal static." },
+            k_dckst_screensaver_msg_22 = { "Control Panel", "Power management error: System refusing to enter sleep mode while the sphere is active." },
+            k_dckst_screensaver_msg_23 = { "Miraheze Wiki", "Database exception: Page history overwritten by the 3D Maze entity." },
+            k_dckst_screensaver_msg_24 = { "DirectX Error", "Hardware acceleration failure: Blue rounded mouth rendering outside safe boundaries." },
+            k_dckst_screensaver_msg_25 = { "Kernel Panic", "A serious error has occurred. Press any key to accept your fate in the hotel corridor." },
+            k_dckst_screensaver_msg_26 = { "Runtime Warning", "Virtual memory is fragmenting. The yellow sphere's grin is growing wider." },
+            k_dckst_screensaver_msg_27 = { "Display Adapter", "Resolution unsupported by sanity. Reverting to brick-maze dimensions." },
+            k_dckst_screensaver_msg_28 = { "Explorer.exe", "This task is taking longer than expected. (Spoiler: You aren't escaping the hotel.)" },
+            k_dckst_screensaver_msg_29 = { "Audio Driver", "Proximity warning: The window error meme is playing at 110 decibels." },
+            k_dckst_screensaver_msg_30 = { "Windows 95", "Exception 0x000000FF: Entity proximity threshold crossed. Brace for impact." },
+            k_dckst_screensaver_msg_31 = { "nn_hotel_arcade.wad", "Sector fault: Arcade mode containment grid has failed completely." },
+            k_dckst_screensaver_msg_32 = { "System Monitor", "CPU temperature critical. Too many floating-point smiles detected." },
+            k_dckst_screensaver_msg_33 = { "Registry Shield", "Access denied: The gray rock has altered your system registry permissions." },
+            k_dckst_screensaver_msg_34 = { "Task Scheduler", "Scheduled event: Jumpscare execution queued for immediate processing." },
+            k_dckst_screensaver_msg_35 = { "Memory Dump", "Physical memory dump complete. Found zero traces of your survival instincts." },
+            k_dckst_screensaver_msg_36 = { "Discord Protocol", "Message from kyotowave: 'Why did you let it out of the suggestions channel?'" },
+            k_dckst_screensaver_msg_37 = { "Kernel Security", "Blue eyes detected in Ring 0. All safety interlocks are bypassed." },
+            k_dckst_screensaver_msg_38 = { "DirectDraw Error", "Surface creation failed: The smiley face is reflecting directly into your retinas." },
+            k_dckst_screensaver_msg_39 = { "Outbreak Log", "May 20th timeline convergence error: The arcade entity is loose in the open world." },
+            k_dckst_screensaver_msg_40 = { "Control Panel", "Mouse cursor hijacked by nextbot pathfinding AI. Enjoy the ride." },
+            k_dckst_screensaver_msg_41 = { "Windows Media", "Shutdown melody loaded: Preparing the Windows XP power-down sequence." },
+            k_dckst_screensaver_msg_42 = { "Virtual Machine", "Sandbox containment breached. The maze walls are closing in." },
+            k_dckst_screensaver_msg_43 = { "Network Protocol", "Packet loss at 100%. Nobody can hear your clicks over the error noise." },
+            k_dckst_screensaver_msg_44 = { "System Error", "Fatal exception: Attempted to read from address 0x5MILE55." },
+            k_dckst_screensaver_msg_45 = { "Miraheze Wiki", "Page locked by administrator 'screensaver': Edits are no longer permitted." },
+            k_dckst_screensaver_msg_46 = { "Graphics Subsystem", "Pixelation routine recursive loop infinite. Turn back now." },
+            k_dckst_screensaver_msg_47 = { "Power Management", "ACPI table corrupt. The system refuses to sleep while it hunts." },
+            k_dckst_screensaver_msg_48 = { "Application Error", "The program has performed an illegal operation involving pure terror." },
+            k_dckst_screensaver_msg_49 = { "Environment Variable", "PATH variable overwritten by endless hallway corridors." },
+            k_dckst_screensaver_msg_50 = { "System Halt", "Fatal exception 0xDEADBEEF: Press any key to face the jumpscare." },
 
             k_dckst_money_buddy = "Money Buddy",
             k_dckst_cash_in_guru = "Cash-in Guru",
@@ -2957,6 +4792,12 @@ misc = {
 
             k_dckst_gameset_hazardous   = "Hazardous",
             k_dckst_gameset_hazardous_desc = "For players who want to blow up their machine.",
+
+            k_dckst_exquisite = 'Exquisite',
+            k_dckst_mediumrare = 'Medium Rare',
+            k_dckst_medium = 'Medium',
+            k_dckst_mediumwell = 'Medium Well',
+            k_dckst_welldone = 'Well-Done',
         },
         labels = {
             dckst_chartreuse_seal = "Chartreuse Seal",
@@ -2972,6 +4813,7 @@ misc = {
             dckst_zoomy = "Zoomy",
             dckst_deciduous = "Deciduous",
             dckst_halved = "Halved",
+            dckst_echoed = "Echoed",
 
             dckst_cosmic = "Cosmic",
             dckst_phosphorescent = "Phosphorescent",
@@ -2979,6 +4821,13 @@ misc = {
             dckst_iridescent = "Iridescent",
             dckst_prismatic = "Prismatic",
             dckst_wooden = "Wooden",
+            dckst_vhs = "VHS",
+
+            k_dckst_exquisite = 'Exquisite',
+            k_dckst_mediumrare = 'Medium Rare',
+            k_dckst_medium = 'Medium',
+            k_dckst_mediumwell = 'Medium Well',
+            k_dckst_welldone = 'Well-Done',
         },
         poker_hands = {
             ["dckst_two_three"] = "Double Three",
@@ -2998,6 +4847,1490 @@ misc = {
         },
         ranks = {
             ["dckst_20"] = "20",
+        },
+        quips = {
+            dckst_fiesta_1_win = {
+                'Man you goated like',
+                'playoffs Wemby!'
+            },
+            dckst_fiesta_1_loss = {
+                'Kevin Hart would\'ve made',
+                'it farther than you...'
+            },
+            dckst_fiesta_2_win = {
+                'Fiesta on the block,',
+                'Spurs takin\' the dub!'
+            },
+            dckst_fiesta_2_loss = {
+                'Bro really lost wearing',
+                'the cleanest jersey',
+                'in the league'
+            },
+            dckst_fiesta_3_win = {
+                'Wemby cookin\' and',
+                'the fit matchin\' too!'
+            },
+            dckst_fiesta_3_loss = {
+                'Should\'ve worn the jersey,',
+                'not just bought it'
+            },
+            dckst_fiesta_4_win = {
+                'That\'s a Fiesta',
+                'W fr fr!'
+            },
+            dckst_fiesta_4_loss = {
+                'Popovich would\'ve',
+                'benched you for that'
+            },
+            dckst_fiesta_5_win = {
+                'Y\'all seein\' this',
+                'drip AND this win?'
+            },
+            dckst_fiesta_5_loss = {
+                'Losing in the',
+                'city edition is crazy work'
+            },
+            dckst_fiesta_6_win = {
+                'Spurs takin\' names,',
+                'Fiesta takin\' credit'
+            },
+            dckst_fiesta_6_loss = {
+                'Nah the jersey',
+                'was doin\' all the work'
+            },
+            dckst_fiesta_7_win = {
+                'That fit was NOT',
+                'losin\' today'
+            },
+            dckst_fiesta_7_loss = {
+                'The fiesta\'s over,',
+                'and so are you'
+            },
+            dckst_fiesta_8_win = {
+                'Cookin\' harder than',
+                'the jersey graphic'
+            },
+            dckst_fiesta_8_loss = {
+                'Even Wemby can\'t',
+                'save this one'
+            },
+            dckst_fiesta_9_win = {
+                'Book the parade,',
+                'Fiesta got the dub'
+            },
+            dckst_fiesta_9_loss = {
+                'That\'s an L in',
+                'full color too'
+            },
+            dckst_fiesta_10_win = {
+                'Spurs city, Spurs',
+                'dub, no debate'
+            },
+            dckst_fiesta_10_loss = {
+                'Fiesta\'s poppin\',',
+                'your run ain\'t'
+            },
+            dckst_jimmy_1_win = {
+                'Did you see that?',
+                'That\'s lawyerin\', baby!'
+            },
+            dckst_jimmy_1_loss = {
+                'Objection! ...to me',
+                'even bein\' here'
+            },
+            dckst_jimmy_2_win = {
+                'S\'all good, man —',
+                'better call it a win'
+            },
+            dckst_jimmy_2_loss = {
+                'That\'s not a loss,',
+                'that\'s a "settlement"'
+            },
+            dckst_jimmy_3_win = {
+                'Ladies and gentlemen,',
+                'the defense rests. Undefeated.'
+            },
+            dckst_jimmy_3_loss = {
+                'I\'m gonna need',
+                'a bigger bus bench'
+            },
+            dckst_jimmy_4_win = {
+                'Justice! Or close',
+                'enough, who\'s countin\''
+            },
+            dckst_jimmy_4_loss = {
+                'This is why I',
+                'don\'t do pro bono'
+            },
+            dckst_jimmy_5_win = {
+                'Slippin\' Jimmy strikes',
+                'again, no witnesses!'
+            },
+            dckst_jimmy_5_loss = {
+                'I know a guy',
+                'who can fix this... maybe'
+            },
+            dckst_prismatic_1_win = {
+                'Every color hits',
+                'different, doesn\'t it?'
+            },
+            dckst_prismatic_1_loss = {
+                'No shine, no',
+                'shimmer, no mult'
+            },
+            dckst_prismatic_2_win = {
+                'Refracted that win',
+                'right through the spectrum'
+            },
+            dckst_prismatic_2_loss = {
+                'Plain cards, plain',
+                'results. Shocking, really'
+            },
+            dckst_prismatic_3_win = {
+                'Catch the light,',
+                'catch the mult!'
+            },
+            dckst_prismatic_3_loss = {
+                'Bring me an edition',
+                'next time, please'
+            },
+            dckst_prismatic_4_win = {
+                'That\'s a full',
+                'prism of a win'
+            },
+            dckst_prismatic_4_loss = {
+                'Zero shine equals',
+                'zero surprise here'
+            },
+            dckst_prismatic_5_win = {
+                'Dazzling. Absolutely',
+                'dazzling performance'
+            },
+            dckst_prismatic_5_loss = {
+                'Dull cards make',
+                'for a dull loss'
+            },
+            dckst_swapped_1_win = {
+                'Swap the suits,',
+                'swap the fortune!'
+            },
+            dckst_swapped_1_loss = {
+                'Wrong side of',
+                'the swap this time'
+            },
+            dckst_swapped_2_win = {
+                'Hearts to clubs,',
+                'losses to wins!'
+            },
+            dckst_swapped_2_loss = {
+                'Every suit flipped,',
+                'the loss stayed put'
+            },
+            dckst_swapped_3_win = {
+                'Nothing\'s what it',
+                'seems, and you won!'
+            },
+            dckst_swapped_3_loss = {
+                'Swapped the suits,',
+                'not the outcome'
+            },
+            dckst_swapped_4_win = {
+                'A diamond by any',
+                'other name still wins'
+            },
+            dckst_swapped_4_loss = {
+                'Shuffled the deck,',
+                'shuffled straight to a loss'
+            },
+            dckst_swapped_5_win = {
+                'Suits changed, spirits',
+                'lifted, run\'s a win!'
+            },
+            dckst_swapped_5_loss = {
+                'One-for-one trade,',
+                'and you still lost'
+            },
+            dckst_stop_sign_1_win = {
+                'Wait, I\'m still',
+                'here? Nice win though'
+            },
+            dckst_stop_sign_1_loss = {
+                'I sacrificed myself',
+                'for THIS?'
+            },
+            dckst_stop_sign_2_win = {
+                'Didn\'t even get',
+                'to see it, congrats'
+            },
+            dckst_stop_sign_2_loss = {
+                'I died for',
+                'nothing, apparently'
+            },
+            dckst_stop_sign_3_win = {
+                'I\'m gone but',
+                'the vibes are good'
+            },
+            dckst_stop_sign_3_loss = {
+                'Should\'ve stayed',
+                'and blocked THIS instead'
+            },
+            dckst_stop_sign_4_win = {
+                'Self-destructed and',
+                'still somehow relevant'
+            },
+            dckst_stop_sign_4_loss = {
+                'I gave my life',
+                'for absolutely nothing'
+            },
+            dckst_stop_sign_5_win = {
+                'Ghost joker reporting:',
+                'good game!'
+            },
+            dckst_stop_sign_5_loss = {
+                'Wish I could\'ve',
+                'stopped THIS too'
+            },
+            dckst_stop_sign_6_win = {
+                'I don\'t even have',
+                'a slot and I\'m proud'
+            },
+            dckst_stop_sign_6_loss = {
+                'Read the sign,',
+                'clearly. A stop sign'
+            },
+            dckst_stop_sign_7_win = {
+                'Retired undefeated,',
+                'technically speaking'
+            },
+            dckst_stop_sign_7_loss = {
+                'One job. I had',
+                'one job. And I did it.',
+                'Then this happened'
+            },
+            dckst_extruded_1_win = {
+                'Sold, destroyed,',
+                'and still came out ahead!'
+            },
+            dckst_extruded_1_loss = {
+                'Not enough sacrifice',
+                'in that run'
+            },
+            dckst_extruded_2_win = {
+                'Feeds on chaos,',
+                'thrives on the W'
+            },
+            dckst_extruded_2_loss = {
+                'Should\'ve sold',
+                'a few more things'
+            },
+            dckst_extruded_3_win = {
+                'Everything destroyed',
+                'made you stronger!'
+            },
+            dckst_extruded_3_loss = {
+                'X1 mult and',
+                'an L to match'
+            },
+            dckst_extruded_4_win = {
+                'Extruded and',
+                'undefeated, baby'
+            },
+            dckst_extruded_4_loss = {
+                'Barely stretched',
+                'and it shows'
+            },
+            dckst_extruded_5_win = {
+                'Every sale was',
+                'worth it, clearly'
+            },
+            dckst_extruded_5_loss = {
+                'Not enough was',
+                'sacrificed for this'
+            },
+            dckst_extruded_6_win = {
+                'Squeeze the mult,',
+                'squeeze the win!'
+            },
+            dckst_extruded_6_loss = {
+                'That\'s a flat',
+                'extrusion of a loss'
+            },
+            dckst_extruded_7_win = {
+                'Destruction never',
+                'looked this good'
+            },
+            dckst_extruded_7_loss = {
+                'Bro kept everything',
+                'and still lost'
+            },
+            dckst_extruded_8_win = {
+                'That mult stacked',
+                'harder than the losses'
+            },
+            dckst_extruded_8_loss = {
+                'Nothing sold,',
+                'nothing gained'
+            },
+            dckst_extruded_9_win = {
+                'Break it, sell it,',
+                'win with it!'
+            },
+            dckst_extruded_9_loss = {
+                'X1 stayed X1',
+                'and so did the loss'
+            },
+            dckst_extruded_10_win = {
+                'UN4YA\'s favorite',
+                'and it shows, big dub'
+            },
+            dckst_extruded_10_loss = {
+                'Even the fan',
+                'favorite chokes sometimes'
+            },
+            dckst_pencil_1_win = {
+                'Sharpened up and',
+                'wrote out a win!'
+            },
+            dckst_pencil_1_loss = {
+                'Forgot to enhance',
+                'anything, huh?'
+            },
+            dckst_pencil_2_win = {
+                'Every enhancement',
+                'chipped in for that'
+            },
+            dckst_pencil_2_loss = {
+                'Still using the',
+                'default cards I see'
+            },
+            dckst_pencil_3_win = {
+                'Number 2 pencil,',
+                'number 1 result'
+            },
+            dckst_pencil_3_loss = {
+                'Zero chips, zero',
+                'enhancements, zero surprise'
+            },
+            dckst_pencil_4_win = {
+                'Wrote that win',
+                'in permanent marker'
+            },
+            dckst_pencil_4_loss = {
+                'Eraser got more',
+                'work than I did'
+            },
+            dckst_pencil_5_win = {
+                'Enhanced cards,',
+                'enhanced results!'
+            },
+            dckst_pencil_5_loss = {
+                'Blank page, blank',
+                'chips, blank win'
+            },
+            dckst_coffee_mug_1_win = {
+                'Ran on caffeine',
+                'and vibes, still won!'
+            },
+            dckst_coffee_mug_1_loss = {
+                'Coffee wore off',
+                'and so did the win'
+            },
+            dckst_coffee_mug_2_win = {
+                'First hand hit',
+                'different, and it showed'
+            },
+            dckst_coffee_mug_2_loss = {
+                'Decaf performance',
+                'if I\'m honest'
+            },
+            dckst_coffee_mug_3_win = {
+                'Three sips in,',
+                'one big win out'
+            },
+            dckst_coffee_mug_3_loss = {
+                'Crashed harder than',
+                'the hand size did'
+            },
+            dckst_coffee_mug_4_win = {
+                'Peaked early, stayed',
+                'on top the whole way'
+            },
+            dckst_coffee_mug_4_loss = {
+                'That\'s what happens',
+                'when the buzz fades'
+            },
+            dckst_coffee_mug_5_win = {
+                'Mug\'s empty but',
+                'the run\'s still hot'
+            },
+            dckst_coffee_mug_5_loss = {
+                'Ran cold right',
+                'when it mattered'
+            },
+            dckst_lilmaxey_1_win = {
+                'Mrrow! Mrow mrow!',
+                'Mreow~!'
+            },
+            dckst_lilmaxey_1_loss = {
+                'Mrow... mew...',
+                'mrr.'
+            },
+            dckst_lilmaxey_2_win = {
+                'MREOW! Mrrp!',
+                'Mrow mrow mrow!'
+            },
+            dckst_lilmaxey_2_loss = {
+                'Mew... mrrow?',
+                'Mrr...'
+            },
+            dckst_lilmaxey_3_win = {
+                'Mrrp mrrp!',
+                'Meow!!'
+            },
+            dckst_lilmaxey_3_loss = {
+                'Mrrrow.',
+                '...mew.'
+            },
+            dckst_lilmaxey_4_win = {
+                'MEOW MEOW',
+                'MEOW!!'
+            },
+            dckst_lilmaxey_4_loss = {
+                'Mrow...',
+                'mrrrp.'
+            },
+            dckst_lilmaxey_5_win = {
+                'Mrrow! Purrrr~',
+                'Mreow!'
+            },
+            dckst_lilmaxey_5_loss = {
+                'Mew. Mrr.',
+                '...'
+            },
+            dckst_lilmaxey_6_win = {
+                'Mrp! Mrp! Mrp!',
+                'Mreow!!'
+            },
+            dckst_lilmaxey_6_loss = {
+                'Mrrow...',
+                'mew mew.'
+            },
+            dckst_lilmaxey_7_win = {
+                'MRREOW! Mrow',
+                'mrow mrow!'
+            },
+            dckst_lilmaxey_7_loss = {
+                'Mrr. Mrow.',
+                'Mew...'
+            },
+            dckst_lilmaxey_8_win = {
+                'Mrrp mrrow!',
+                'Meow meow!!'
+            },
+            dckst_lilmaxey_8_loss = {
+                '...mrow.',
+                'mrr mrr.'
+            },
+            dckst_lilmaxey_9_win = {
+                'Mreow!! Purrr',
+                'mrow mrow~'
+            },
+            dckst_lilmaxey_9_loss = {
+                'Mew mew...',
+                'mrrow.'
+            },
+            dckst_lilmaxey_10_win = {
+                'MRP MRP MRP',
+                'MREOW!!'
+            },
+            dckst_lilmaxey_10_loss = {
+                'Mrr...',
+                '...mew.'
+            },
+            dckst_lilmaxey_11_win = {
+                'Mrow! Mrrp!',
+                'Purrrow~'
+            },
+            dckst_lilmaxey_11_loss = {
+                'Mrrow mrrow...',
+                'mrr.'
+            },
+            dckst_lilmaxey_12_win = {
+                'MREOW MROW',
+                'MRP!!'
+            },
+            dckst_lilmaxey_12_loss = {
+                'Mew...',
+                'mrrrp mrr.'
+            },
+            dckst_lilmaxey_13_win = {
+                'Mrrp! Mreow!',
+                'Mrow mrow!!'
+            },
+            dckst_lilmaxey_13_loss = {
+                '...mrow.',
+                'mew.'
+            },
+            dckst_lilmaxey_14_win = {
+                'Purrrr mrow',
+                'MREOW!!'
+            },
+            dckst_lilmaxey_14_loss = {
+                'Mrr mrr...',
+                'mrrow.'
+            },
+            dckst_lilmaxey_15_win = {
+                'Mrp mrp mrp!',
+                'MRROW!'
+            },
+            dckst_lilmaxey_15_loss = {
+                'Mew...',
+                '...mrr.'
+            },
+            dckst_lilmaxey_16_win = {
+                'MREOW! Mrrp',
+                'mrrp mrrp!!'
+            },
+            dckst_lilmaxey_16_loss = {
+                'Mrrow. Mew.',
+                '...'
+            },
+            dckst_lilmaxey_17_win = {
+                'Mrow mrow!',
+                'Purrrow mreow~'
+            },
+            dckst_lilmaxey_17_loss = {
+                'Mrr...',
+                'mrow mrow.'
+            },
+            dckst_lilmaxey_18_win = {
+                'MRP! MREOW!',
+                'MRP MRP!!'
+            },
+            dckst_lilmaxey_18_loss = {
+                '...mrrow.',
+                'mew mew.'
+            },
+            dckst_lilmaxey_19_win = {
+                'Mreow mrow',
+                'mrow MREOW!!'
+            },
+            dckst_lilmaxey_19_loss = {
+                'Mew. Mrr.',
+                'mrrow...'
+            },
+            dckst_lilmaxey_20_win = {
+                'MRROW!! Purrrr',
+                'mrp mrp mrp!!'
+            },
+            dckst_lilmaxey_20_loss = {
+                '...mrrrow.',
+                '...mew.'
+            },
+            dckst_tamerlane_1_win = {
+                'Empires are built',
+                'on conquest. Well fought.'
+            },
+            dckst_tamerlane_1_loss = {
+                'Even conquerors fall.',
+                'Rise again.'
+            },
+            dckst_tamerlane_2_win = {
+                'Every suit bent',
+                'to my will. Victory.'
+            },
+            dckst_tamerlane_2_loss = {
+                'A single defeat means',
+                'nothing to an empire.'
+            },
+            dckst_tamerlane_3_win = {
+                'None who oppose',
+                'me leave unconverted.'
+            },
+            dckst_tamerlane_3_loss = {
+                'Not enough was',
+                'conquered this time.'
+            },
+            dckst_tamerlane_4_win = {
+                'From the steppes',
+                'to the scoreboard. Undefeated.'
+            },
+            dckst_tamerlane_4_loss = {
+                'A setback, nothing',
+                'more. The march continues.'
+            },
+            dckst_tamerlane_5_win = {
+                'X0.9 at a time,',
+                'an empire of Mult.'
+            },
+            dckst_tamerlane_5_loss = {
+                'Too few suits fell.',
+                'Too little was taken.'
+            },
+            dckst_superstar_1_win = {
+                'Every blind beaten',
+                'adds to the legacy'
+            },
+            dckst_superstar_1_loss = {
+                'Even the greatest',
+                'drop one sometimes'
+            },
+            dckst_superstar_2_win = {
+                'Stacked mult, stacked',
+                'rings, stacked wins'
+            },
+            dckst_superstar_2_loss = {
+                'Not enough blinds',
+                'beaten for that comeback'
+            },
+            dckst_superstar_3_win = {
+                'That\'s a highlight-reel',
+                'finish right there'
+            },
+            dckst_superstar_3_loss = {
+                'The King still',
+                'gets humbled sometimes'
+            },
+            dckst_superstar_4_win = {
+                'Chasing greatness,',
+                'catching wins'
+            },
+            dckst_superstar_4_loss = {
+                'Off night. Even',
+                'legends have those'
+            },
+            dckst_superstar_5_win = {
+                'Every blind beaten',
+                'is a banner raised'
+            },
+            dckst_superstar_5_loss = {
+                'Not this run.',
+                'Not this time'
+            },
+            dckst_superstar_6_win = {
+                '+7 mult a blind,',
+                'and it shows'
+            },
+            dckst_superstar_6_loss = {
+                'The star dimmed',
+                'a little too early'
+            },
+            dckst_superstar_7_win = {
+                'Dunked on the',
+                'whole run, no cap'
+            },
+            dckst_superstar_7_loss = {
+                'Greatness takes',
+                'losses too, apparently'
+            },
+            dckst_cyanotype_1_win = {
+                'Made a copy, made',
+                'it double the win'
+            },
+            dckst_cyanotype_1_loss = {
+                'Five hands and',
+                'still couldn\'t copy a win'
+            },
+            dckst_cyanotype_2_win = {
+                'Blueprint complete,',
+                'victory printed'
+            },
+            dckst_cyanotype_2_loss = {
+                'The copy didn\'t',
+                'help this time'
+            },
+            dckst_cyanotype_3_win = {
+                'Developed just in',
+                'time for the dub'
+            },
+            dckst_cyanotype_3_loss = {
+                'Faded before it',
+                'could save the run'
+            },
+            dckst_cyanotype_4_win = {
+                'One joker became',
+                'two, and both won'
+            },
+            dckst_cyanotype_4_loss = {
+                'Copied the wrong',
+                'energy this round'
+            },
+            dckst_cyanotype_5_win = {
+                'Print it, self-destruct,',
+                'walk away champion'
+            },
+            dckst_cyanotype_5_loss = {
+                'Duplicated the loss',
+                'too, unfortunately'
+            },
+            dckst_knicks_1_win = {
+                'MSG is ERUPTING',
+                'right now!!'
+            },
+            dckst_knicks_1_loss = {
+                'It blew up. Of',
+                'course it blew up.'
+            },
+            dckst_knicks_2_win = {
+                'Tripled the odds,',
+                'took the whole city with it'
+            },
+            dckst_knicks_2_loss = {
+                '1 in 8 hit.',
+                'Somehow it\'s always 1 in 8'
+            },
+            dckst_knicks_3_win = {
+                'NEW YORK CITY IS',
+                'NOT SLEEPING TONIGHT'
+            },
+            dckst_knicks_3_loss = {
+                'Gambled it all',
+                'and the city mourns'
+            },
+            dckst_knicks_4_win = {
+                'Odds tripled, chaos',
+                'multiplied, we won!'
+            },
+            dckst_knicks_4_loss = {
+                'Exploded right on',
+                'schedule, unfortunately'
+            },
+            dckst_knicks_5_win = {
+                'This is what 2026',
+                'felt like. Champions.'
+            },
+            dckst_knicks_5_loss = {
+                'One bad roll and',
+                'it all goes up in smoke'
+            },
+            dckst_typewriter_1_win = {
+                'Ah, a fine tale,',
+                'freshly typed and won'
+            },
+            dckst_typewriter_1_loss = {
+                'The ribbon\'s dry',
+                'and so is this run'
+            },
+            dckst_typewriter_2_win = {
+                'Another page, another',
+                'triumph, dear reader'
+            },
+            dckst_typewriter_2_loss = {
+                'Struck the wrong',
+                'key that time, old chap'
+            },
+            dckst_typewriter_3_win = {
+                'Copied clean, printed',
+                'proper, a jolly good win'
+            },
+            dckst_typewriter_3_loss = {
+                'Jammed at the',
+                'worst possible moment'
+            },
+            dckst_typewriter_4_win = {
+                'A masterwork, if I',
+                'do say so myself'
+            },
+            dckst_typewriter_4_loss = {
+                'Not every draft',
+                'makes the final cut'
+            },
+            dckst_typewriter_5_win = {
+                'Ding! End of the',
+                'line, and victorious'
+            },
+            dckst_typewriter_5_loss = {
+                'Torn from the',
+                'carriage, unfinished'
+            },
+            dckst_airborne_piano_1_win = {
+                'Still falling, still',
+                'winning, physics be damned'
+            },
+            dckst_airborne_piano_1_loss = {
+                'Hit terminal velocity',
+                'and terminal losses'
+            },
+            dckst_airborne_piano_2_win = {
+                'X5.5 and dropping,',
+                'but the run held!'
+            },
+            dckst_airborne_piano_2_loss = {
+                'Splattered before',
+                'it could matter'
+            },
+            dckst_airborne_piano_3_win = {
+                'Every key struck',
+                'on the way down. Victory.'
+            },
+            dckst_airborne_piano_3_loss = {
+                'Gravity won this',
+                'one, not you'
+            },
+            dckst_airborne_piano_4_win = {
+                'MIT would be',
+                'proud. Also, we won'
+            },
+            dckst_airborne_piano_5_win = {
+                'Concert\'s over,',
+                'the crowd\'s ecstatic'
+            },
+            dckst_airborne_piano_4_loss = {
+                'Should\'ve done',
+                'the math first'
+            },
+            dckst_airborne_piano_5_loss = {
+                'Decayed to nothing,',
+                'just like the run'
+            },
+            dckst_pathogen_1_win = {
+                'Spread the copy,',
+                'spread the chaos, spread the win'
+            },
+            dckst_pathogen_1_loss = {
+                'Infection failed to',
+                'take hold this time'
+            },
+            dckst_pathogen_2_win = {
+                'Two became four,',
+                'and you never saw it coming~'
+            },
+            dckst_pathogen_2_loss = {
+                'The strain didn\'t',
+                'quite mutate right'
+            },
+            dckst_pathogen_3_win = {
+                'Contagious little',
+                'trick, wasn\'t it?'
+            },
+            dckst_pathogen_3_loss = {
+                'No hosts, no copies,',
+                'no fun this round'
+            },
+            dckst_pathogen_4_win = {
+                'Duplicated behind',
+                'your back, hehe'
+            },
+            dckst_pathogen_4_loss = {
+                'Missed the perfect',
+                'conditions, how boring'
+            },
+            dckst_pathogen_5_win = {
+                'Copy, copy, and',
+                'the win just... happens'
+            },
+            dckst_pathogen_5_loss = {
+                'A pathogen needs',
+                'the right host, apparently'
+            },
+            dckst_pawprints_1_win = {
+                'Left a little paw-shaped',
+                'mark on that win'
+            },
+            dckst_pawprints_1_loss = {
+                'No enhancements,',
+                'no pawprints, no luck'
+            },
+            dckst_pawprints_2_win = {
+                'Stepped right onto',
+                'a card, and it stuck!'
+            },
+            dckst_pawprints_2_loss = {
+                'Wandered off before',
+                'leaving a mark'
+            },
+            dckst_pawprints_3_win = {
+                'One in three, and',
+                'it landed perfectly'
+            },
+            dckst_pawprints_3_loss = {
+                'The odds just',
+                'didn\'t pad out this time'
+            },
+            dckst_pawprints_4_win = {
+                'Tiny paws, big',
+                'enhancement, bigger win'
+            },
+            dckst_pawprints_4_loss = {
+                'Clean cards, clean',
+                'loss, no trace left'
+            },
+            dckst_pawprints_5_win = {
+                'Left prints all',
+                'over that scoreboard'
+            },
+            dckst_pawprints_5_loss = {
+                'Missed every step',
+                'that mattered'
+            },
+            dckst_rook_1_win = {
+                'Sacrificed a piece,',
+                'won the whole game'
+            },
+            dckst_rook_1_loss = {
+                'Blundered the',
+                'endgame, unfortunately'
+            },
+            dckst_rook_2_win = {
+                'The rook takes,',
+                'the rook wins'
+            },
+            dckst_rook_2_loss = {
+                'That\'s a resign-worthy',
+                'position right there'
+            },
+            dckst_rook_3_win = {
+                'Cleared the board,',
+                'claimed the victory'
+            },
+            dckst_rook_3_loss = {
+                'Should\'ve castled',
+                'away from that one'
+            },
+            dckst_rook_4_win = {
+                'X1.75 stronger and',
+                'still hungry. Checkmate.'
+            },
+            dckst_rook_4_loss = {
+                'Traded material for',
+                'nothing, big mistake'
+            },
+            dckst_rook_5_win = {
+                'One less Joker,',
+                'one more banner raised'
+            },
+            dckst_rook_5_loss = {
+                'The rook feasted,',
+                'the run still starved'
+            },
+            dckst_giggler_1_win = {
+                'Hehehe~ every face',
+                'card just made it worse for you'
+            },
+            dckst_giggler_1_loss = {
+                'Heh... not enough',
+                'faces to giggle at'
+            },
+            dckst_giggler_2_win = {
+                'Tee hee! Stacked',
+                'those unique faces real nice'
+            },
+            dckst_giggler_2_loss = {
+                'Nothing funny about',
+                'that hand, honestly'
+            },
+            dckst_giggler_3_win = {
+                'Giggling all the',
+                'way to +Mult city!'
+            },
+            dckst_giggler_3_loss = {
+                'The joke just',
+                'didn\'t land this time'
+            },
+            dckst_giggler_4_win = {
+                'Every unique face',
+                'is just funnier, hehe'
+            },
+            dckst_giggler_4_loss = {
+                'Silence. Not even',
+                'a chuckle out of this'
+            },
+            dckst_giggler_5_win = {
+                'Kings, Queens, Jacks~',
+                'all in on the bit!'
+            },
+            dckst_giggler_5_loss = {
+                'Ran out of faces',
+                'to laugh with'
+            },
+            dckst_perrobabli_1_win = {
+                'Every chance evened',
+                'out, and fortune sided with you'
+            },
+            dckst_perrobabli_1_loss = {
+                'The coin landed',
+                'wrong this time'
+            },
+            dckst_perrobabli_2_win = {
+                'Balance restored,',
+                'and you came out ahead'
+            },
+            dckst_perrobabli_2_loss = {
+                'Fifty-fifty giveth,',
+                'fifty-fifty taketh away'
+            },
+            dckst_perrobabli_3_win = {
+                'No extremes, no',
+                'mercy, just the perfect flip'
+            },
+            dckst_perrobabli_3_loss = {
+                'Even odds still',
+                'means you can lose'
+            },
+            dckst_perrobabli_4_win = {
+                'Pulled every odd',
+                'toward center, and center won'
+            },
+            dckst_perrobabli_4_loss = {
+                'The middle ground',
+                'wasn\'t enough ground'
+            },
+            dckst_perrobabli_5_win = {
+                'A coin flip decided',
+                'it, and you called it right'
+            },
+            dckst_perrobabli_5_loss = {
+                'Called it wrong.',
+                'That\'s the bell curve for you'
+            },
+            dckst_quadratic_equation_1_win = {
+                'The curve bent',
+                'right in your favor'
+            },
+            dckst_quadratic_equation_1_loss = {
+                'Not enough cards',
+                'scored to solve this one'
+            },
+            dckst_quadratic_equation_2_win = {
+                'Mult scaling up,',
+                'up, up, and away!'
+            },
+            dckst_quadratic_equation_2_loss = {
+                'The equation just',
+                'didn\'t add up today'
+            },
+            dckst_quadratic_equation_3_win = {
+                'Every four cards',
+                'made the next four scarier'
+            },
+            dckst_quadratic_equation_3_loss = {
+                'Flat line where',
+                'a parabola should\'ve been'
+            },
+            dckst_quadratic_equation_4_win = {
+                'Exponential growth,',
+                'exponential victory'
+            },
+            dckst_quadratic_equation_4_loss = {
+                'Solved for zero',
+                'wins this round'
+            },
+            dckst_quadratic_equation_5_win = {
+                'The formula checks',
+                'out. So does the dub'
+            },
+            dckst_quadratic_equation_5_loss = {
+                'Undefined result.',
+                'Try again.'
+            },
+            dckst_naturalist_1_win = {
+                'The wild provides,',
+                'and boy did it provide'
+            },
+            dckst_naturalist_1_loss = {
+                'Nature took the',
+                'day off, unfortunately'
+            },
+            dckst_naturalist_2_win = {
+                'Every leaf, every',
+                'root, every win. Beautiful.'
+            },
+            dckst_naturalist_2_loss = {
+                'The forest stayed',
+                'quiet this round'
+            },
+            dckst_naturalist_3_win = {
+                'One in six bloomed,',
+                'and the whole run flourished'
+            },
+            dckst_naturalist_3_loss = {
+                'Not a single seed',
+                'took root today'
+            },
+            dckst_naturalist_4_win = {
+                'Mother nature herself',
+                'approves of this win'
+            },
+            dckst_naturalist_4_loss = {
+                'Even the wild',
+                'has its off days'
+            },
+            dckst_naturalist_5_win = {
+                'Grew right through',
+                'the blind. Magnificent.'
+            },
+            dckst_naturalist_5_loss = {
+                'The wilderness',
+                'gave nothing back today'
+            },
+            dckst_sticky_note_1_win = {
+                'Just a lil\' note,',
+                'but it made all the difference!'
+            },
+            dckst_sticky_note_1_loss = {
+                'Aw, the note',
+                'didn\'t stick this time...'
+            },
+            dckst_sticky_note_2_win = {
+                'Slapped some love',
+                'on a friend, and it worked!'
+            },
+            dckst_sticky_note_2_loss = {
+                'Even a cute little',
+                'boost couldn\'t save this one'
+            },
+            dckst_sticky_note_3_win = {
+                'A tiny reminder',
+                'led to a big win!'
+            },
+            dckst_sticky_note_3_loss = {
+                'Guess the note',
+                'fell off, oopsie'
+            },
+            dckst_sticky_note_4_win = {
+                'Sending good vibes',
+                'and +5 Mult, yay!'
+            },
+            dckst_sticky_note_4_loss = {
+                'Not every sticky',
+                'note saves the day'
+            },
+            dckst_sticky_note_5_win = {
+                'Small note, huge',
+                'heart, even huger win'
+            },
+            dckst_sticky_note_5_loss = {
+                'Sorry, ran out',
+                'of sticky magic'
+            },
+            dckst_currency_exchange_1_win = {
+                'Swapped the ticker,',
+                'closed the market green'
+            },
+            dckst_currency_exchange_1_loss = {
+                'The exchange rate',
+                'wasn\'t in your favor'
+            },
+            dckst_currency_exchange_2_win = {
+                'Chips to Mult, Mult',
+                'to profit. Bull run.'
+            },
+            dckst_currency_exchange_2_loss = {
+                'Market crashed right',
+                'when you needed the swap'
+            },
+            dckst_currency_exchange_3_win = {
+                'Bought low, scored',
+                'high, textbook trade'
+            },
+            dckst_currency_exchange_3_loss = {
+                'That\'s a rough close',
+                'for the quarter'
+            },
+            dckst_currency_exchange_4_win = {
+                'Flipped the numbers,',
+                'flipped the outcome'
+            },
+            dckst_currency_exchange_4_loss = {
+                'Volatility got the',
+                'better of that run'
+            },
+            dckst_currency_exchange_5_win = {
+                'NASDAQ\'s got nothing',
+                'on that trade'
+            },
+            dckst_currency_exchange_5_loss = {
+                'Sold low, lost',
+                'big. Rough session.'
+            },
+            dckst_currency_exchange_6_win = {
+                'Wall Street wishes',
+                'they traded like that'
+            },
+            dckst_currency_exchange_6_loss = {
+                'Even Wall Street',
+                'has its bad days'
+            },
+            dckst_coin_jar_1_win = {
+                'Jar\'s empty now,',
+                'but the wallet\'s full!'
+            },
+            dckst_coin_jar_1_loss = {
+                'All that saving',
+                'and nothing to dump'
+            },
+            dckst_coin_jar_2_win = {
+                'Cha-ching! Every',
+                'coin paid off big time'
+            },
+            dckst_coin_jar_2_loss = {
+                'The jar stayed',
+                'shut this round'
+            },
+            dckst_coin_jar_3_win = {
+                'Saved up, cashed',
+                'out, walked away rich'
+            },
+            dckst_coin_jar_3_loss = {
+                'Rainy day fund',
+                'never got its day'
+            },
+            dckst_coin_jar_4_win = {
+                'Patience paid off,',
+                'literally, all at once'
+            },
+            dckst_coin_jar_4_loss = {
+                'Coins just sat',
+                'there, unspent, unused'
+            },
+            dckst_coin_jar_5_win = {
+                'Dumped the jackpot',
+                'right when it mattered!'
+            },
+            dckst_coin_jar_5_loss = {
+                'Never got to',
+                'break the piggy bank'
+            },
+            dckst_cupboard_1_win = {
+                'Stashed it away,',
+                'served it up perfectly'
+            },
+            dckst_cupboard_1_loss = {
+                'The cupboard stayed',
+                'bare this round'
+            },
+            dckst_cupboard_2_win = {
+                'Half the chips,',
+                'all of the payoff'
+            },
+            dckst_cupboard_2_loss = {
+                'Nothing worth',
+                'storing that hand'
+            },
+            dckst_cupboard_3_win = {
+                'Saved it, served',
+                'it, secured the win'
+            },
+            dckst_cupboard_3_loss = {
+                'Shelves empty,',
+                'run empty too'
+            },
+            dckst_cupboard_4_win = {
+                'A little stored',
+                'chips goes a long way'
+            },
+            dckst_cupboard_4_loss = {
+                'Not much to',
+                'pull out this time'
+            },
+            dckst_cupboard_5_win = {
+                'Opened the cupboard,',
+                'out came the win'
+            },
+            dckst_cupboard_5_loss = {
+                'Ran dry before',
+                'the hand even ended'
+            },
+            dckst_endpoints_1_win = {
+                'Both ends hit',
+                'twice, dead center on the win'
+            },
+            dckst_endpoints_1_loss = {
+                'The middle got',
+                'you, not the edges'
+            },
+            dckst_endpoints_2_win = {
+                'Left and right,',
+                'triggered twice, total sweep'
+            },
+            dckst_endpoints_2_loss = {
+                'Not enough retriggers',
+                'to save that hand'
+            },
+            dckst_endpoints_3_win = {
+                'Bookended that',
+                'hand perfectly'
+            },
+            dckst_endpoints_3_loss = {
+                'The edges just',
+                'didn\'t carry this time'
+            },
+            dckst_endpoints_4_win = {
+                'From one end to',
+                'the other, all wins'
+            },
+            dckst_endpoints_4_loss = {
+                'Retriggered the',
+                'loss too, unfortunately'
+            },
+            dckst_endpoints_5_win = {
+                'Start strong, finish',
+                'stronger, take the win'
+            },
+            dckst_endpoints_5_loss = {
+                'Neither end came',
+                'through this round'
+            },
+            dckst_the_town_1_win = {
+                'Zero on the dot,',
+                'and the whole town erupts'
+            },
+            dckst_the_town_1_loss = {
+                'Money didn\'t land',
+                'on zero this time'
+            },
+            dckst_the_town_2_win = {
+                'That\'s a splash',
+                'from way downtown!'
+            },
+            dckst_the_town_2_loss = {
+                'The Town stayed',
+                'quiet this round'
+            },
+            dckst_the_town_3_win = {
+                'Rounded out perfect,',
+                'rounded out a win'
+            },
+            dckst_the_town_3_loss = {
+                'So close to that',
+                'zero, so close to that bonus'
+            },
+            dckst_the_town_4_win = {
+                'Bay Area magic,',
+                'straight to the bank'
+            },
+            dckst_the_town_4_loss = {
+                'The math just',
+                'didn\'t land this round'
+            },
+            dckst_the_town_5_win = {
+                'Hit zero, hit',
+                'big, hit history'
+            },
+            dckst_the_town_5_loss = {
+                'The dollars didn\'t',
+                'cooperate this time'
+            },
+            dckst_cantor_set_1_win = {
+                'Divided, conquered,',
+                'and multiplied straight to victory'
+            },
+            dckst_cantor_set_1_loss = {
+                'Not enough remained',
+                'to carry that scaling'
+            },
+            dckst_cantor_set_2_win = {
+                'Cut the middle,',
+                'kept the win'
+            },
+            dckst_cantor_set_2_loss = {
+                'The fractal just',
+                'didn\'t favor you this round'
+            },
+            dckst_cantor_set_3_win = {
+                'Thirds removed,',
+                'chips multiplied, dub secured'
+            },
+            dckst_cantor_set_3_loss = {
+                'Too little left',
+                'to make the math work'
+            },
+            dckst_cantor_set_4_win = {
+                'Infinite subdivisions,',
+                'one very finite win'
+            },
+            dckst_cantor_set_4_loss = {
+                'Destroyed too much,',
+                'kept too little'
+            },
+            dckst_cantor_set_5_win = {
+                'What remains hits',
+                'harder. Proven, again'
+            },
+            dckst_cantor_set_5_loss = {
+                'The set collapsed',
+                'and so did the run'
+            },
+            dckst_blkyn_1_win = {
+                'Every unscored card',
+                'still showed up big'
+            },
+            dckst_blkyn_1_loss = {
+                'Reset before it',
+                'could really build up'
+            },
+            dckst_blkyn_2_win = {
+                'Stacked that XMult',
+                'quiet, then loud'
+            },
+            dckst_blkyn_2_loss = {
+                'Not enough left',
+                'on the table this round'
+            },
+            dckst_blkyn_3_win = {
+                'The ones that',
+                'didn\'t score still mattered'
+            },
+            dckst_blkyn_3_loss = {
+                'Reset hit before',
+                'the payoff landed'
+            },
+            dckst_blkyn_4_win = {
+                'Brooklyn built that',
+                'multiplier from nothing'
+            },
+            dckst_blkyn_4_loss = {
+                'Fresh start, same',
+                'result unfortunately'
+            },
+            dckst_blkyn_5_win = {
+                'Every leftover card',
+                'paid its dues, big time'
+            },
+            dckst_blkyn_5_loss = {
+                'Cleared the slate',
+                'right before it mattered'
+            },
+            dckst_peachtree_1_win = {
+                'Straight to the Ace,',
+                'straight to the win'
+            },
+            dckst_peachtree_1_loss = {
+                'No Ace in hand,',
+                'no magic this round'
+            },
+            dckst_peachtree_2_win = {
+                'That combo hit',
+                'like a game-winner'
+            },
+            dckst_peachtree_2_loss = {
+                'The Straight showed',
+                'up, the Ace didn\'t'
+            },
+            dckst_peachtree_3_win = {
+                'Peachtree special,',
+                'straight to the bank'
+            },
+            dckst_peachtree_3_loss = {
+                'Close, but no',
+                'Ace to seal it'
+            },
+            dckst_peachtree_4_win = {
+                'ATL magic, right',
+                'on cue'
+            },
+            dckst_peachtree_4_loss = {
+                'Almost had it.',
+                'Almost isn\'t X2'
+            },
+            dckst_peachtree_5_win = {
+                'That\'s the whole',
+                'combo, that\'s the win'
+            },
+            dckst_peachtree_5_loss = {
+                'Missing a piece',
+                'of the puzzle this time'
+            },
         },
         dckst_misc = {
             mod_label = {

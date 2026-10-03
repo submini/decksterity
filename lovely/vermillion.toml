@@ -1,0 +1,20 @@
+[manifest]
+version = "1.0.0"
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''hand_chips = mod_chips(nu_chip or hand_chips)'''
+position = "after"
+payload = '''
+        if G.GAME.blind and G.GAME.blind.config.blind and G.GAME.blind.config.blind.key == 'bl_dckst_vermillion_rose' and not G.GAME.blind.disabled then
+            local hands_left = G.GAME.current_round.hands_left or 0
+            local discards_left = G.GAME.current_round.discards_left or 0
+            local divisor = hands_left + discards_left
+            if divisor > 0 then
+                mult = mod_mult(mult / divisor)
+                update_hand_text({delay = 0}, {mult = mult})
+            end
+        end
+'''
+match_indent = true

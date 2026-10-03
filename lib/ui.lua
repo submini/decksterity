@@ -1,3 +1,5 @@
+DCKST = DCKST or {}
+
 local create_mod_badges_ref = SMODS.create_mod_badges
 
 function SMODS.create_mod_badges(obj, badges)
@@ -301,9 +303,14 @@ SMODS.current_mod.extra_tabs = function()
                     col1_nodes[#col1_nodes + 1] = v
                 end
 
-                for _, v in ipairs(credit_row("Sound Design", "UN4YA, mariopuff")) do
+                for _, v in ipairs(credit_row("Sound Design", "UN4YA, mariopuff,")) do
                     col2_nodes[#col2_nodes + 1] = v
                 end
+                col2_nodes[#col2_nodes + 1] = {
+                    n = G.UIT.R,
+                    config = {align = "lm", padding = -0.30},
+                    nodes = {{n = G.UIT.T, config = {text = "Astronomica", scale = 0.28, colour = G.C.WHITE}}}
+                }
                 for _, v in ipairs(credit_row("Playtesters", "mariopuff, UN4YA, CzarIsActual, interseer")) do
                     col2_nodes[#col2_nodes + 1] = v
                 end
@@ -313,7 +320,12 @@ SMODS.current_mod.extra_tabs = function()
                 col2_nodes[#col2_nodes + 1] = {
                     n = G.UIT.R,
                     config = {align = "lm", padding = -0.25},
-                    nodes = {{n = G.UIT.T, config = {text = "Cryptid, peakshitmod", scale = 0.28, colour = G.C.WHITE}}}
+                    nodes = {{n = G.UIT.T, config = {text = "Cryptid, peakshitmod,", scale = 0.28, colour = G.C.WHITE}}}
+                }
+                col2_nodes[#col2_nodes + 1] = {
+                    n = G.UIT.R,
+                    config = {align = "lm", padding = -0.05},
+                    nodes = {{n = G.UIT.T, config = {text = "Astronomica", scale = 0.28, colour = G.C.WHITE}}}
                 }
                 col2_nodes[#col2_nodes + 1] = {
                     n = G.UIT.R,

@@ -16,9 +16,9 @@ SMODS.Sound({
         if booster
             and booster.config
             and booster.config.center_key
-            and string.find(booster.config.center_key, "carcana_pack", 1, true) 
+            and (string.find(booster.config.center_key, "carcana_pack", 1, true)  or string.find(booster.config.center_key, "spectaclaw_pack", 1, true))
         then
-            return 1e11
+            return 1e12
         end
     end
 })
@@ -47,6 +47,11 @@ SMODS.Sound({
 SMODS.Sound({
 	key = "prismatic",
 	path = "e_prismatic.ogg",
+})
+
+SMODS.Sound({
+	key = "wooden",
+	path = "e_wooden.ogg",
 })
 
 SMODS.Sound({
@@ -80,4 +85,39 @@ SMODS.Sound({
     local config = SMODS.Mods['decksterity'].config
     return G.STAGE == G.STAGES.MAIN_MENU and config.alt_main_menu_music == 2
 end,
+})
+
+SMODS.Sound({
+	key = "wavgunfire",
+	path = "wavgunfire.ogg",
+})
+
+SMODS.Sound({
+	key = "wavgunbeat_music",
+	path = "wavgunmusic.ogg",
+    sync = {
+        ['music1'] = true,
+        ['music2'] = true,
+        ['music3'] = true,
+        ['music4'] = true,
+        ['music5'] = true,
+    },
+	volume = 1,
+	select_music_track = function()
+        return #DCKST.advanced_find_joker("j_dckst_wavgun", nil, nil, nil, true) ~= 0 and 1e5
+	end,
+})
+
+--screensaver
+SMODS.Sound({
+	key = "win95",
+	path = "win95.ogg",
+})
+SMODS.Sound({
+	key = "winxp",
+	path = "winxp.ogg",
+})
+SMODS.Sound({
+	key = "win8",
+	path = "win8.ogg",
 })

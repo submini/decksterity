@@ -214,3 +214,145 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.Joker {
+    key = "lebron_james",
+    config = {
+        extra = {
+            h1_card_xmult = 2,
+            h1_flat_xmult = 6,
+            h2_card_xmult = 6,
+            h2_flat_xmult = 6,
+            h3_card_emult = 2,
+            h3_flat_emult = 6,
+        }
+    },
+    pos = {
+        x = 0,
+        y = 1
+    },
+    soul_pos = {
+        x = 0,
+        y = 2
+    },
+    display_size = {
+        w = 71 * 1,
+        h = 95 * 1
+    },
+    cost = 20,
+    rarity = 4,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    unlocked = true,
+    discovered = false,
+    atlas = 'jokerswave2',
+
+    in_pool = function(self, args)
+        return (
+            not args
+            or args.source ~= 'sho'
+            or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+        )
+        and true
+    end,
+
+    loc_vars = function(self, info_queue, card)
+        if DCKST.gset(3) then
+            return {
+                key = self.key..'_h3',
+                vars = { card.ability.extra.h3_card_emult, card.ability.extra.h3_flat_emult },
+            }
+        elseif DCKST.gset(2) then
+            return {
+                key = self.key..'_h2',
+                vars = { card.ability.extra.h2_card_xmult, card.ability.extra.h2_flat_xmult },
+            }
+        end
+        return {
+            vars = { card.ability.extra.h1_card_xmult, card.ability.extra.h1_flat_xmult },
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            local rank = context.other_card:get_id()
+            if rank == 2 or rank == 3 or rank == 6 or rank == 13 then
+                if DCKST.gset(3) then
+                    return { e_mult = card.ability.extra.h3_card_emult, colour = G.C.RED }
+                elseif DCKST.gset(2) then
+                    return { xmult = card.ability.extra.h2_card_xmult, colour = G.C.RED }
+                else
+                    return { xmult = card.ability.extra.h1_card_xmult, colour = G.C.RED }
+                end
+            end
+        end
+
+        if context.cardarea == G.jokers and context.joker_main then
+            if DCKST.gset(3) then
+                return { e_mult = card.ability.extra.h3_flat_emult }
+            else
+                return { xmult = card.ability.extra.h2_flat_xmult } -- H1 and H2 share the same flat X6
+            end
+        end
+    end,
+}
+
+SMODS.Joker {
+    key = "fuke",
+    config = {
+        extra = {
+            blind_size = 0.9,
+            times_triggered = 0
+        }
+    },
+    pos = {
+        x = 2,
+        y = 4
+    },
+    soul_pos = { x = 2, y = 2 },
+    display_size = {
+        w = 71 * 1,
+        h = 95 * 1
+    },
+    cost = 20,
+    rarity = 4, -- Legendary
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    unlocked = true,
+    discovered = false,
+    atlas = 'jokerswave2',
+
+    in_pool = function(self, args)
+        return (
+            not args
+            or args.source ~= 'sho'
+            or args.source == 'buf' or args.source == 'jud' or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
+        )
+        and true
+    end,
+
+    loc_vars = function(self, info_queue, card)
+        local selected = (G.hand and G.hand.highlighted and #G.hand.highlighted) or 0
+        local current_blind_chips = (G.GAME and G.GAME.blind and G.GAME.blind.chips) or 0
+        local projected_chips = current_blind_chips * (card.ability.extra.blind_size ^ selected)
+
+        return { vars = { card.ability.extra.blind_size, selected, number_format(projected_chips) } }
+    end,
+
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blind_size
+            G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+            G.HUD_blind:recalculate()
+
+            card.ability.extra.times_triggered = card.ability.extra.times_triggered + 1
+
+            return {
+                card = card,
+                message = localize("k_dckst_fuke")
+            }
+        end
+    end,
+}

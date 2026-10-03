@@ -653,19 +653,17 @@ SMODS.Back {
     end
 }
 
--- Monkey Patch: The Future Generation Protocol
--- This ensures any new cards you create (e.g., from Standard Packs or Tarot cards)
--- also receive the 0-chip penalty if they are not face cards.
 local dckst_refined_set_base_ref = Card.set_base
 function Card:set_base(card_type)
-    -- Execute standard vanilla generation first
-    dckst_refined_set_base_ref(self, card_type)
-    
-    -- If the Refined Deck is active, strip the base chips from non-face cards
-    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.refined_deck then
-        if not self:is_face() then
-            self.base.nominal = 0
-        end
+    pcall(dckst_refined_set_base_ref, self, card_type)
+
+    if G.GAME
+       and G.GAME.selected_back
+       and G.GAME.selected_back.name == "b_dckst_refined"
+       and self.ability and self.ability.set == 'Default'
+       and not self:is_face()
+    then
+        self.base.nominal = 0
     end
 end
 

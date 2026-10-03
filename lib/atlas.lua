@@ -6,6 +6,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "jokerswave2",
+    path = "jokerswave2test.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
     key = "hjokers",
     path = "hjokers.png",
     px = 71,
@@ -55,6 +62,20 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "harmonics",
+    path = "harmonics.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "felimonials",
+    path = "felimonials.png",
+    px = 66,
+    py = 66,
+}
+
+SMODS.Atlas {
     key = "packs",
     path = "packs.png",
     px = 71,
@@ -85,6 +106,22 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = "blinds",
     path = "blinds.png",
+    px = 34,
+    py = 34,
+}
+
+SMODS.Atlas {
+    key = "blinds_ani",
+    path = "blinds.png",
+    px = 34,
+    py = 34,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+}
+
+SMODS.Atlas {
+    key = "hardblinds",
+    path = "hardblinds.png",
     px = 34,
     py = 34,
     atlas_table = 'ANIMATION_ATLAS',
@@ -142,6 +179,20 @@ SMODS.Atlas {
     py = 95,
 }
 
+SMODS.Atlas {
+    key = "undiscoveredharmonic",
+    path = "undiscoveredharmonic.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "undiscoveredfelimonial",
+    path = "undiscoveredfelimonial.png",
+    px = 71,
+    py = 95,
+}
+
 -- mod icon
 SMODS.Atlas {
     key = "modicon",
@@ -163,4 +214,22 @@ SMODS.Atlas {
     path = "20rank_hi.png",
     px = 71,
     py = 95,
+}
+
+-- ace of hearts
+SMODS.Atlas {
+    key = "aceofhearts",
+    path = "aceofhearts.png",
+    px = 71,
+    py = 95,
+}
+
+-- cootie
+SMODS.Atlas {
+    key = "cootie_ani",
+    path = "cootiesheet.png",
+    px = 71,
+    py = 95,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 5,
 }

@@ -1,0 +1,44 @@
+[manifest]
+version = "1.0.0"
+priority = 100
+
+# ---------------------------------------------------------------------
+# 1. Blind select screen: reward next to the blind choice.
+# ---------------------------------------------------------------------
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "{n=G.UIT.T, config={text = string.rep(localize(\"$\"), blind_choice.config.dollars)..'+', scale = 0.35, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.MONEY, shadow = not disabled}}"
+position = "at"
+payload = '''
+{n=G.UIT.T, config={text = (blind_choice.config.dollars >= 10 and (localize("$")..tostring(blind_choice.config.dollars)) or string.rep(localize("$"), blind_choice.config.dollars))..'+', scale = 0.35, colour = disabled and G.C.UI.TEXT_INACTIVE or G.C.MONEY, shadow = not disabled}}
+'''
+match_indent = true
+
+# ---------------------------------------------------------------------
+# 2. Collection / blind panel DynaText (_dollars).
+# ---------------------------------------------------------------------
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "{n=G.UIT.O, config={object = DynaText({string = {_dollars and string.rep(localize('$'),_dollars) or '-'}, colours = {G.C.MONEY}, rotate = true, bump = true, silent = true, scale = 0.45})}},"
+position = "at"
+payload = '''
+{n=G.UIT.O, config={object = DynaText({string = {_dollars and ((_dollars >= 10 and (localize('$')..tostring(_dollars)) or string.rep(localize('$'),_dollars))) or '-'}, colours = {G.C.MONEY}, rotate = true, bump = true, silent = true, scale = 0.45})}},
+'''
+match_indent = true
+
+# ---------------------------------------------------------------------
+# 3. In-blind HUD reward. Blind:set_blind stores the string in
+#    G.GAME.current_round.dollars_to_be_earned, which the HUD reads.
+#    Source line quoted from vanilla blind.lua.
+# ---------------------------------------------------------------------
+[[patches]]
+[patches.pattern]
+target = "blind.lua"
+pattern = "G.GAME.current_round.dollars_to_be_earned = self.dollars > 0 and (string.rep(localize('$'), self.dollars)..'') or ('')"
+position = "at"
+payload = '''
+G.GAME.current_round.dollars_to_be_earned = self.dollars > 0 and ((self.dollars >= 10 and (localize('$')..tostring(self.dollars))) or string.rep(localize('$'), self.dollars)) or ('')
+'''
+match_indent = true

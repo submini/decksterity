@@ -44,7 +44,7 @@ SMODS.Joker{ --Pillaring
         end
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-                e_mult = card.ability.extra.emult
+                emult = card.ability.extra.emult
             }
         end
     end

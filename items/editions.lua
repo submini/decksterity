@@ -255,4 +255,41 @@ SMODS.Edition {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.edition.card_limit } }
     end,
+    sound = { sound = "dckst_wooden", per = 1, vol = 0.4 },
+}
+
+SMODS.Edition {
+    key = 'vhs',
+    shader = 'dckst_vhs',
+    in_shop = true,
+    weight = 8,
+    extra_cost = 4,
+    apply_to_float = true,
+    disable_shadow = false,
+    disable_base_shader = false,
+    --sound = { sound = "generic1", per = 1, vol = 0.4 },
+    unlocked = true,
+    discovered = false,
+    no_collection = false,
+    get_weight = function(self)
+        return G.GAME.edition_rate * self.weight
+    end,
+    atlas = "aceofhearts", pos = { x = 0, y = 0 },
+    
+    in_pool = function(self, args)
+        local src = args and args.source
+        if type(src) == 'string' and (src:find('joker') or src:find('jok')) then return false end
+        return true
+    end,
+
+    on_apply = function(card)
+        if card and card.ability and card.ability.set == 'Joker' then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    if card.edition and card.edition.dckst_vhs then card:set_edition(nil, true, true) end
+                    return true
+                end
+            }))
+        end
+    end,
 }
